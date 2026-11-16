@@ -45,24 +45,24 @@ def river_lines(payload):
     while pos+8<=len(shp):
         length=struct.unpack('>i',shp[pos+4:pos+8])[0]*2
         rec=shp[pos+8:pos+8+length];pos+=8+length
-        if i<len(names) and names[i] in ('rhine','rhein','rhin') and struct.unpack('<i',rec[:4])[0]==3:
+        if i<len(names) and names[i] in ('rhine','rhein','rhin','waal','nederrijn','neder rijn','lek','ijssel','oude rijn') and struct.unpack('<i',rec[:4])[0]==3:
             np,nt=struct.unpack('<ii',rec[36:44])
             ix=list(struct.unpack('<%di'%np,rec[44:44+4*np]))+[nt]
             raw=struct.unpack('<%dd'%(2*nt),rec[44+4*np:44+4*np+16*nt])
             for j in range(np):
                 points=[(raw[2*k+1],raw[2*k]) for k in range(ix[j],ix[j+1])]
-                if len(points)>1 and any(47.4<lat<50.15 and 7.15<lon<8.95 for lat,lon in points):
+                if len(points)>1 and any(47.3<lat<52.4 and 4.7<lon<9.1 for lat,lon in points):
                     lines.append(points)
         i+=1
-    if not lines: raise ValueError('No Rhine/Rhein/Rhin features found in the 10m source')
+    if not lines: raise ValueError('No Rhine/Waal/Nederrijn features found in the 10m source')
     return lines
 
 def overlay(lines):
     im=Image.new('RGBA',(W,H),(0,0,0,0));d=ImageDraw.Draw(im);segments=0
     for line in lines:
         for (a,b),(c,e) in zip(line,line[1:]):
-            if min(a,c)>50.12 or max(a,c)<47.45:continue
-            if min(b,e)>8.95 or max(b,e)<7.15:continue
+            if min(a,c)>52.4 or max(a,c)<47.35:continue
+            if min(b,e)>9.1 or max(b,e)<4.7:continue
             p=px(a,b);q=px(c,e)
             # Same geographic polyline as base; warmer hand-paint-like river fill
             d.line([p,q],fill=(63,111,143,220),width=15)
@@ -83,9 +83,9 @@ def render():
     water.save(OUT/'continuous-rhine-water-overlay.png')
     # The connector sprites are disjoint slices from the SAME water layer.
     # Their stored x,y placement reconstitutes a perfectly continuous river.
-    cities=config['entries'];boundaries=[0]
-    boundaries+=sorted(round((cities[i]['y']+cities[i+1]['y'])/2) for i in range(len(cities)-1))
-    boundaries.append(H)
+    # Geographic bands do not depend on the number of city sprites; each
+    # connector covers an exact north-up Y interval, with no gap or overlap.
+    cities=config['entries'];boundaries=list(range(0,H,240))+[H]
     connectors=[]
     for i,(y0,y1) in enumerate(zip(boundaries,boundaries[1:])):
         band=water.crop((0,y0,W,y1));bb=band.getbbox()
