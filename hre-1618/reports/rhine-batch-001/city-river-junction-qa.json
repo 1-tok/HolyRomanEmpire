@@ -1,0 +1,73 @@
+{
+  "city_layer_is_above_river": true,
+  "water_sprite_seam_qa": "exact pre-city raster; passed by exact_connector_tiles",
+  "historical_river_alignment": "not verified",
+  "note": "Water behind an opaque city is not visible; review coast and painted local water manually",
+  "sites": [
+    {
+      "site": "Basel",
+      "raster_crop_xyxy": [
+        831,
+        2822,
+        1116,
+        3107
+      ],
+      "river_pixels_within_qa_crop": 4327,
+      "canonical_water_pixels_behind_opaque_city": 1045,
+      "qa_image": "city-river-junctions/Basel-junction.png",
+      "status": "NEEDS_VISUAL_QA"
+    },
+    {
+      "site": "Strasbourg",
+      "raster_crop_xyxy": [
+        890,
+        2421,
+        1175,
+        2706
+      ],
+      "river_pixels_within_qa_crop": 4996,
+      "canonical_water_pixels_behind_opaque_city": 1338,
+      "qa_image": "city-river-junctions/Strasbourg-junction.png",
+      "status": "NEEDS_VISUAL_QA"
+    },
+    {
+      "site": "Speyer",
+      "raster_crop_xyxy": [
+        1078,
+        2133,
+        1363,
+        2418
+      ],
+      "river_pixels_within_qa_crop": 4682,
+      "canonical_water_pixels_behind_opaque_city": 1483,
+      "qa_image": "city-river-junctions/Speyer-junction.png",
+      "status": "NEEDS_VISUAL_QA"
+    },
+    {
+      "site": "Worms",
+      "raster_crop_xyxy": [
+        1063,
+        2008,
+        1348,
+        2293
+      ],
+      "river_pixels_within_qa_crop": 5059,
+      "canonical_water_pixels_behind_opaque_city": 1501,
+      "qa_image": "city-river-junctions/Worms-junction.png",
+      "status": "NEEDS_VISUAL_QA"
+    },
+    {
+      "site": "Mainz",
+      "raster_crop_xyxy": [
+        1043,
+        1861,
+        1328,
+        2146
+      ],
+      "river_pixels_within_qa_crop": 5503,
+      "canonical_water_pixels_behind_opaque_city": 1727,
+      "qa_image": "city-river-junctions/Mainz-junction.png",
+      "status": "NEEDS_VISUAL_QA"
+    }
+  ]
+}
