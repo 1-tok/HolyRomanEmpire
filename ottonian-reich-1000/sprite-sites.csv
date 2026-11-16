@@ -1,0 +1,27 @@
+site,kind,lat,lon,px_x,px_y,period_note,coordinate_source
+Aachen,imperial city,50.775,6.084,3334,4728,"Palatine Chapel, Charlemagne's tomb opened by Otto III, 1000",approximate coordinates; check Pleiades/Wikidata before printing
+Magdeburg,imperial city,52.131,11.639,6346,3678,cathedral founded by Otto I; imperial city,approximate coordinates; check Pleiades/Wikidata before printing
+Quedlinburg,royal palace,51.79,11.147,6085,3969,royal palace and abbey on the hill,approximate coordinates; check Pleiades/Wikidata before printing
+Regensburg,imperial city,49.013,12.101,6608,6346,Roman walls; wooden bridge (stone bridge 1135-46),approximate coordinates; check Pleiades/Wikidata before printing
+Pavia,imperial city,45.185,9.158,4843,9604,Lombard royal palace; Ticino bridge,approximate coordinates; check Pleiades/Wikidata before printing
+Mainz,archbishopric,49.999,8.273,4491,5462,"Willigis's cathedral under rebuilding, c. 975-1009",approximate coordinates; check Pleiades/Wikidata before printing
+Cologne,archbishopric,50.938,6.96,3817,4621,"Roman walls, Rhine port, Ottonian churches",approximate coordinates; check Pleiades/Wikidata before printing
+Ravenna,archbishopric,44.418,12.203,6697,10286,"San Vitale, Sant'Apollinare Nuovo, Theoderic's mausoleum",approximate coordinates; check Pleiades/Wikidata before printing
+Venice,trading town,45.438,12.327,6765,9409,older St Mark's and wooden Doge's palace; Rialto market (present basilica 1063),approximate coordinates; check Pleiades/Wikidata before printing
+Gniezno,Slav stronghold,52.535,17.593,9454,3206,Piast capital; early cathedral; Adalbert shrine,approximate coordinates; check Pleiades/Wikidata before printing
+Prague,bishopric,50.088,14.42,7878,5398,"Hradcany castle, St Vitus rotunda",approximate coordinates; check Pleiades/Wikidata before printing
+Poznan,bishopric,52.408,16.934,9118,3340,Ostrow Tumski island; first stone cathedral,approximate coordinates; check Pleiades/Wikidata before printing
+Krakow,bishopric,50.054,19.937,10911,5199,Wawel hill castle; new see of 1000,approximate coordinates; check Pleiades/Wikidata before printing
+Fulda,abbey,50.554,9.679,5278,5015,imperial abbey,approximate coordinates; check Pleiades/Wikidata before printing
+Corvey,abbey,51.77,9.272,5089,3968,imperial abbey (Hoexter),approximate coordinates; check Pleiades/Wikidata before printing
+Reichenau,abbey,47.707,9.069,4863,7441,island abbey,approximate coordinates; check Pleiades/Wikidata before printing
+St Gall,abbey,47.424,9.377,5033,7689,abbey,approximate coordinates; check Pleiades/Wikidata before printing
+Cluny,abbey,46.436,4.66,2218,8363,"Cluny II, consecrated 981",approximate coordinates; check Pleiades/Wikidata before printing
+Haithabu,emporium,54.49,9.56,5306,1641,"Danish emporium, crescent rampart",approximate coordinates; check Pleiades/Wikidata before printing
+Ribe,emporium,55.33,8.76,4933,906,Danish emporium and see,approximate coordinates; check Pleiades/Wikidata before printing
+Trelleborg,ring fortress,55.39,11.33,6193,881,"Danish ring fortress, c. 980",approximate coordinates; check Pleiades/Wikidata before printing
+Wolin,trading town,53.85,14.62,7858,2173,great trading town,approximate coordinates; check Pleiades/Wikidata before printing
+Szczecin,emporium,53.43,14.55,7836,2534,emporium on the Oder,approximate coordinates; check Pleiades/Wikidata before printing
+Brennaburg,Slav stronghold,52.41,12.55,6823,3436,Slav stronghold (Brandenburg an der Havel),approximate coordinates; check Pleiades/Wikidata before printing
+Arkona,Slav stronghold,54.68,13.44,7242,1480,Slav temple fortress on Ruegen,approximate coordinates; check Pleiades/Wikidata before printing
+Goslar,mine,51.9,10.43,5706,3871,Rammelsberg silver mine,approximate coordinates; check Pleiades/Wikidata before printing
