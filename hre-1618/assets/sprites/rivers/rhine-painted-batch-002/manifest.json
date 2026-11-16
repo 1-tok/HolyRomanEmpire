@@ -1,0 +1,137 @@
+{
+  "batch": "Rhine painted corridor from Basel to Mainz",
+  "source": "Natural Earth 10m Rhine centerline with HRE 1618 base projection",
+  "status": "PROVISIONAL painted overlay; historic bends and city shoreline matching require approval",
+  "geographic_safeguard": "color and bank texture derived ONLY from fixed centerline pixels",
+  "seam_check": "PASS: byte-for-byte same RGBA image after tile reassembly",
+  "segment_count": 241,
+  "tiles": 6,
+  "placed_cities": [
+    {
+      "site": "Basel",
+      "asset": "sprites/Basel.png",
+      "x": 921,
+      "y": 2912,
+      "river_pixels_under_opaque_city": 3152,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    },
+    {
+      "site": "Strasbourg",
+      "asset": "sprites/Strasbourg.png",
+      "x": 980,
+      "y": 2511,
+      "river_pixels_under_opaque_city": 3742,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    },
+    {
+      "site": "Speyer",
+      "asset": "sprites/Speyer.png",
+      "x": 1168,
+      "y": 2223,
+      "river_pixels_under_opaque_city": 4240,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    },
+    {
+      "site": "Worms",
+      "asset": "sprites/Worms.png",
+      "x": 1153,
+      "y": 2098,
+      "river_pixels_under_opaque_city": 4113,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    },
+    {
+      "site": "Mainz",
+      "asset": "sprites/Mainz.png",
+      "x": 1133,
+      "y": 1951,
+      "river_pixels_under_opaque_city": 4662,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    }
+  ],
+  "render_order": [
+    "original base",
+    "painted river connectors",
+    "painted city sprites",
+    "labels"
+  ],
+  "qa_limit": "Seam pass applies river-to-river; city-water transition is reviewed visually but not historically certified.",
+  "connectors": [
+    {
+      "file": "rhine-painted-08.png",
+      "x": 1006,
+      "y": 1893,
+      "width": 56,
+      "height": 27,
+      "global_y_range": [
+        1680,
+        1920
+      ],
+      "sha256": "3677b51807fed5b0d25ce6eee5dae417ad66b441a7edcb0ae32e5355c4db0d47"
+    },
+    {
+      "file": "rhine-painted-09.png",
+      "x": 1006,
+      "y": 1920,
+      "width": 254,
+      "height": 240,
+      "global_y_range": [
+        1920,
+        2160
+      ],
+      "sha256": "4bd5f0083dac72ea8ad67c6ac88176503d2a13cc728d9a726b7d940e1ad7197d"
+    },
+    {
+      "file": "rhine-painted-10.png",
+      "x": 1146,
+      "y": 2160,
+      "width": 115,
+      "height": 240,
+      "global_y_range": [
+        2160,
+        2400
+      ],
+      "sha256": "4debee6b119cdfb042675ff49ef048330dedeeca02bdebc5365be197ec9d3c5f"
+    },
+    {
+      "file": "rhine-painted-11.png",
+      "x": 1002,
+      "y": 2400,
+      "width": 199,
+      "height": 240,
+      "global_y_range": [
+        2400,
+        2640
+      ],
+      "sha256": "3e666e98ed8cd03070f4be0aff86a96b22a4022faacb93144491059052890627"
+    },
+    {
+      "file": "rhine-painted-12.png",
+      "x": 940,
+      "y": 2640,
+      "width": 112,
+      "height": 240,
+      "global_y_range": [
+        2640,
+        2880
+      ],
+      "sha256": "30caccff08db4d087ba1562bf29936fe7b7522ed49da667c9051b8cd831ba103"
+    },
+    {
+      "file": "rhine-painted-13.png",
+      "x": 933,
+      "y": 2880,
+      "width": 412,
+      "height": 113,
+      "global_y_range": [
+        2880,
+        3120
+      ],
+      "sha256": "d330aced071451a8edd1828bb155527e0a14692261a10659239128e2b1207494"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "batch": "Rhine painted corridor from Basel to Mainz",
+  "source": "Natural Earth 10m Rhine centerline with HRE 1618 base projection",
+  "status": "PROVISIONAL painted overlay; historic bends and city shoreline matching require approval",
+  "geographic_safeguard": "color and bank texture derived ONLY from fixed centerline pixels",
+  "seam_check": "PASS: byte-for-byte same RGBA image after tile reassembly",
+  "segment_count": 241,
+  "tiles": 6,
+  "placed_cities": [
+    {
+      "site": "Basel",
+      "asset": "sprites/Basel.png",
+      "x": 921,
+      "y": 2912,
+      "river_pixels_under_opaque_city": 3152,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    },
+    {
+      "site": "Strasbourg",
+      "asset": "sprites/Strasbourg.png",
+      "x": 980,
+      "y": 2511,
+      "river_pixels_under_opaque_city": 3742,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    },
+    {
+      "site": "Speyer",
+      "asset": "sprites/Speyer.png",
+      "x": 1168,
+      "y": 2223,
+      "river_pixels_under_opaque_city": 4240,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    },
+    {
+      "site": "Worms",
+      "asset": "sprites/Worms.png",
+      "x": 1153,
+      "y": 2098,
+      "river_pixels_under_opaque_city": 4113,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    },
+    {
+      "site": "Mainz",
+      "asset": "sprites/Mainz.png",
+      "x": 1133,
+      "y": 1951,
+      "river_pixels_under_opaque_city": 4662,
+      "city_layer_above_river": true,
+      "junction_visual_status": "requires review; do not claim a painted shoreline match"
+    }
+  ],
+  "render_order": [
+    "original base",
+    "painted river connectors",
+    "painted city sprites",
+    "labels"
+  ],
+  "qa_limit": "Seam pass applies river-to-river; city-water transition is reviewed visually but not historically certified."
+}
