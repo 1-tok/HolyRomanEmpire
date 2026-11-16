@@ -1,6 +1,9 @@
 name: HRE 1618 — Generate Rhine sprite candidates
 
 on:
+  push:
+    paths:
+      - 'hre-1618/generation-requests/koblenz-test-001.json'
   workflow_dispatch:
     inputs:
       count:
@@ -55,9 +58,9 @@ jobs:
         shell: bash
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          COUNT: ${{ inputs.count }}
-          SITE: ${{ inputs.site }}
-          MODEL: ${{ inputs.model }}
+          COUNT: ${{ github.event_name == 'push' && '1' || inputs.count }}
+          SITE: ${{ github.event_name == 'push' && 'Koblenz' || inputs.site }}
+          MODEL: ${{ github.event_name == 'push' && 'gpt-image-2.5-flare' || inputs.model }}
         run: |
           set -euo pipefail
           args=(--count "$COUNT" --model "$MODEL")
