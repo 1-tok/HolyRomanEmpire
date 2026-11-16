@@ -1,0 +1,6 @@
+{
+  "intent": "render existing 1618 geographic canvas with committed Rhine city sprites and continuous connecting watercourse",
+  "source": "hre-1618/base/base_3600.jpg",
+  "status": "provisional QA",
+  "output": "hre-1618/reports/rhine-batch-001/"
+}
