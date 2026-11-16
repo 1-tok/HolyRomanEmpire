@@ -1,0 +1,88 @@
+name: HRE 1618 — Generate Rhine sprite candidates
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'How many candidate sprites to generate (1–3)'
+        required: true
+        type: choice
+        default: '1'
+        options: ['1', '2', '3']
+      site:
+        description: 'Optional exact site name (blank = next missing Rhine city)'
+        required: false
+        type: string
+      model:
+        description: 'Image model (charged to API account)'
+        required: true
+        type: choice
+        default: 'gpt-image-2.5-flare'
+        options:
+          - 'gpt-image-2.5-flare'
+          - 'gpt-image-2.5-sunburst'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hre-rhine-generation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    if: github.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Require API credential
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "::error::Add OPENAI_API_KEY under repository Settings > Secrets and variables > Actions"
+            exit 1
+          fi
+      - name: Generate separate candidates in Rhine order
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          COUNT: ${{ inputs.count }}
+          SITE: ${{ inputs.site }}
+          MODEL: ${{ inputs.model }}
+        run: |
+          set -euo pipefail
+          args=(--count "$COUNT" --model "$MODEL")
+          if [ -n "$SITE" ]; then args+=(--site "$SITE"); fi
+          python hre-1618/tools/generate_rhine_candidates.py "${args[@]}"
+      - name: Commit new candidates to invoking branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/sprites/candidates/ hre-1618/reports/generation/
+          if git diff --cached --quiet; then
+            echo "Nothing new: existing candidate or approved sprite skipped."
+            exit 0
+          fi
+          git commit -m 'Generate provisional HRE 1618 Rhine sprite candidates [skip ci]'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+      - name: Publish candidate review gallery
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre1618-candidate-sprites-${{ github.run_number }}
+          path: |
+            hre-1618/sprites/candidates/
+            hre-1618/reports/generation/
+          if-no-files-found: ignore
+          retention-days: 30
