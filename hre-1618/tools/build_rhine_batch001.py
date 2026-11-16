@@ -117,7 +117,7 @@ def exact_connector_tiles(water):
 
 def render():
     config=json.loads(CFG.read_text())
-    base=Image.open(ROOT/config['base']).convert('RGBA')
+    base=Image.open(ROOT/'base'/'base_3600.jpg').convert('RGBA')
     if base.size!=(W,H):
         raise ValueError('Original base map dimensions changed')
     data=Path(sys.argv[1]).read_bytes() if len(sys.argv)>1 else urllib.request.urlopen(SOURCE,timeout=90).read()
