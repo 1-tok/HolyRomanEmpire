@@ -1,0 +1,71 @@
+name: HRE 1618 — Build Danube geographic sprites
+
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/build_danube_batch001.py'
+      - '.github/workflows/hre-danube-batch-001.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hre-danube-batch-001-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Generate independent georegistered Danube PNGs and map preview
+        run: python hre-1618/tools/build_danube_batch001.py
+      - name: Validate seam reconstruction and transparent assets
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          p=Path("hre-1618/assets/sprites/rivers/danube")
+          j=json.loads((p/"manifest.json").read_text())
+          assert j["seam_qa"] == "PASS: exact RGBA reconstruction"
+          assert j["tile_count"] >= 2
+          for t in j["connectors"]:
+              f=p/t["file"]
+              im=Image.open(f)
+              assert im.mode=="RGBA" and im.size==(t["width"],t["height"])
+              assert im.getchannel("A").getextrema()[0]<255
+          assert Path("hre-1618/reports/danube-batch-001/danube-corridor-progress.jpg").stat().st_size>10000
+          print("Danube QA verified:",j["tile_count"],"sprites; geography provisional")
+          PY
+      - name: Commit generated sprites and proof (not approved historic geometry)
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/rivers/danube/ hre-1618/reports/danube-batch-001/
+          if git diff --cached --quiet; then
+            echo "No new art to commit"
+          else
+            git commit -m "Add seam-validated Danube river sprite batch and geographic map preview [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - name: Publish review bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre1618-danube-batch001-${{ github.run_number }}
+          path: |
+            hre-1618/assets/sprites/rivers/danube/
+            hre-1618/reports/danube-batch-001/
+          if-no-files-found: ignore
