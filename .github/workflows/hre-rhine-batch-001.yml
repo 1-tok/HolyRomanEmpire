@@ -1,0 +1,31 @@
+name: HRE 1618 Rhine Batch 001 placement QA
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'hre-1618/sprites/*.png'
+      - 'hre-1618/placements/rhine-batch-001.json'
+      - 'hre-1618/tools/build_rhine_batch001.py'
+      - '.github/workflows/hre-rhine-batch-001.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-rhine-overlay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Build on existing HRE geographic canvas
+        run: python hre-1618/tools/build_rhine_batch001.py
+      - name: Upload placement preview and geographic connector PNGs
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre1618-rhine-batch001-provisional
+          path: hre-1618/reports/rhine-batch-001/
+          if-no-files-found: error
