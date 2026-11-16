@@ -1,0 +1,91 @@
+{
+  "status": "PROVISIONAL geographic sprite batch; historical 1618 flow not verified",
+  "source_canvas": "base/base_3600.jpg",
+  "source": "Natural Earth 10m named Main centreline",
+  "projection": "same Lambert Conformal Conic as base",
+  "render_order": [
+    "existing base",
+    "Main river connectors",
+    "city sprites",
+    "labels"
+  ],
+  "seam_qa": "PASS: exact RGBA reconstruction",
+  "segment_count": 204,
+  "geometry_feature_labels": {
+    "main": 1
+  },
+  "tile_count": 4,
+  "connectors": [
+    {
+      "file": "main-08-04.png",
+      "x": 1188,
+      "y": 1996,
+      "width": 12,
+      "height": 16,
+      "sha256": "efe1098ad894b5090f0474b136b89ab0c7dab224b3a8774626db327e290a4153"
+    },
+    {
+      "file": "main-08-05.png",
+      "x": 1200,
+      "y": 1944,
+      "width": 240,
+      "height": 190,
+      "sha256": "c47682ade1913aeb276dea8ffe2eeca5cfe3b935ed146ad046edcd401f0d913c"
+    },
+    {
+      "file": "main-08-06.png",
+      "x": 1440,
+      "y": 1988,
+      "width": 240,
+      "height": 164,
+      "sha256": "5e7009f44a10ebe8abc11a646ad45e11c5e7e03d80205ef057adeb6dcd4162d1"
+    },
+    {
+      "file": "main-08-07.png",
+      "x": 1680,
+      "y": 1983,
+      "width": 168,
+      "height": 117,
+      "sha256": "0c91f27c5a57a8d72accbd116157d35ba2644f6587dfcb4c309366ee080acc01"
+    }
+  ],
+  "sites": [
+    {
+      "site": "Schweinfurt",
+      "x": 1688,
+      "y": 1993,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Würzburg",
+      "x": 1611,
+      "y": 2096,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Aschaffenburg",
+      "x": 1411,
+      "y": 2019,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Frankfurt",
+      "x": 1293,
+      "y": 1962,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Hanau",
+      "x": 1353,
+      "y": 1955,
+      "asset": null,
+      "status": "anchor-only"
+    }
+  ],
+  "historical_qa": "pending",
+  "city_water_alignment_qa": "pending"
+}

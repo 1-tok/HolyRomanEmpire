@@ -1,0 +1,42 @@
+{
+  "seam_qa": "PASS",
+  "tiles": 4,
+  "sites": [
+    {
+      "site": "Schweinfurt",
+      "x": 1688,
+      "y": 1993,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Würzburg",
+      "x": 1611,
+      "y": 2096,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Aschaffenburg",
+      "x": 1411,
+      "y": 2019,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Frankfurt",
+      "x": 1293,
+      "y": 1962,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Hanau",
+      "x": 1353,
+      "y": 1955,
+      "asset": null,
+      "status": "anchor-only"
+    }
+  ],
+  "historical_qa": "pending"
+}
