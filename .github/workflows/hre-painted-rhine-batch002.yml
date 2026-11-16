@@ -1,0 +1,77 @@
+name: HRE 1618 — Painted Rhine connectors + city junction QA
+
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/build_painted_rhine_batch002.py'
+      - '.github/workflows/hre-painted-rhine-batch002.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hre-painted-rhine-batch002-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  paint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install geographic paint dependencies
+        run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3' 'scipy>=1.11,<2'
+      - name: Render painted Rhine through five real city sprites
+        run: python hre-1618/tools/build_painted_rhine_batch002.py
+      - name: Validate exact seam and real painted city junction artifacts
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path('hre-1618')
+          p=root/'assets/sprites/rivers/rhine-painted-batch-002'
+          qa=root/'reports/rhine-painted-batch-002'
+          m=json.loads((p/'manifest.json').read_text())
+          assert m['tiles']>=3
+          assert len(m['placed_cities'])==5
+          assert all(c['city_layer_above_river'] for c in m['placed_cities'])
+          for item in m['connectors']:
+              im=Image.open(p/item['file'])
+              assert im.mode=='RGBA' and im.size==(item['width'],item['height'])
+              assert im.getchannel('A').getextrema()[0]<255
+          for site in ('Basel','Strasbourg','Speyer','Worms','Mainz'):
+              assert (qa/'city-junctions'/f'{site}.jpg').stat().st_size>10000
+          assert (qa/'upper-rhine-painted-cities.jpg').stat().st_size>10000
+          assert m['seam_check'].startswith('PASS')
+          print('PASS:',m['tiles'],'painted connectors, 5 city junction previews')
+          PY
+      - name: Commit verified painted PNGs, coordinates, map preview and junction QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/rivers/rhine-painted-batch-002/ hre-1618/reports/rhine-painted-batch-002/
+          if git diff --cached --quiet; then
+            echo 'No new painted assets to commit'
+          else
+            git commit -m 'Commit painted geographic Rhine connectors and five city junction proofs [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - name: Upload review bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre1618-painted-rhine-batch002-${{ github.run_number }}
+          path: |
+            hre-1618/assets/sprites/rivers/rhine-painted-batch-002/
+            hre-1618/reports/rhine-painted-batch-002/
+          if-no-files-found: ignore
