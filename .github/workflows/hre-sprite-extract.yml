@@ -1,0 +1,72 @@
+name: HRE 1618 — Auto-extract sprite uploads
+
+on:
+  push:
+    paths:
+      - 'hre-1618/*.zip'
+      - 'hre-1618/**/*.zip'
+      - 'hre-1618/tools/extract_uploads.py'
+      - '.github/workflows/hre-sprite-extract.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hre-sprite-intake-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  extract:
+    if: github.event_name != 'push' || github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the branch containing the ZIP
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image validation library
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Extract accepted PNGs, deduplicate and write reports
+        run: python hre-1618/tools/extract_uploads.py
+      - name: Commit accepted sprites and QA reports to same branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- hre-1618/sprites/ hre-1618/reports/intake/
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit."
+            exit 0
+          fi
+          git commit -m "Ingest validated HRE 1618 sprite uploads [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+      - name: Upload QA reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre1618-sprite-intake-${{ github.run_number }}
+          path: hre-1618/reports/intake/
+          if-no-files-found: ignore
+          retention-days: 30
+      - name: Optional Rhine placement preview
+        if: ${{ hashFiles('hre-1618/sprites/Basel.png', 'hre-1618/sprites/Strasbourg.png', 'hre-1618/sprites/Speyer.png', 'hre-1618/sprites/Worms.png', 'hre-1618/sprites/Mainz.png') != '' }}
+        shell: bash
+        run: |
+          if [ -f hre-1618/tools/build_rhine_batch001.py ]; then
+            python hre-1618/tools/build_rhine_batch001.py
+          fi
+      - name: Upload Rhine placement QA (when present)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre1618-rhine-preview-${{ github.run_number }}
+          path: hre-1618/reports/rhine-batch-001/
+          if-no-files-found: ignore
+          retention-days: 30
