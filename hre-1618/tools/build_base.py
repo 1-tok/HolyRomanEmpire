@@ -59,7 +59,7 @@ def read_dbf(b):
     rows=[]
     for i in range(n_):
         r=b[hl+i*rl:hl+(i+1)*rl]; o=1; d={}
-        for nm,ln in fields: d[nm]=r[o:o+ln].decode('latin-1').strip(); o+=ln
+        for nm,ln in fields: d[nm]=r[o:o+ln].decode('latin-1').strip('\x00 '); o+=ln
         rows.append(d)
     return rows
 def bb_hit(bb):  # bb = xmin,ymin,xmax,ymax in lon/lat; frame covers lon ~-1..24, lat ~41..58
