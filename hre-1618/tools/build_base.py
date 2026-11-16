@@ -3,7 +3,7 @@
 
 Layers: height-tinted land with NW hillshade, sea shaded by distance from coast,
 period water (Zuiderzee, hand-drawn approximation), lakes and rivers (Natural Earth 10m),
-1618 territory borders (ETH Zurich, territories over 3000 km2), city dots. No lettering.
+1618 territory borders (ETH Zurich, territories over 3000 km2), city dots and river sprite sites. No lettering.
 Run:  python3 -I tools/build_base.py <work_dir>      (needs Pillow; downloads data into work_dir)
 """
 import math, sys, os, io, struct, zipfile, urllib.request
@@ -213,6 +213,12 @@ for nm,la,lo,inh in cities:
     x,y=px(la,lo)
     if 0<x<W and 0<y<H:
         d.ellipse((x-15,y-15,x+15,y+15),fill=(150,30,25) if inh else (70,70,82),outline=(40,20,10),width=2)
+# river sprite sites (river-sites.csv): cream dot with ink ring, drawn over the plain city dots
+import csv
+for row in csv.DictReader(open(os.path.join(ROOT,"river-sites.csv"),encoding="utf-8")):
+    if not row["on_sheet"].startswith("yes"): continue
+    x,y=px(float(row["lat"]),float(row["lon"]))
+    d.ellipse((x-15,y-15,x+15,y+15),fill=(244,234,205),outline=(40,20,10),width=4)
 d.rectangle((0,0,W-1,H-1),outline=(90,70,40),width=14)
 os.makedirs(OUT,exist_ok=True)
 img.save(os.path.join(OUT,"base_3600.jpg"),quality=88)

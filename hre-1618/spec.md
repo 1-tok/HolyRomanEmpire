@@ -37,6 +37,7 @@ Layers
 - Rivers: Natural Earth 10m river centrelines, fixed width (wider for the Rhine, Danube, Elbe, Oder, Vistula, Weser, Po). First pass only: no hand-drawn meanders and no minor rivers yet.
 - Borders: ETH Zurich manual territories, entries active in 1618 (start 1618 or earlier, end after 1618), de-duplicated by polygon, territories over 3000 km2, fragments under 600 km2 dropped. 54 territories. Thin red-brown lines, one weight for all.
 - Cities: dots only, no lettering. Red inside the Empire, grey outside. Positions are approximate.
+- River sprite sites: 83 cream dots with ink rings, from river-sites.csv (Wikidata positions). Five sites off the sheet are not drawn.
 - Period water: the Zuiderzee is drawn as sea from a hand-placed outline of its shore towns (Medemblik, Enkhuizen, Hoorn, Edam, Muiden, Spakenburg, Harderwijk, Elburg, Kampen, Stavoren). Approximate, not from a palaeogeographic source. Other changes (Frisian coast, Dollart, Baltic lagoons) are not yet made.
 
 Known problems
