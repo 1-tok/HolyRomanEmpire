@@ -1,0 +1,70 @@
+{
+  "seam_qa": "PASS",
+  "tiles": 11,
+  "sites": [
+    {
+      "site": "Ulm",
+      "x": 1620,
+      "y": 2647,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Donauwörth",
+      "x": 1828,
+      "y": 2521,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Ingolstadt",
+      "x": 1997,
+      "y": 2502,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Regensburg",
+      "x": 2170,
+      "y": 2406,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Straubing",
+      "x": 2295,
+      "y": 2449,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Passau",
+      "x": 2531,
+      "y": 2567,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Linz",
+      "x": 2755,
+      "y": 2661,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Vienna",
+      "x": 3308,
+      "y": 2666,
+      "asset": null,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Pressburg (Bratislava)",
+      "x": 3505,
+      "y": 2673,
+      "asset": null,
+      "status": "anchor-only"
+    }
+  ],
+  "historical_qa": "pending"
+}
