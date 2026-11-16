@@ -1,0 +1,34 @@
+{
+  "archive": "hre1618_rhine_batch001.zip",
+  "archive_sha256": "440404bd708288165adf49978e29622a4a2776e55fccff6bbe07cf68b6696c4a",
+  "accepted": [
+    {
+      "member": "hre1618_rhine_batch001/sprites/Strasbourg.png",
+      "file": "sprites/Strasbourg.png",
+      "sha256": "62b1443ffe60fb0ef7d367ae179c37bee87f67e8147d1bcd08e8e9647668adc0"
+    },
+    {
+      "member": "hre1618_rhine_batch001/sprites/Speyer.png",
+      "file": "sprites/Speyer.png",
+      "sha256": "f592f7f133da068b54a2c2e337e4d6c817fbd3e4b4662d790ecb4b0ee59647e7"
+    },
+    {
+      "member": "hre1618_rhine_batch001/sprites/Worms.png",
+      "file": "sprites/Worms.png",
+      "sha256": "0925a05a0b071483e2356b1580e7c742b6ae541d43193dd2dfb91996b346365b"
+    },
+    {
+      "member": "hre1618_rhine_batch001/sprites/Mainz.png",
+      "file": "sprites/Mainz.png",
+      "sha256": "e01042e8cb870e1051e5228ded1b3f11dfd0110ce65b9570ae4bd4860d8c91d8"
+    },
+    {
+      "member": "hre1618_rhine_batch001/sprites/Basel.png",
+      "file": "sprites/Basel.png",
+      "sha256": "d8838441950b4e9a7d372939df7f5a037f0ec81b3fada21c1b6b92671baa451d"
+    }
+  ],
+  "duplicate": [],
+  "conflict": [],
+  "rejected": []
+}
