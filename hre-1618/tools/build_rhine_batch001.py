@@ -72,44 +72,90 @@ def overlay(lines):
     if segments<10:raise ValueError('River extraction incomplete')
     return im
 
+def exact_connector_tiles(water):
+    """Cut a single global water raster into pixel-exact transparent tiles.
+
+    Each tile has a non-overlapping half-open Y range [y0, y1).
+    No independent strokes or edge resampling; stitch uses copy, not blending.
+    All coordinates refer to the unchanged 3600x4800 geographic canvas.
+    """
+    from hashlib import sha256
+    DEST=ROOT/'assets'/'sprites'/'rivers'/'rhine'
+    DEST.mkdir(parents=True,exist_ok=True)
+    manifest=[]
+    reconstructed=Image.new('RGBA',(W,H),(0,0,0,0))
+    for i,y0 in enumerate(range(0,H,240),1):
+        y1=min(H,y0+240)
+        full_strip=water.crop((0,y0,W,y1))
+        box=full_strip.getbbox()
+        if box is None:
+            continue
+        crop=full_strip.crop(box)
+        name=f'rhine-connector-{i:02d}.png'
+        destination=DEST/name
+        crop.save(destination,format='PNG',optimize=True)
+        # Verify exactly the same bytes after file decode, no edge fading.
+        tile=Image.open(destination).convert('RGBA')
+        assert ImageChops.difference(tile,crop).getbbox() is None, name
+        x,y=box[0],box[1]+y0
+        reconstructed.paste(tile,(x,y))
+        manifest.append({'file':name,'x':x,'y':y,'width':crop.width,
+                         'height':crop.height,'range_y':[y0,y1],
+                         'sha256':sha256(destination.read_bytes()).hexdigest()})
+    mismatch=ImageChops.difference(reconstructed,water)
+    # Image.getbbox() can mask RGB differences if alpha diff=0. Compare bands.
+    assert not any(b.getbbox() for b in mismatch.split()), 'Connector seam/reassembly mismatch'
+    (DEST/'manifest.json').write_text(json.dumps({
+        'source_canvas':'base/base_3600.jpg',
+        'water_geometry':'Natural Earth 10m river centerlines, same as tools/build_base.py',
+        'global_coordinates':'north-up Lambert Conformal Conic, 3600x4800',
+        'render_order':['existing base','river connectors','city sprites','labels'],
+        'seam_qa':'PASS: reconstructed RGBA exactly equals canonical water raster',
+        'tile_count':len(manifest),'connectors':manifest
+    },indent=2)+'\n')
+    return reconstructed,manifest
+
 def render():
     config=json.loads(CFG.read_text())
-    path=ROOT/'base/base_3600.jpg'
-    base=Image.open(path).convert('RGBA')
-    if base.size!=(W,H):raise ValueError('Base map geometry must remain 3600x4800')
-    if len(sys.argv)>1:data=Path(sys.argv[1]).read_bytes()
-    else:data=urllib.request.urlopen(SOURCE,timeout=90).read()
-    water=overlay(river_lines(data));OUT.mkdir(parents=True,exist_ok=True)
+    base=Image.open(ROOT/config['base']).convert('RGBA')
+    if base.size!=(W,H):
+        raise ValueError('Original base map dimensions changed')
+    data=Path(sys.argv[1]).read_bytes() if len(sys.argv)>1 else urllib.request.urlopen(SOURCE,timeout=90).read()
+    water=overlay(river_lines(data))
+    OUT.mkdir(parents=True,exist_ok=True)
     water.save(OUT/'continuous-rhine-water-overlay.png')
-    # The connector sprites are disjoint slices from the SAME water layer.
-    # Their stored x,y placement reconstitutes a perfectly continuous river.
-    # Geographic bands do not depend on the number of city sprites; each
-    # connector covers an exact north-up Y interval, with no gap or overlap.
-    cities=config['entries'];boundaries=list(range(0,H,240))+[H]
-    connectors=[]
-    for i,(y0,y1) in enumerate(zip(boundaries,boundaries[1:])):
-        band=water.crop((0,y0,W,y1));bb=band.getbbox()
-        if bb:
-            file=f'connector-{i+1:02d}.png'
-            crop=band.crop(bb);crop.save(OUT/file)
-            connectors.append({'file':file,'x':bb[0],'y':y0+bb[1],'width':crop.width,'height':crop.height})
-    # Protect the pre-existing water geometry wherever a city vignette has
-    # its own painted water. Historic bridge overlays require later QA.
-    protected=water.getchannel('A').point(lambda a:255 if a>0 else 0).filter(ImageFilter.MaxFilter(9))
-    assembled=Image.alpha_composite(base,water);placements=[]
-    for city in cities:
+    rebuilt,connectors=exact_connector_tiles(water)
+    # River water is assembled first; city painting goes ABOVE every tile.
+    # No water mask is cut into a city's painted buildings or roofs.
+    assembled=Image.alpha_composite(base,rebuilt)
+    placements=[]
+    for city in config['entries']:
         fn=ROOT/city['asset']
         if not fn.exists():
-            print('Missing (upload ZIP sprite first):',fn)
+            print('Not yet committed:',fn)
             continue
         sprite=Image.open(fn).convert('RGBA')
-        sz=config['working_sprite_width_px'];sprite.thumbnail((sz,sz),Image.Resampling.LANCZOS)
-        x=round(city['x'])-sprite.width//2;y=round(city['y'])-sprite.height//2
-        sprite.putalpha(ImageChops.subtract(sprite.getchannel('A'),protected.crop((x,y,x+sprite.width,y+sprite.height))))
+        sz=config['working_sprite_width_px']
+        sprite.thumbnail((sz,sz),Image.Resampling.LANCZOS)
+        x=round(city['x'])-sprite.width//2
+        y=round(city['y'])-sprite.height//2
+        # NEVER erase sprite pixels to expose a river: the city is in front.
         assembled.alpha_composite(sprite,(x,y))
-        placements.append({'site':city['site'],'file':city['asset'],'x':x,'y':y,'width':sprite.width,'height':sprite.height})
+        placements.append({
+            'site':city['site'],'file':city['asset'],
+            'x':x,'y':y,'width':sprite.width,'height':sprite.height,
+            'layer':'city-over-river', 'status':'provisional historical QA'
+        })
     assembled.convert('RGB').save(OUT/'on-existing-base-3600.jpg',quality=93)
-    (OUT/'placements.json').write_text(json.dumps({'city_placements':placements,'connector_sprites':connectors,'status':'PROVISIONAL QA; modern generalized NE10m reference; bridges not yet verified'},indent=2)+'\n')
-    print('Wrote',OUT, 'cities placed:',len(placements),'connectors:',len(connectors))
+    # Use the same connector raster for previews and downstream print builds.
+    report={'city_placements':placements,'connector_sprites':connectors,
+       'connector_directory':'assets/sprites/rivers/rhine',
+       'render_order':['original base','connector sprites','city sprites','labels'],
+       'seam_test':'PASS: exact RGBA reconstruction',
+       'visual_qa':'City sprites preserve original opaque/alpha artwork; local painted water may need shoreline QA',
+       'historical_status':'PROVISIONAL: NE 10m course is not a 1618 reconstruction'}
+    (OUT/'placements.json').write_text(json.dumps(report,indent=2)+'\n')
+    print('Rhine connector tiles:',len(connectors),'exact seams; city sprites on top:',len(placements))
 
-if __name__=='__main__':render()
+if __name__=='__main__':
+    render()
