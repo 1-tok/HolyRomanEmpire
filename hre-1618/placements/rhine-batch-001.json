@@ -1,0 +1,81 @@
+{
+  "project": "Holy Roman Empire AD 1618",
+  "base": "hre-1618/base/base_3600.jpg",
+  "status": "provisional city art anchors; binaries in companion ZIP pending intake; geometry to be derived from the existing NE 10m river source",
+  "projection": "Lambert Conformal Conic identical to tools/build_base.py",
+  "working_size": [
+    3600,
+    4800
+  ],
+  "print_dpi": 300,
+  "working_sprite_width_px": 105,
+  "entries": [
+    {
+      "order": 1,
+      "site": "Basel",
+      "asset": "sprites/Basel.png",
+      "lat": 47.55806,
+      "lon": 7.58778,
+      "x": 972.67,
+      "y": 2963.67,
+      "river": "Rhine",
+      "role": "city-over-water",
+      "qa": "unverified"
+    },
+    {
+      "order": 2,
+      "site": "Strasbourg",
+      "asset": "sprites/Strasbourg.png",
+      "lat": 48.57333,
+      "lon": 7.75222,
+      "x": 1032.33,
+      "y": 2563.33,
+      "river": "Ill/Rhine east of city",
+      "role": "city and canals",
+      "qa": "unverified"
+    },
+    {
+      "order": 3,
+      "site": "Speyer",
+      "asset": "sprites/Speyer.png",
+      "lat": 49.31656,
+      "lon": 8.43361,
+      "x": 1220,
+      "y": 2275,
+      "river": "Rhine",
+      "role": "city left bank",
+      "qa": "unverified"
+    },
+    {
+      "order": 4,
+      "site": "Worms",
+      "asset": "sprites/Worms.png",
+      "lat": 49.63026,
+      "lon": 8.36209,
+      "x": 1205.33,
+      "y": 2150.33,
+      "river": "Rhine",
+      "role": "city left bank",
+      "qa": "unverified"
+    },
+    {
+      "order": 5,
+      "site": "Mainz",
+      "asset": "sprites/Mainz.png",
+      "lat": 50,
+      "lon": 8.26667,
+      "x": 1185.33,
+      "y": 2003,
+      "river": "Rhine/Main confluence",
+      "role": "city on west/south bank",
+      "qa": "unverified"
+    }
+  ],
+  "rules": [
+    "Treat existing base JPG and the NE 10m watercourse used to construct it as authoritative.",
+    "Do not join painted city river edges directly.",
+    "Mask conflicting water pixels in city art to reveal the base river before blending.",
+    "Do not depict post-1618 structures; visually audit landmarks before approval.",
+    "Do not merge without checking river masks and overlaps against the real base."
+  ]
+}
