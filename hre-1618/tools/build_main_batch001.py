@@ -98,6 +98,7 @@ def build():
     if base.size!=(W,H):raise RuntimeError("Unexpected base dimensions")
     comp=Image.alpha_composite(base,recon)
     sites=[]
+    water_alpha=water.getchannel("A")
     with (ROOT/"river-sites.csv").open(newline="",encoding="utf-8") as f:
         for row in csv.DictReader(f):
             if row["river"]!="Main" or not row["on_sheet"].startswith("yes"):continue
@@ -106,12 +107,26 @@ def build():
             name=site.replace("ö","oe").replace("ü","ue").replace("ä","ae")
             variants=[ROOT/"sprites"/(site+".png"),ROOT/"sprites"/(name+".png")]
             asset=next((v for v in variants if v.exists()),None)
+            # Nearest rasterized river pixel is an independent placement check.
+            # Site points represent historical town centers, not exact quays.
+            xmin=max(0,x-64); xmax=min(W,x+65)
+            ymin=max(0,y-64); ymax=min(H,y+65)
+            nearby=water_alpha.crop((xmin,ymin,xmax,ymax))
+            pix=nearby.load()
+            distances=[(xmin+xx-x)**2+(ymin+yy-y)**2
+                       for yy in range(nearby.height) for xx in range(nearby.width)
+                       if pix[xx,yy]>0]
+            nearest=round(min(distances)**0.5,2) if distances else None
+            if nearest is None or nearest>32:
+                raise RuntimeError("Site "+site+" lies >32px from painted Main river")
             status="anchor-only"
             if asset:
                 sprite=Image.open(asset).convert("RGBA");sprite.thumbnail((105,105),Image.Resampling.LANCZOS)
                 comp.alpha_composite(sprite,(x-sprite.width//2,y-sprite.height//2))
                 status="placed-provisional"
-            sites.append({"site":site,"x":x,"y":y,"asset":str(asset.relative_to(ROOT)) if asset else None,"status":status})
+            sites.append({"site":site,"x":x,"y":y,"nearest_river_pixel_distance":nearest,
+                          "anchor_qa":"PASS within 32px of mapped Main river",
+                          "asset":str(asset.relative_to(ROOT)) if asset else None,"status":status})
     comp.convert("RGB").save(QA/"main-on-existing-base.jpg",quality=90)
     # QA corridor includes Schweinfurt through Frankfurt to Mainz, with a geographic margin.
     box=(1040,1740,1950,2350)
