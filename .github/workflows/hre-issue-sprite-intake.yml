@@ -1,0 +1,56 @@
+name: HRE 1618 - Issue ZIP Sprite Intake
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: hre-issue-sprite-intake
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    if: >-
+      github.event.issue.pull_request == null &&
+      startsWith(github.event.issue.title, '[HRE SPRITE INTAKE]') &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: artwork/rhine-city-batch-001
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Download authorized GitHub comment ZIPs
+        run: python hre-1618/tools/download_issue_sprite_zip.py
+      - name: Validate and extract PNGs
+        run: python hre-1618/tools/extract_uploads.py
+      - name: Commit accepted images and reports to artwork branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/sprites/ hre-1618/reports/intake/
+          if git diff --cached --quiet; then
+            echo 'No new valid PNGs; nothing to commit'
+          else
+            git commit -m 'Ingest validated issue attachment sprites [skip ci]'
+            git push origin HEAD:artwork/rhine-city-batch-001
+          fi
+      - name: Publish intake QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre1618-issue-intake-${{ github.run_id }}
+          path: hre-1618/reports/intake/
+          if-no-files-found: ignore
+          retention-days: 30
