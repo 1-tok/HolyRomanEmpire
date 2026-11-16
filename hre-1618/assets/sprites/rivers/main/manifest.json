@@ -54,6 +54,8 @@
       "site": "Schweinfurt",
       "x": 1688,
       "y": 1993,
+      "nearest_river_pixel_distance": 0.0,
+      "anchor_qa": "PASS within 32px of mapped Main river",
       "asset": null,
       "status": "anchor-only"
     },
@@ -61,6 +63,8 @@
       "site": "Würzburg",
       "x": 1611,
       "y": 2096,
+      "nearest_river_pixel_distance": 0.0,
+      "anchor_qa": "PASS within 32px of mapped Main river",
       "asset": null,
       "status": "anchor-only"
     },
@@ -68,6 +72,8 @@
       "site": "Aschaffenburg",
       "x": 1411,
       "y": 2019,
+      "nearest_river_pixel_distance": 2.0,
+      "anchor_qa": "PASS within 32px of mapped Main river",
       "asset": null,
       "status": "anchor-only"
     },
@@ -75,6 +81,8 @@
       "site": "Frankfurt",
       "x": 1293,
       "y": 1962,
+      "nearest_river_pixel_distance": 0.0,
+      "anchor_qa": "PASS within 32px of mapped Main river",
       "asset": null,
       "status": "anchor-only"
     },
@@ -82,6 +90,8 @@
       "site": "Hanau",
       "x": 1353,
       "y": 1955,
+      "nearest_river_pixel_distance": 0.0,
+      "anchor_qa": "PASS within 32px of mapped Main river",
       "asset": null,
       "status": "anchor-only"
     }
