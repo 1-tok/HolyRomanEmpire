@@ -43,39 +43,67 @@
   ],
   "connector_sprites": [
     {
-      "file": "connector-01.png",
-      "x": 1042,
-      "y": 1946,
-      "width": 180,
-      "height": 131
-    },
-    {
-      "file": "connector-02.png",
-      "x": 1198,
-      "y": 2077,
-      "width": 46,
-      "height": 136
-    },
-    {
-      "file": "connector-03.png",
-      "x": 1142,
-      "y": 2213,
-      "width": 104,
-      "height": 206
-    },
-    {
-      "file": "connector-04.png",
-      "x": 970,
-      "y": 2419,
-      "width": 195,
-      "height": 345
-    },
-    {
       "file": "connector-05.png",
+      "x": 326,
+      "y": 1021,
+      "width": 390,
+      "height": 179
+    },
+    {
+      "file": "connector-06.png",
+      "x": 318,
+      "y": 1200,
+      "width": 514,
+      "height": 240
+    },
+    {
+      "file": "connector-07.png",
+      "x": 797,
+      "y": 1440,
+      "width": 101,
+      "height": 240
+    },
+    {
+      "file": "connector-08.png",
+      "x": 879,
+      "y": 1680,
+      "width": 160,
+      "height": 240
+    },
+    {
+      "file": "connector-09.png",
+      "x": 1019,
+      "y": 1920,
+      "width": 225,
+      "height": 240
+    },
+    {
+      "file": "connector-10.png",
+      "x": 1165,
+      "y": 2160,
+      "width": 81,
+      "height": 240
+    },
+    {
+      "file": "connector-11.png",
+      "x": 1018,
+      "y": 2400,
+      "width": 165,
+      "height": 240
+    },
+    {
+      "file": "connector-12.png",
+      "x": 952,
+      "y": 2640,
+      "width": 84,
+      "height": 240
+    },
+    {
+      "file": "connector-13.png",
       "x": 947,
-      "y": 2764,
-      "width": 399,
-      "height": 214
+      "y": 2880,
+      "width": 443,
+      "height": 98
     }
   ],
   "status": "PROVISIONAL QA; modern generalized NE10m reference; bridges not yet verified"
