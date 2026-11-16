@@ -1,0 +1,577 @@
+{
+  "type": "FeatureCollection",
+  "name": "Rhine 1618 sprite location anchors (baseline only)",
+  "metadata": {
+    "date": "1618 (target)",
+    "geometry_status": "Generalized modern reference — historical 1618 riverbank and distributaries require validation",
+    "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_50m_rivers_lake_centerlines.geojson",
+    "license_note": "Natural Earth public domain",
+    "river_extent": "Basel vicinity to Gorinchem vicinity; North Sea delta requires separate historical reconstruction",
+    "scale_warning": "1:50m geometry not appropriate for exact 3/4-inch print placement"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rhine-basel-gorinchem",
+        "kind": "river-centerline",
+        "dataset": "Natural Earth 1:50m rivers/lake centerlines",
+        "accuracy": "generalized modern river geometry; NOT 1618 verified",
+        "delta_status": "Stops near Gorinchem; do not extend with modern Nieuwe Waterweg"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            7.698063,
+            47.569887
+          ],
+          [
+            7.565461,
+            47.606552
+          ],
+          [
+            7.529391,
+            47.673886
+          ],
+          [
+            7.538589,
+            47.773622
+          ],
+          [
+            7.593263,
+            47.905655
+          ],
+          [
+            7.608456,
+            48.002574
+          ],
+          [
+            7.584168,
+            48.064302
+          ],
+          [
+            7.616621,
+            48.156802
+          ],
+          [
+            7.705711,
+            48.280051
+          ],
+          [
+            7.765139,
+            48.410017
+          ],
+          [
+            7.794801,
+            48.54683
+          ],
+          [
+            7.837951,
+            48.63605
+          ],
+          [
+            7.922752,
+            48.698527
+          ],
+          [
+            8.23002,
+            48.965435
+          ],
+          [
+            8.417295,
+            49.213999
+          ],
+          [
+            8.485922,
+            49.330374
+          ],
+          [
+            8.498221,
+            49.397399
+          ],
+          [
+            8.488919,
+            49.436208
+          ],
+          [
+            8.45781,
+            49.44675
+          ],
+          [
+            8.421843,
+            49.505092
+          ],
+          [
+            8.380812,
+            49.611236
+          ],
+          [
+            8.38939,
+            49.690068
+          ],
+          [
+            8.431403,
+            49.728489
+          ],
+          [
+            8.436829,
+            49.767195
+          ],
+          [
+            8.401482,
+            49.815228
+          ],
+          [
+            8.357351,
+            49.911372
+          ],
+          [
+            8.304641,
+            49.98067
+          ],
+          [
+            8.243352,
+            50.023097
+          ],
+          [
+            8.129044,
+            50.026404
+          ],
+          [
+            7.961613,
+            49.990696
+          ],
+          [
+            7.803224,
+            50.042088
+          ],
+          [
+            7.653879,
+            50.180658
+          ],
+          [
+            7.606751,
+            50.222361
+          ],
+          [
+            7.611195,
+            50.266441
+          ],
+          [
+            7.628816,
+            50.323802
+          ],
+          [
+            7.607836,
+            50.366642
+          ],
+          [
+            7.556624,
+            50.400076
+          ],
+          [
+            7.44366,
+            50.432788
+          ],
+          [
+            7.343666,
+            50.485833
+          ],
+          [
+            7.256746,
+            50.559162
+          ],
+          [
+            7.203623,
+            50.621613
+          ],
+          [
+            7.184502,
+            50.673186
+          ],
+          [
+            7.125074,
+            50.734216
+          ],
+          [
+            7.025442,
+            50.804677
+          ],
+          [
+            6.99454,
+            50.852607
+          ],
+          [
+            6.99454,
+            50.904025
+          ],
+          [
+            6.973249,
+            50.938338
+          ],
+          [
+            6.968392,
+            50.998076
+          ],
+          [
+            6.937696,
+            51.040089
+          ],
+          [
+            6.881058,
+            51.064274
+          ],
+          [
+            6.850983,
+            51.097191
+          ],
+          [
+            6.847469,
+            51.138843
+          ],
+          [
+            6.816308,
+            51.168867
+          ],
+          [
+            6.7575,
+            51.187263
+          ],
+          [
+            6.759722,
+            51.227261
+          ],
+          [
+            6.741119,
+            51.268189
+          ],
+          [
+            6.689546,
+            51.30276
+          ],
+          [
+            6.698382,
+            51.364462
+          ],
+          [
+            6.707167,
+            51.421823
+          ],
+          [
+            6.697607,
+            51.457815
+          ],
+          [
+            6.693421,
+            51.48678
+          ],
+          [
+            6.687478,
+            51.524401
+          ],
+          [
+            6.623916,
+            51.55923
+          ],
+          [
+            6.593014,
+            51.591838
+          ],
+          [
+            6.595804,
+            51.637469
+          ],
+          [
+            6.357214,
+            51.775031
+          ],
+          [
+            6.211745,
+            51.836991
+          ],
+          [
+            6.079764,
+            51.869212
+          ],
+          [
+            6.038629,
+            51.872183
+          ],
+          [
+            5.975274,
+            51.87673
+          ],
+          [
+            5.898173,
+            51.859574
+          ],
+          [
+            5.780454,
+            51.863398
+          ],
+          [
+            5.622117,
+            51.888203
+          ],
+          [
+            5.491582,
+            51.877945
+          ],
+          [
+            5.388953,
+            51.832676
+          ],
+          [
+            5.24953,
+            51.813479
+          ],
+          [
+            4.98536,
+            51.82371
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "basel",
+        "name": "Basel",
+        "landmark": "Basel Minster and Mittlere Brücke",
+        "artwork": "basel-1618.png",
+        "status": "provisional painting; individual PNG still needs splitting and QA",
+        "snap_distance_km": 4.17,
+        "river_segment": 1,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5886,
+          47.5596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "breisach",
+        "name": "Breisach",
+        "landmark": "Münsterberg hill and St. Stephen's Minster",
+        "artwork": "breisach-1618.png",
+        "status": "provisional painting; individual PNG still needs splitting and QA",
+        "snap_distance_km": 0.98,
+        "river_segment": 6,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5829,
+          48.0329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "strasbourg",
+        "name": "Strasbourg",
+        "landmark": "Strasbourg cathedral, Ill channels",
+        "artwork": "strasbourg-1618.png",
+        "status": "provisional painting; individual PNG still needs splitting and QA",
+        "snap_distance_km": 4.71,
+        "river_segment": 11,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7455,
+          48.5839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "speyer",
+        "name": "Speyer",
+        "landmark": "Imperial cathedral",
+        "artwork": "speyer-1618.png",
+        "status": "provisional painting; individual PNG still needs splitting and QA",
+        "snap_distance_km": 3.19,
+        "river_segment": 15,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.431,
+          49.3173
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "worms",
+        "name": "Worms",
+        "landmark": "Worms cathedral",
+        "artwork": null,
+        "status": "not yet painted",
+        "snap_distance_km": 1.75,
+        "river_segment": 21,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.359,
+          49.6341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mainz",
+        "name": "Mainz",
+        "landmark": "Mainz cathedral",
+        "artwork": null,
+        "status": "not yet painted",
+        "snap_distance_km": 0.15,
+        "river_segment": 27,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2711,
+          50.0019
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "koblenz",
+        "name": "Koblenz",
+        "landmark": "Ehrenbreitstein and Moselle confluence",
+        "artwork": null,
+        "status": "not yet painted",
+        "snap_distance_km": 1.6,
+        "river_segment": 35,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.589,
+          50.3569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cologne",
+        "name": "Cologne",
+        "landmark": "Unfinished Cologne cathedral (1618)",
+        "artwork": null,
+        "status": "not yet painted",
+        "snap_distance_km": 0.91,
+        "river_segment": 47,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9603,
+          50.9384
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "duesseldorf",
+        "name": "Düsseldorf",
+        "landmark": "St. Lambertus and ducal town",
+        "artwork": null,
+        "status": "not yet painted",
+        "snap_distance_km": 0.96,
+        "river_segment": 54,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7735,
+          51.2277
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "wesel",
+        "name": "Wesel",
+        "landmark": "Fortifications",
+        "artwork": null,
+        "status": "not yet painted",
+        "snap_distance_km": 2.77,
+        "river_segment": 65,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6179,
+          51.6587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nijmegen",
+        "name": "Nijmegen",
+        "landmark": "Valkhof and Waal",
+        "artwork": null,
+        "status": "not yet painted",
+        "snap_distance_km": 2.05,
+        "river_segment": 71,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8527,
+          51.8426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gorinchem",
+        "name": "Gorinchem",
+        "landmark": "Merwede and fortified town",
+        "artwork": null,
+        "status": "not yet painted",
+        "snap_distance_km": 1.68,
+        "river_segment": 76,
+        "placement_status": "geographic anchor only; no confirmed sprite image placed"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.9724,
+          51.8365
+        ]
+      }
+    }
+  ]
+}
