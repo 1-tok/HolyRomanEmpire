@@ -147,6 +147,58 @@ def render():
             'layer':'city-over-river', 'status':'provisional historical QA'
         })
     assembled.convert('RGB').save(OUT/'on-existing-base-3600.jpg',quality=93)
+    # Per-city QA: compare the canonical river underlay against the opaque
+    # and translucent city footprints. This identifies blocked watercourse
+    # segments without drawing blue water ON TOP of buildings.
+    qa_dir=OUT/'city-river-junctions'
+    qa_dir.mkdir(parents=True,exist_ok=True)
+    qa=[]
+    for city in config['entries']:
+        fn=ROOT/city['asset']
+        if not fn.exists():
+            continue
+        sprite=Image.open(fn).convert('RGBA')
+        sz=config['working_sprite_width_px']
+        sprite.thumbnail((sz,sz),Image.Resampling.LANCZOS)
+        x=round(city['x'])-sprite.width//2
+        y=round(city['y'])-sprite.height//2
+        region=(max(0,x-90),max(0,y-90),
+                min(W,x+sprite.width+90),min(H,y+sprite.height+90))
+        x0,y0,x1,y1=region
+        local=water.crop(region)
+        at=(x-x0,y-y0)
+        overlay_alpha=Image.new('L',local.size,0)
+        overlay_alpha.paste(sprite.getchannel('A'),at)
+        opaque_mask=overlay_alpha.point(lambda a:255 if a>=224 else 0)
+        water_mask=local.getchannel('A').point(lambda a:255 if a>0 else 0)
+        blocked=ImageChops.multiply(water_mask,opaque_mask)
+        opaque_water_px=sum(1 for v in blocked.getdata() if v)
+        water_px=sum(1 for v in water_mask.getdata() if v)
+        img=assembled.crop(region).convert('RGB')
+        # Diagnostic only: colored outlines are drawn on separate QA views,
+        # never into the actual composite.
+        diagnostic=img.copy()
+        dd=ImageDraw.Draw(diagnostic)
+        dd.rectangle((x-x0,y-y0,x-x0+sprite.width-1,y-y0+sprite.height-1),
+                     outline=(210,130,38),width=2)
+        dd.text((8,8),city['site']+' | top-layer sprite',
+                fill=(30,31,25),stroke_width=2,stroke_fill=(246,244,224))
+        safe=''.join(c if c.isalnum() or c in '-_' else '-' for c in city['site'])
+        diagnostic.resize((480,480),Image.Resampling.LANCZOS).save(qa_dir/(safe+'-junction.png'))
+        # The paint occupies the true river corridor where blocked > 0.
+        # That does NOT mean it is historically correct. Flag for bank QA.
+        qa.append({'site':city['site'],'raster_crop_xyxy':list(region),
+                   'river_pixels_within_qa_crop':water_px,
+                   'canonical_water_pixels_behind_opaque_city':opaque_water_px,
+                   'qa_image':'city-river-junctions/'+safe+'-junction.png',
+                   'status':'NEEDS_VISUAL_QA'})
+    (OUT/'city-river-junction-qa.json').write_text(json.dumps({
+        'city_layer_is_above_river':True,
+        'water_sprite_seam_qa':'exact pre-city raster; passed by exact_connector_tiles',
+        'historical_river_alignment':'not verified',
+        'note':'Water behind an opaque city is not visible; review coast and painted local water manually',
+        'sites':qa
+    },indent=2,ensure_ascii=False)+'\n')
     # Use the same connector raster for previews and downstream print builds.
     report={'city_placements':placements,'connector_sprites':connectors,
        'connector_directory':'assets/sprites/rivers/rhine',
