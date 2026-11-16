@@ -2,7 +2,7 @@
 
 Each river runs from source to mouth in the order given. A city on a river gets a sprite, and sprites are made in river order, so the Rhine comes first and its cities go in sequence from Basel to Utrecht. Sprites follow sprite-brief.md. Each prompt also states where the river enters and leaves the square (north is up on the sheet, so a river that flows north enters from the top edge and leaves from the bottom edge).
 
-Sprites marked "brief" already have a description in sprite-brief.md. Sprites marked "new" need the prompt below. Coordinates are approximate and need checking against Pleiades or Wikidata before printing.
+Sprites marked "brief" already have a description in sprite-brief.md. Sprites marked "new" need the prompt below. Coordinates are in river-sites.csv (Wikidata P625, matched within 25 km of an independent estimate; none differ by more than 8 km). Five sites fall off the sheet (Győr, Ratibor, Oppeln, Cambrai, Tournai) and get edge pointers, not sprites.
 
 ## Shared prompt prefix
 
@@ -44,7 +44,7 @@ Rhine notes: the Rhine splits at Arnhem and Nijmegen. The Waal takes most of the
 | 7 | Linz | new | left / right | Upper Austrian town, the Danube and the castle. |
 | 8 | Vienna | brief | left / right | Stephansdom with its single south spire and unfinished north tower, Roter Turm, Hofburg. |
 | 9 | Pressburg (Bratislava) | new | left / right | Hungarian coronation town, St Martin's cathedral, castle on the hill. |
-| 10 | Győr | new | left / right | Hungarian walled town at the Rába mouth. |
+| 10 | Győr | new | left / right | Hungarian walled town at the Rába mouth. **Off the sheet: no sprite, edge pointer only.** |
 
 ## 3. Elbe (Dresden to Hamburg, flows north)
 
@@ -64,8 +64,8 @@ Rhine notes: the Rhine splits at Arnhem and Nijmegen. The Waal takes most of the
 
 | # | Place | Status | Enters / leaves | 1618 features |
 |---|---|---|---|---|
-| 1 | Ratibor (Racibórz) | new | top / bottom | Ducal castle and church on the Oder. |
-| 2 | Oppeln (Opole) | new | top / bottom | Piast castle and church on the Oder. |
+| 1 | Ratibor (Racibórz) | new | top / bottom | Ducal castle and church on the Oder. **Off the sheet: no sprite, edge pointer only.** |
+| 2 | Oppeln (Opole) | new | top / bottom | Piast castle and church on the Oder. **Off the sheet: no sprite, edge pointer only.** |
 | 3 | Breslau (Wrocław) | brief | top / bottom | Cathedral and the Oder bridges, Piast-era churches. |
 | 4 | Glogau (Głogów) | new | top / bottom | Fortified town on the Oder. |
 | 5 | Frankfurt (Oder) | new | top / bottom | Walled town on the Oder, the Marienkirche. Not Frankfurt am Main. |
@@ -124,8 +124,8 @@ Rhine notes: the Rhine splits at Arnhem and Nijmegen. The Waal takes most of the
 
 | # | Place | Status | Enters / leaves | 1618 features |
 |---|---|---|---|---|
-| 1 | Cambrai | new | top / bottom | Cathedral and the Scheldt. Hochstift of Cambrai, Spanish Netherlands. |
-| 2 | Tournai | new | top / bottom | Romanesque cathedral with its five towers, the Scheldt. |
+| 1 | Cambrai | new | top / bottom | Cathedral and the Scheldt. Hochstift of Cambrai, Spanish Netherlands. **Off the sheet: no sprite, edge pointer only.** |
+| 2 | Tournai | new | top / bottom | Romanesque cathedral with its five towers, the Scheldt. **Off the sheet: no sprite, edge pointer only.** |
 | 3 | Ghent | new | top / bottom | Gravensteen castle, St Bavo's, the Scheldt and the Lys. |
 | 4 | Antwerp | brief | top / bottom | Cathedral of Our Lady, its tall Gothic spire, the Scheldt. |
 

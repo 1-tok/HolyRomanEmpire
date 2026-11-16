@@ -1,0 +1,89 @@
+river,order,site,status,lat,lon,px_x,px_y,wikidata,check_km,coordinate_source,on_sheet
+Rhine,1,Basel,new,47.55806,7.58778,2918,8891,Q78,0.3,Wikidata P625,yes
+Rhine,2,Strasbourg,brief,48.57333,7.75222,3097,7690,Q6602,0.8,Wikidata P625,yes
+Rhine,3,Speyer,new,49.31656,8.43361,3660,6825,Q6829,0.5,Wikidata P625,yes
+Rhine,4,Worms,new,49.63026,8.36209,3616,6451,Q3852,0.2,Wikidata P625,yes
+Rhine,5,Mainz,brief,50,8.26667,3556,6009,Q284667,0.2,Wikidata P625,yes
+Rhine,6,Koblenz,new,50.3568,7.59366,3058,5567,Q1803266,0.4,Wikidata P625,yes
+Rhine,7,Bonn,new,50.73528,7.10222,2705,5100,Q586,0.6,Wikidata P625,yes
+Rhine,8,Cologne,brief,50.94222,6.95778,2608,4849,Q365,0.3,Wikidata P625,yes
+Rhine,9,Düsseldorf,new,51.23054,6.77365,2488,4500,Q662355,0.4,Wikidata P625,yes
+Rhine,10,Duisburg,new,51.43222,6.76111,2491,4259,Q2100,0.3,Wikidata P625,yes
+Rhine,11,Wesel,new,51.65861,6.61778,2398,3985,Q4011,0.2,Wikidata P625,yes
+Rhine,12,Arnhem,new,51.98333,5.91667,1904,3569,Q1310,0.6,Wikidata P625,yes
+Rhine,13,Nijmegen,new,51.8425,5.85278,1847,3733,Q13188714,0.6,Wikidata P625,yes
+Rhine,14,Utrecht,new,52.09083,5.12167,1330,3401,Q803,0.1,Wikidata P625,yes
+Danube,1,Ulm,brief,48.39861,9.99111,4861,7940,Q3012,0.2,Wikidata P625,yes
+Danube,2,Donauwörth,new,48.71804,10.7793,5484,7562,Q49277407,0.2,Wikidata P625,yes
+Danube,3,Ingolstadt,new,48.76306,11.425,5991,7506,Q3004,0.5,Wikidata P625,yes
+Danube,4,Regensburg,brief,48.99923,12.09317,6511,7218,Q574571,1.3,Wikidata P625,yes
+Danube,5,Straubing,new,48.88252,12.56806,6886,7348,Q33975768,0.3,Wikidata P625,yes
+Danube,6,Passau,new,48.56833,13.45333,7593,7700,Q704468,0.5,Wikidata P625,yes
+Danube,7,Linz,new,48.30583,14.28639,8265,7984,Q41329,0.5,Wikidata P625,yes
+Danube,8,Vienna,brief,48.20833,16.3725,9925,7998,Q1741,0.3,Wikidata P625,yes
+Danube,9,Pressburg (Bratislava),new,48.1517,17.10931,10514,8019,Q1780,0.2,Wikidata P625,yes
+Danube,10,Győr,new,47.68417,17.63444,10981,8535,Q134494,0.7,Wikidata P625,no (off the edge; label with a pointer)
+Elbe,1,Dresden,brief,51.04933,13.73814,7699,4744,Q1731,0.1,Wikidata P625,yes
+Elbe,2,Meissen,new,51.15972,13.46306,7488,4620,Q76941091,0.5,Wikidata P625,yes
+Elbe,3,Torgau,new,51.56028,13.00556,7131,4155,Q12062,0.4,Wikidata P625,yes
+Elbe,4,Wittenberg,new,51.8671,12.6484,6856,3798,Q6837,0.3,Wikidata P625,yes
+Elbe,5,Dessau,new,51.83999,12.23497,6552,3837,Q266559,0.3,Wikidata P625,yes
+Elbe,6,Magdeburg,brief,52.13159,11.63996,6109,3497,Q1733,0.2,Wikidata P625,yes
+Elbe,7,Tangermünde,new,52.54083,11.96889,6342,3006,Q498565,0.1,Wikidata P625,yes
+Elbe,8,Lauenburg,new,53.37528,10.55516,5316,2019,Q28733515,0.7,Wikidata P625,yes
+Elbe,9,Hamburg,brief,53.55028,9.99417,4918,1808,Q1626,0.3,Wikidata P625,yes
+Oder,1,Ratibor (Racibórz),new,50.0906,18.2217,11166,5643,Q33709994,0.1,Wikidata P625,no (off the edge; label with a pointer)
+Oder,2,Oppeln (Opole),new,50.66667,17.93333,10881,4983,Q462066,0.4,Wikidata P625,no (off the edge; label with a pointer)
+Oder,3,Breslau (Wrocław),brief,51.11,17.0325,10159,4518,Q1799,0.2,Wikidata P625,yes
+Oder,4,Glogau (Głogów),new,51.65906,16.08053,9401,3922,Q631754,0.1,Wikidata P625,yes
+Oder,5,Frankfurt (Oder),new,52.34208,14.55167,8230,3178,Q4024,0.3,Wikidata P625,yes
+Oder,6,Küstrin,new,52.58713,14.64953,8286,2883,Q35700516,0.3,Wikidata P625,yes
+Oder,7,Stettin (Szczecin),new,53.42472,14.55528,8166,1889,Q393,0.7,Wikidata P625,yes
+Weser,1,Hann. Münden,new,51.4173,9.65127,4640,4347,Q29075955,0.3,Wikidata P625,yes
+Weser,2,Hameln,new,52.10306,9.36,4437,3527,Q4062,0.3,Wikidata P625,yes
+Weser,3,Minden,new,52.28833,8.91667,4117,3300,Q3846,0.3,Wikidata P625,yes
+Weser,4,Bremen,brief,53.07583,8.80722,4060,2360,Q24879,0.7,Wikidata P625,yes
+Main,1,Schweinfurt,new,50.05,10.23333,5064,5978,Q4126,0.2,Wikidata P625,yes
+Main,2,Würzburg,new,49.78806,9.93528,4832,6288,Q161976,1.1,Wikidata P625,yes
+Main,3,Aschaffenburg,new,49.97405,9.14936,4232,6057,Q3942,0.7,Wikidata P625,yes
+Main,4,Frankfurt,brief,50.11056,8.68222,3878,5887,Q1794,0.2,Wikidata P625,yes
+Main,5,Hanau,new,50.13278,8.91694,4058,5865,Q3802,0.4,Wikidata P625,yes
+Neckar,1,Rottweil,new,48.17,8.63,3776,8192,Q8211,0.0,Wikidata P625,yes
+Neckar,2,Tübingen,new,48.5216,9.0576,4125,7782,Q1804655,0.3,Wikidata P625,yes
+Neckar,3,Esslingen,new,48.74056,9.31083,4329,7526,Q3786,0.1,Wikidata P625,yes
+Neckar,4,Stuttgart,brief,48.7775,9.18,4227,7480,Q1022,0.3,Wikidata P625,yes
+Neckar,5,Heilbronn,new,49.14,9.22056,4267,7050,Q32055580,0.0,Wikidata P625,yes
+Neckar,6,Heidelberg,brief,49.41028,8.70639,3875,6720,Q151510,0.3,Wikidata P625,yes
+Neckar,7,Mannheim,new,49.48778,8.46611,3691,6623,Q2119,0.4,Wikidata P625,yes
+Moselle,1,Metz,new,49.11972,6.17694,1894,6981,Q22690,0.2,Wikidata P625,yes
+Moselle,2,Trier,new,49.75565,6.63935,2294,6246,Q3138,0.6,Wikidata P625,yes
+Moselle,3,Koblenz,new,50.3568,7.59366,3058,5567,Q1803266,0.4,Wikidata P625,yes
+Meuse,1,Liège,new,50.63333,5.56667,1540,5155,Q1127,0.4,Wikidata P625,yes
+Meuse,2,Namur,new,50.46667,4.86667,996,5315,Q66312010,0.4,Wikidata P625,yes
+Meuse,3,Maastricht,new,50.8471,5.68667,1647,4908,Q1137652,0.4,Wikidata P625,yes
+Meuse,4,Venlo,new,51.37,6.16806,2046,4309,Q3322237,0.1,Wikidata P625,yes
+Scheldt,1,Cambrai,new,50.1768,3.24132,-267,5551,Q2203151,0.4,Wikidata P625,no (off the edge; label with a pointer)
+Scheldt,2,Tournai,new,50.6069,3.38961,-105,5052,Q51462855,0.3,Wikidata P625,no (off the edge; label with a pointer)
+Scheldt,3,Ghent,new,51.05361,3.72528,196,4547,Q1296,0.5,Wikidata P625,yes
+Scheldt,4,Antwerp,brief,51.22056,4.40028,717,4393,Q31467408,0.1,Wikidata P625,yes
+Vltava,1,České Budějovice (Budweis),new,48.97389,14.475,8375,7184,Q753120,0.6,Wikidata P625,yes
+Vltava,2,Prague,brief,50.0875,14.42139,8267,5863,Q1085,0.3,Wikidata P625,yes
+Inn,1,Innsbruck,brief,47.26833,11.39333,5983,9283,Q1735,0.3,Wikidata P625,yes
+Inn,2,Kufstein,new,47.58333,12.16667,6602,8900,Q486341,0.4,Wikidata P625,yes
+Inn,3,Wasserburg,new,48.05837,12.22756,6639,8334,Q133309335,0.3,Wikidata P625,yes
+Inn,4,Passau,new,48.56833,13.45333,7593,7700,Q704468,0.5,Wikidata P625,yes
+Isar,1,Freising,new,48.39893,11.7465,6250,7936,Q262769,0.3,Wikidata P625,yes
+Isar,2,Landshut,new,48.53972,12.15083,6567,7763,Q3974,0.1,Wikidata P625,yes
+Isar,3,Munich,brief,48.1375,11.575,6118,8248,Q1726,0.5,Wikidata P625,yes
+Lech,1,Landsberg,new,48.05277,10.86893,5556,8353,Q494299,0.3,Wikidata P625,yes
+Lech,2,Augsburg,brief,48.36889,10.89778,5578,7977,Q2749,0.2,Wikidata P625,yes
+Spree and Havel,1,Cottbus,new,51.76081,14.33186,8103,3878,Q3214,0.2,Wikidata P625,yes
+Spree and Havel,2,Berlin and Cölln,brief,52.51667,13.38333,7370,3007,Q64,1.2,Wikidata P625,yes
+Spree and Havel,3,Potsdam,new,52.40093,13.05914,7139,3153,Q1711,0.7,Wikidata P625,yes
+Spree and Havel,4,Brandenburg an der Havel,new,52.41167,12.55611,6772,3151,Q127429786,0.3,Wikidata P625,yes
+Saale,1,Jena,new,50.92722,11.58639,6087,4931,Q3150,0.4,Wikidata P625,yes
+Saale,2,Naumburg,new,51.1521,11.80982,6251,4661,Q15986,0.2,Wikidata P625,yes
+Saale,3,"Halle (salt, sign only)",brief,51.48278,11.96972,6364,4266,Q2814,0.3,Wikidata P625,yes
+Ems,1,Rheine,new,52.2765,7.43486,3034,3278,Q277743,0.5,Wikidata P625,yes
+Ems,2,Lingen,new,52.51944,7.32167,2964,2986,Q320255,0.1,Wikidata P625,yes
+Ems,3,Emden,new,53.36694,7.20611,2926,1972,Q4174,0.4,Wikidata P625,yes
