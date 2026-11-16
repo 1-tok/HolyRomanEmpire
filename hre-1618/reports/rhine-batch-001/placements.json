@@ -6,7 +6,9 @@
       "x": 921,
       "y": 2912,
       "width": 105,
-      "height": 105
+      "height": 105,
+      "layer": "city-over-river",
+      "status": "provisional historical QA"
     },
     {
       "site": "Strasbourg",
@@ -14,7 +16,9 @@
       "x": 980,
       "y": 2511,
       "width": 105,
-      "height": 105
+      "height": 105,
+      "layer": "city-over-river",
+      "status": "provisional historical QA"
     },
     {
       "site": "Speyer",
@@ -22,7 +26,9 @@
       "x": 1168,
       "y": 2223,
       "width": 105,
-      "height": 105
+      "height": 105,
+      "layer": "city-over-river",
+      "status": "provisional historical QA"
     },
     {
       "site": "Worms",
@@ -30,7 +36,9 @@
       "x": 1153,
       "y": 2098,
       "width": 105,
-      "height": 105
+      "height": 105,
+      "layer": "city-over-river",
+      "status": "provisional historical QA"
     },
     {
       "site": "Mainz",
@@ -38,73 +46,129 @@
       "x": 1133,
       "y": 1951,
       "width": 105,
-      "height": 105
+      "height": 105,
+      "layer": "city-over-river",
+      "status": "provisional historical QA"
     }
   ],
   "connector_sprites": [
     {
-      "file": "connector-05.png",
+      "file": "rhine-connector-05.png",
       "x": 326,
       "y": 1021,
       "width": 390,
-      "height": 179
+      "height": 179,
+      "range_y": [
+        960,
+        1200
+      ],
+      "sha256": "4dfcfe4703696b250acbb24b2729fa3c39d160ddbd164409ccedb8c6ee098e49"
     },
     {
-      "file": "connector-06.png",
+      "file": "rhine-connector-06.png",
       "x": 318,
       "y": 1200,
       "width": 514,
-      "height": 240
+      "height": 240,
+      "range_y": [
+        1200,
+        1440
+      ],
+      "sha256": "6527c85e1f596aa051ba8eecae62ed07a443be37990a7795545e8deb1ed8fc90"
     },
     {
-      "file": "connector-07.png",
+      "file": "rhine-connector-07.png",
       "x": 797,
       "y": 1440,
       "width": 101,
-      "height": 240
+      "height": 240,
+      "range_y": [
+        1440,
+        1680
+      ],
+      "sha256": "377200f8be5e8130ecaf4a31b37b5d6cf31a08aa138f759ff7c4be72445bff33"
     },
     {
-      "file": "connector-08.png",
+      "file": "rhine-connector-08.png",
       "x": 879,
       "y": 1680,
       "width": 160,
-      "height": 240
+      "height": 240,
+      "range_y": [
+        1680,
+        1920
+      ],
+      "sha256": "f1c9636289deb59428800e5ee6c01780c297b00ea3c49b73c893bf873fb52f90"
     },
     {
-      "file": "connector-09.png",
+      "file": "rhine-connector-09.png",
       "x": 1019,
       "y": 1920,
       "width": 225,
-      "height": 240
+      "height": 240,
+      "range_y": [
+        1920,
+        2160
+      ],
+      "sha256": "98d008c56cf4a72d6481e58420b2ed4371b42a3d8b885c940477550829bafb48"
     },
     {
-      "file": "connector-10.png",
+      "file": "rhine-connector-10.png",
       "x": 1165,
       "y": 2160,
       "width": 81,
-      "height": 240
+      "height": 240,
+      "range_y": [
+        2160,
+        2400
+      ],
+      "sha256": "45873f9ba7814869a29370bc2c30a6f5afe1621d953ca7e09727dd3708310e83"
     },
     {
-      "file": "connector-11.png",
+      "file": "rhine-connector-11.png",
       "x": 1018,
       "y": 2400,
       "width": 165,
-      "height": 240
+      "height": 240,
+      "range_y": [
+        2400,
+        2640
+      ],
+      "sha256": "11fac9390f6241c237bbac84d01aa7a0743496b8f6766abe2c18f64f66a893e7"
     },
     {
-      "file": "connector-12.png",
+      "file": "rhine-connector-12.png",
       "x": 952,
       "y": 2640,
       "width": 84,
-      "height": 240
+      "height": 240,
+      "range_y": [
+        2640,
+        2880
+      ],
+      "sha256": "5b7c5e633056ffb9b87c75e71e1647ad6350a2f69e760416d6d417e28d5290da"
     },
     {
-      "file": "connector-13.png",
+      "file": "rhine-connector-13.png",
       "x": 947,
       "y": 2880,
       "width": 443,
-      "height": 98
+      "height": 98,
+      "range_y": [
+        2880,
+        3120
+      ],
+      "sha256": "f301606062e4009e5582e031b4256c9efcf8ce6bd9a121424fde7e988d9e608f"
     }
   ],
-  "status": "PROVISIONAL QA; modern generalized NE10m reference; bridges not yet verified"
+  "connector_directory": "assets/sprites/rivers/rhine",
+  "render_order": [
+    "original base",
+    "connector sprites",
+    "city sprites",
+    "labels"
+  ],
+  "seam_test": "PASS: exact RGBA reconstruction",
+  "visual_qa": "City sprites preserve original opaque/alpha artwork; local painted water may need shoreline QA",
+  "historical_status": "PROVISIONAL: NE 10m course is not a 1618 reconstruction"
 }
