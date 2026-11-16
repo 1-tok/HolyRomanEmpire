@@ -1,0 +1,78 @@
+{
+  "batch": "004",
+  "project": "HRE 1618",
+  "status": "PNG candidates generated and locally validated; awaiting binary intake; NOT promoted to approved map",
+  "source_archive": "hre1618_batch004_sprite_candidates.zip",
+  "expected_upload_path": "hre-1618/hre1618_batch004_sprite_candidates.zip",
+  "format": "RGBA PNG",
+  "width": 1254,
+  "height": 1254,
+  "render_order": [
+    "base",
+    "continuous river",
+    "city sprites",
+    "labels"
+  ],
+  "sprite_records": [
+    {
+      "site": "Utrecht",
+      "river": "Old Rhine",
+      "file": "sprites/Utrecht.png",
+      "x": 443,
+      "y": 1134,
+      "sha256": "02a38044f90b2a0d8a6622942dddd7446e2ef4f8af7e3fb32655a61e110609b2",
+      "historical_qa": "pending",
+      "shoreline_qa": "pending"
+    },
+    {
+      "site": "Ulm",
+      "river": "Danube",
+      "file": "sprites/Ulm.png",
+      "x": 1620,
+      "y": 2647,
+      "sha256": "cfeefb4d028578c5cce9d68c5281821747f2a360ea62fc7c80b051c5dbf5cb60",
+      "historical_qa": "pending",
+      "shoreline_qa": "pending"
+    },
+    {
+      "site": "Donauwörth",
+      "river": "Danube/Wörnitz",
+      "file": "sprites/Donauwoerth.png",
+      "x": 1828,
+      "y": 2521,
+      "sha256": "f5e3ee1528b84b38df473dc39bef8114c87521d5530b290238c2ef310fd05c18",
+      "historical_qa": "pending",
+      "shoreline_qa": "pending"
+    },
+    {
+      "site": "Ingolstadt",
+      "river": "Danube",
+      "file": "sprites/Ingolstadt.png",
+      "x": 1997,
+      "y": 2502,
+      "sha256": "cc07732fef5130c0c81af5a2afa7a393ae6dfa8889b818a15fde",
+      "historical_qa": "pending",
+      "shoreline_qa": "pending"
+    },
+    {
+      "site": "Regensburg",
+      "river": "Danube",
+      "file": "sprites/Regensburg.png",
+      "x": 2170,
+      "y": 2406,
+      "sha256": "0026e7267862910b2b00a546c12b039277fa4c15e413a748a489d20eca7f77ea",
+      "historical_qa": "pending",
+      "shoreline_qa": "pending"
+    }
+  ],
+  "technical_validation": {
+    "png_decodes": true,
+    "dimensions": "1254x1254",
+    "transparent_alpha": true,
+    "independent_cutouts": true,
+    "files_in_zip": 5,
+    "visual_historical_accuracy": "requires human review",
+    "riverbank_alignment": "requires map-scale QA"
+  },
+  "note": "Coordinates are base_3600 pixel anchors from river-sites.csv (px_x,px_y divided by 3); the actual binary PNGs are not committed by this manifest."
+}
