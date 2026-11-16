@@ -60,13 +60,14 @@ def main():
         d.text((lx,ly),label,font=ft,fill=(30,50,35))
         d.line((x,y,lx+min(bb[2],70),ly+12),fill=(65,61,52),width=1)
     inset.save(OUT/"rhine-upper-detail.png")
+    inset.convert("RGB").save(OUT/"rhine-upper-detail.jpg",quality=89,optimize=True)
     overview=canvas.resize((1200,1600),Image.Resampling.LANCZOS)
     overview.save(OUT/"rhine-progress-overview.jpg",quality=91)
     (OUT/"rhine-progress-status.json").write_text(json.dumps({
         "source_canvas":str(BASE.relative_to(ROOT)),"geometry":"existing NE10m base river",
         "source_sprite_directory":"sprites/","placed_count":len(placed),
         "placed":sorted(placed),"anchors":rows,
-        "outputs":["rhine-progress-overview.jpg","rhine-upper-detail.png",
+        "outputs":["rhine-progress-overview.jpg","rhine-upper-detail.png","rhine-upper-detail.jpg",
                    "continuous-rhine-water-overlay.png","on-existing-base-3600.jpg"],
         "qa":"provisional: image generation is not historical verification"
     },indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
