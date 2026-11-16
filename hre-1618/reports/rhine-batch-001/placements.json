@@ -1,0 +1,82 @@
+{
+  "city_placements": [
+    {
+      "site": "Basel",
+      "file": "sprites/Basel.png",
+      "x": 921,
+      "y": 2912,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Strasbourg",
+      "file": "sprites/Strasbourg.png",
+      "x": 980,
+      "y": 2511,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Speyer",
+      "file": "sprites/Speyer.png",
+      "x": 1168,
+      "y": 2223,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Worms",
+      "file": "sprites/Worms.png",
+      "x": 1153,
+      "y": 2098,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Mainz",
+      "file": "sprites/Mainz.png",
+      "x": 1133,
+      "y": 1951,
+      "width": 105,
+      "height": 105
+    }
+  ],
+  "connector_sprites": [
+    {
+      "file": "connector-01.png",
+      "x": 1042,
+      "y": 1946,
+      "width": 180,
+      "height": 131
+    },
+    {
+      "file": "connector-02.png",
+      "x": 1198,
+      "y": 2077,
+      "width": 46,
+      "height": 136
+    },
+    {
+      "file": "connector-03.png",
+      "x": 1142,
+      "y": 2213,
+      "width": 104,
+      "height": 206
+    },
+    {
+      "file": "connector-04.png",
+      "x": 970,
+      "y": 2419,
+      "width": 195,
+      "height": 345
+    },
+    {
+      "file": "connector-05.png",
+      "x": 947,
+      "y": 2764,
+      "width": 399,
+      "height": 214
+    }
+  ],
+  "status": "PROVISIONAL QA; modern generalized NE10m reference; bridges not yet verified"
+}

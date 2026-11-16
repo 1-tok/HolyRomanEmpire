@@ -1,0 +1,106 @@
+{
+  "source_canvas": "base/base_3600.jpg",
+  "geometry": "existing NE10m base river",
+  "source_sprite_directory": "sprites/",
+  "placed_count": 5,
+  "placed": [
+    "Basel",
+    "Mainz",
+    "Speyer",
+    "Strasbourg",
+    "Worms"
+  ],
+  "anchors": [
+    {
+      "site": "Basel",
+      "x": 973,
+      "y": 2964,
+      "status": "placed-provisional"
+    },
+    {
+      "site": "Strasbourg",
+      "x": 1032,
+      "y": 2563,
+      "status": "placed-provisional"
+    },
+    {
+      "site": "Speyer",
+      "x": 1220,
+      "y": 2275,
+      "status": "placed-provisional"
+    },
+    {
+      "site": "Worms",
+      "x": 1205,
+      "y": 2150,
+      "status": "placed-provisional"
+    },
+    {
+      "site": "Mainz",
+      "x": 1185,
+      "y": 2003,
+      "status": "placed-provisional"
+    },
+    {
+      "site": "Koblenz",
+      "x": 1019,
+      "y": 1856,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Bonn",
+      "x": 902,
+      "y": 1700,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Cologne",
+      "x": 869,
+      "y": 1616,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Düsseldorf",
+      "x": 829,
+      "y": 1500,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Duisburg",
+      "x": 830,
+      "y": 1420,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Wesel",
+      "x": 799,
+      "y": 1328,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Arnhem",
+      "x": 635,
+      "y": 1190,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Nijmegen",
+      "x": 616,
+      "y": 1244,
+      "status": "anchor-only"
+    },
+    {
+      "site": "Utrecht",
+      "x": 443,
+      "y": 1134,
+      "status": "anchor-only"
+    }
+  ],
+  "outputs": [
+    "rhine-progress-overview.jpg",
+    "rhine-upper-detail.png",
+    "continuous-rhine-water-overlay.png",
+    "on-existing-base-3600.jpg"
+  ],
+  "qa": "provisional: image generation is not historical verification"
+}
