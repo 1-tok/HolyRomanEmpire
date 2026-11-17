@@ -91,6 +91,9 @@ def main():
     for row in range(312):
         blend=min(1.0,(row+1)/feather,(312-row)/feather)
         adjusted[row,:,3]=np.rint(adjusted[row,:,3].astype(float)*blend).astype(np.uint8)
+    # Fully transparent RGB must also be zero, otherwise tight-cropped PNGs
+    # drop invisible colors and pixel-exact RGBA checks fail at the edges.
+    adjusted[adjusted[:,:,3]==0]=0
     scaled=Image.fromarray(adjusted,"RGBA")
     x0-=75
     layer=Image.new("RGBA",(W,H),(0,0,0,0))
