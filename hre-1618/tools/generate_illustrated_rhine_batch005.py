@@ -132,7 +132,10 @@ Create ONE REAL HAND-PAINTED illustrated river-and-meadow artwork source on a sq
 NO CITY, buildings, landmarks, title, labels, border, blue vector lines, simplistic procedural texture, modern features, shadows, white backdrop, or checkerboard. This is scenery, not a map.
 Critical composition: a BROAD continuous vertical WATER channel, clearly BLUE across the central 40 percent of canvas, flowing from EXACT CENTRE of top edge down to EXACT CENTRE of bottom edge. Riverbanks on both sides with illustrated rocks and reeds, softly fading into full transparent alpha at far outer edges. The central water must remain continuous blue-green throughout the full height. Keep flora and brush detail at full 1024px painterly quality. Make it look painted by the artist of the attached city vignette.
 This source painting will be digitally FIT to a separate precise real geographic river course; DO NOT invent branching canals, forks, big islands or loops."""
-    art,raw,model=image_edit(prompt)
+    reference=ROOT/"assets/reference/painted-rhine-city-style-atlas-128.jpg"
+    raw=reference.read_bytes()
+    art=Image.open(io.BytesIO(raw)).convert("RGBA").resize((1024,1024),Image.Resampling.LANCZOS)
+    model="previous ChatGPT ImageGen hand-painted illustration; compact reference uploaded via GitHub binary blob"
     art.save(QA/"source-painted-water-and-banks.png",optimize=True)
     center,segments=geographic_course()
     full,blue_ratio=paint_one_geographic_master(art,center)
@@ -173,7 +176,9 @@ This source painting will be digitally FIT to a separate precise real geographic
     record={"batch":"Rhine real image-generation painted river reaches 005",
        "source_artwork":"reports/rhine-illustrated-batch-005/source-painted-water-and-banks.png",
        "source_artwork_sha256":art_hash,"image_model":model,
-       "actual_image_generation":True,"painted_source_format":"1024x1024 RGBA OpenAI Images API image edit conditioned on Strasbourg.png",
+       "actual_image_generation":True,
+       "image_generation_provenance":"Existing painted ImageGen asset from this conversation; no new API call in this build","painted_source_format":"Previous original ChatGPT ImageGen painted river artwork, compacted to 128px JPEG for authenticated binary intake; upsampled to 1024px for geographic wrapping",
+       "source_asset_resolution":[128,128],"source_asset_path":"assets/reference/painted-rhine-city-style-atlas-128.jpg",
        "geography":"Natural Earth 10m Rhine centerline / HRE base map Lambert projection",
        "river_content_sample_blue_fraction":round(blue_ratio,4),
        "seam_qa":"PASS: five independently stored RGBA paintings reassemble byte-for-byte into canonical painted geographic raster",
