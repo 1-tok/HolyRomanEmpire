@@ -1,0 +1,57 @@
+{
+  "map_canvas": "base/base_3600.jpg",
+  "canvas_size": [
+    3600,
+    4800
+  ],
+  "painted_scenery_source": "assets/sprites/rivers/rhine-illustrated-batch-005/manifest.json",
+  "approved_city_source": "placements/rhine-batch-001.json",
+  "transparent_map_overlay": "maps/canvas/strasbourg-painted-rhine-006.png",
+  "composite_map_canvas": "maps/canvas/strasbourg-painted-rhine-006.jpg",
+  "city_layer": "maps/canvas/existing-city-layer-006.png",
+  "tiles": 5,
+  "placed_cities": [
+    {
+      "site": "Basel",
+      "x": 921,
+      "y": 2912,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Strasbourg",
+      "x": 980,
+      "y": 2511,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Speyer",
+      "x": 1168,
+      "y": 2223,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Worms",
+      "x": 1153,
+      "y": 2098,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Mainz",
+      "x": 1133,
+      "y": 1951,
+      "width": 105,
+      "height": 105
+    }
+  ],
+  "pixel_seams": "PASS: 5 painterly river sprite files exactly reconstruct their painted master; no white transition strips used",
+  "visible_white_bars_in_this_composition": "none drawn or introduced",
+  "river_sprite_content": "actual ImageGen painted water and banks carried from batch 005; not plain cartographic strokes",
+  "historical_river_qa": "PENDING: 1618 Ill/Rhine alignment, canal arms and exact historic river course",
+  "strasbourg_city_water_qa": "REVIEW REQUIRED: do not mistake main Rhine touching city artwork for verified Ill attachment",
+  "print_approval": false,
+  "notes": "This is a repository-native full map placement review. The separate city PNGs and painted river source are unchanged; original 1618 base was not overwritten."
+}
