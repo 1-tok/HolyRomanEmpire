@@ -1,0 +1,80 @@
+{
+  "approved_art": "assets/reference/strasbourg-approved-painterly-river-full.png",
+  "source_dimensions": [
+    1122,
+    1402
+  ],
+  "render_size": [
+    250,
+    312
+  ],
+  "canvas_dimensions": [
+    3600,
+    4800
+  ],
+  "city_anchor": [
+    1032.33,
+    2563.33
+  ],
+  "painting_origin_on_map": [
+    925,
+    2396
+  ],
+  "city_render_order": "base, three transparent approved painting segments, other city sprites, labels",
+  "pixel_seams": "PASS: three individual transparent PNGs exactly reconstruct one common painting",
+  "water_across_seams": "PASS: painted blue water exists on both sides of all two cuts",
+  "blue_counts_by_seam_row": {
+    "89": 20,
+    "90": 20,
+    "233": 25,
+    "234": 19
+  },
+  "original_painting_unmodified": true,
+  "replaces_older_strasbourg_art_in_preview_only": true,
+  "map_geography": "Base unchanged; scene anchored at original Strasbourg city position, exact river banks require final geographical fitting",
+  "historic_caution": "Strasbourg is on Ill, not the main Rhine. The image's river is an artistic concept, NOT validated 1618 Ill/Rhine channels.",
+  "print_approval": false,
+  "pieces": [
+    {
+      "file": "01-ill-upper-painted.png",
+      "x": 925,
+      "y": 2396,
+      "width": 243,
+      "height": 90,
+      "source_y": [
+        0,
+        90
+      ],
+      "sha256": "b5cef680ff24eed58fbdcd364440689f8f6d8b6ad55ed63691c9be0e23b24b31",
+      "kind": "approved hand-painted transparent scenery"
+    },
+    {
+      "file": "02-strasbourg-city-river.png",
+      "x": 925,
+      "y": 2486,
+      "width": 198,
+      "height": 144,
+      "source_y": [
+        90,
+        234
+      ],
+      "sha256": "90a5f724b003208afdd3451efeaeac9206a681dc449e0ecf975b7b1a965b3663",
+      "kind": "approved hand-painted transparent scenery"
+    },
+    {
+      "file": "03-ill-lower-painted.png",
+      "x": 926,
+      "y": 2630,
+      "width": 153,
+      "height": 78,
+      "source_y": [
+        234,
+        312
+      ],
+      "sha256": "3697855d45b12320f33a0311ea86e7c18f6a6e50595be09eb77213d173656845",
+      "kind": "approved hand-painted transparent scenery"
+    }
+  ],
+  "map_preview": "maps/canvas/strasbourg-approved-painted-preview-007.jpg",
+  "status": "MAP-SCALE ART PLACEMENT FOR USER VISUAL REVIEW"
+}
