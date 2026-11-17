@@ -57,12 +57,48 @@ def main():
     x0=round(target["x"]-480*250/1122)
     y0=round(target["y"]-750*312/1402)
     assert 800<x0<1100 and 2280<y0<2620
+    # Fit only the OUTER reaches of the newly approved painting to the
+    # georeferenced older river position. Preserve city brushwork and its
+    # approved architecture without geometric displacement.
+    # The previously committed blue-line/painted layer is used as a geometric
+    # guide ONLY, never as visible final artwork.
+    guide_path=ROOT/"maps/canvas/strasbourg-painted-rhine-006.png"
+    guide=np.asarray(Image.open(guide_path).getchannel("A"))
+    pic=np.asarray(scaled)
+    blue=(pic[:,:,3]>140)&(pic[:,:,2]>pic[:,:,0]+8)&(pic[:,:,1]>pic[:,:,0]+5)
+    def paint_centre(row):
+        indices=np.flatnonzero(blue[row])
+        if len(indices)<3:raise RuntimeError("No blue-water pixels in painting endpoint row")
+        return float(np.median(indices))
+    def geo_centre(map_y):
+        lo=max(0,round(target["x"])-160);hi=min(W,round(target["x"])+210)
+        index=np.flatnonzero(guide[map_y,lo:hi]>200)
+        if len(index)<3:raise RuntimeError("No geographic Rhine pixels at target endpoint")
+        return lo+float(np.median(index))
+    delta_top=np.clip(geo_centre(y0+10)-(x0+paint_centre(10)),-75,75)
+    delta_bottom=np.clip(geo_centre(y0+300)-(x0+paint_centre(300)),-75,75)
+    # Wide transparent working strip accommodates translated tree and banks.
+    adjusted=np.zeros((312,400,4),dtype=np.uint8)
+    for row in range(312):
+        if row<90: shift=delta_top*((90-row)/90)**1.3
+        elif row>234: shift=delta_bottom*((row-234)/(311-234))**1.3
+        else: shift=0
+        xx=75+int(round(shift))
+        adjusted[row,xx:xx+250]=pic[row]
+    # Gently blend painted exit edges onto the existing geographic river;
+    # this prevents hard rectangular terminations in the map preview.
+    feather=22
+    for row in range(312):
+        blend=min(1.0,(row+1)/feather,(312-row)/feather)
+        adjusted[row,:,3]=np.rint(adjusted[row,:,3].astype(float)*blend).astype(np.uint8)
+    scaled=Image.fromarray(adjusted,"RGBA")
+    x0-=75
     layer=Image.new("RGBA",(W,H),(0,0,0,0))
     pieces=[];previous_end=0
     for name,ya,yb in CUTS:
         if ya!=previous_end:raise AssertionError("Uncovered join row")
         previous_end=yb
-        strip=scaled.crop((0,ya,250,yb))
+        strip=scaled.crop((0,ya,400,yb))
         bounds=strip.getbbox()
         if bounds is None:raise RuntimeError("Empty painted piece: "+name)
         piece=strip.crop(bounds)
@@ -120,20 +156,22 @@ def main():
     diagnostic=scaled.convert("RGBA")
     dbg=ImageDraw.Draw(diagnostic)
     for _,a,b in CUTS[:-1]:
-        dbg.line((0,b-1,249,b-1),fill=(232,60,55,255),width=1)
+        dbg.line((0,b-1,399,b-1),fill=(232,60,55,255),width=1)
     diagnostic.resize((750,936),Image.Resampling.NEAREST).save(QA/"sprite-cut-boundaries.png")
     checks={
        "approved_art":"assets/reference/strasbourg-approved-painterly-river-full.png",
        "source_dimensions":[1122,1402],"render_size":[250,312],
        "canvas_dimensions":[W,H],"city_anchor":[target["x"],target["y"]],
        "painting_origin_on_map":[x0,y0],
+       "geo_endpoint_shift_px":{"north":round(float(delta_top),2),"south":round(float(delta_bottom),2)},
+       "river_edge_blend_px":22,
        "city_render_order":"base, three transparent approved painting segments, other city sprites, labels",
        "pixel_seams":"PASS: three individual transparent PNGs exactly reconstruct one common painting",
        "water_across_seams":"PASS: painted blue water exists on both sides of all two cuts",
        "blue_counts_by_seam_row":seam_coverage,
        "original_painting_unmodified":True,
        "replaces_older_strasbourg_art_in_preview_only":True,
-       "map_geography":"Base unchanged; scene anchored at original Strasbourg city position, exact river banks require final geographical fitting",
+       "map_geography":"Base unchanged; approved city anchored to Strasbourg; scenic outer river reaches elastically shifted toward existing mapped river course, historic Ill/Rhine still provisional",
        "historic_caution":"Strasbourg is on Ill, not the main Rhine. The image's river is an artistic concept, NOT validated 1618 Ill/Rhine channels.",
        "print_approval":False,
        "pieces":pieces,
