@@ -17,9 +17,14 @@
     2563.33
   ],
   "painting_origin_on_map": [
-    925,
+    850,
     2396
   ],
+  "geo_endpoint_shift_px": {
+    "north": 26.0,
+    "south": -18.0
+  },
+  "river_edge_blend_px": 22,
   "city_render_order": "base, three transparent approved painting segments, other city sprites, labels",
   "pixel_seams": "PASS: three individual transparent PNGs exactly reconstruct one common painting",
   "water_across_seams": "PASS: painted blue water exists on both sides of all two cuts",
@@ -31,21 +36,21 @@
   },
   "original_painting_unmodified": true,
   "replaces_older_strasbourg_art_in_preview_only": true,
-  "map_geography": "Base unchanged; scene anchored at original Strasbourg city position, exact river banks require final geographical fitting",
+  "map_geography": "Base unchanged; approved city anchored to Strasbourg; scenic outer river reaches elastically shifted toward existing mapped river course, historic Ill/Rhine still provisional",
   "historic_caution": "Strasbourg is on Ill, not the main Rhine. The image's river is an artistic concept, NOT validated 1618 Ill/Rhine channels.",
   "print_approval": false,
   "pieces": [
     {
       "file": "01-ill-upper-painted.png",
-      "x": 925,
+      "x": 927,
       "y": 2396,
-      "width": 243,
+      "width": 264,
       "height": 90,
       "source_y": [
         0,
         90
       ],
-      "sha256": "b5cef680ff24eed58fbdcd364440689f8f6d8b6ad55ed63691c9be0e23b24b31",
+      "sha256": "4dc144fcfa13e6c104ab87c1f7726ff739e8efc6abc554d103af3f4abb0860e0",
       "kind": "approved hand-painted transparent scenery"
     },
     {
@@ -58,20 +63,20 @@
         90,
         234
       ],
-      "sha256": "90a5f724b003208afdd3451efeaeac9206a681dc449e0ecf975b7b1a965b3663",
+      "sha256": "eb7b9a6461f39213cc4ad86e9b0b7188f64a22ea759e38eed6ac5634140275b5",
       "kind": "approved hand-painted transparent scenery"
     },
     {
       "file": "03-ill-lower-painted.png",
-      "x": 926,
+      "x": 922,
       "y": 2630,
-      "width": 153,
+      "width": 147,
       "height": 78,
       "source_y": [
         234,
         312
       ],
-      "sha256": "3697855d45b12320f33a0311ea86e7c18f6a6e50595be09eb77213d173656845",
+      "sha256": "c0b0ded03498390455ceab4ff9ea08cf030daeabf117d3722b832fdd684b3a0d",
       "kind": "approved hand-painted transparent scenery"
     }
   ],
