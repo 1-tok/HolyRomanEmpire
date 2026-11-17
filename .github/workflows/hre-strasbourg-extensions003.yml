@@ -1,0 +1,63 @@
+name: HRE Strasbourg Continuous Ill Extensions 003
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/build_strasbourg_ill_extensions003.py'
+      - '.github/workflows/hre-strasbourg-extensions003.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-strasbourg-extensions-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3' 'scipy>=1.11,<2'
+      - name: Render extension sprites on geographic canvas and validate all joins
+        run: python hre-1618/tools/build_strasbourg_ill_extensions003.py
+      - name: Check four separate PNGs and review artifacts
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          p=Path("hre-1618/assets/sprites/rivers/strasbourg-ill-extensions-003")
+          qa=Path("hre-1618/reports/strasbourg-ill-extensions-003")
+          m=json.loads((p/"manifest.json").read_text())
+          assert len(m["connectors"])==4 and "PASS" in m["water_connectivity"]
+          assert len(m["city_ports_preserved"])==4 and m["original_city_unmodified"]
+          for e in m["connectors"]:
+              png=p/e["file"]; im=Image.open(png)
+              assert im.mode=="RGBA" and im.size==(e["width"],e["height"])
+              assert hashlib.sha256(png.read_bytes()).hexdigest()==e["sha256"]
+          for f in ("strasbourg-extended-preview.jpg","strasbourg-extended-annotated.jpg","before-after.jpg"):
+              assert (qa/f).stat().st_size>10000
+          print("Validated 4 separate river sprites and map proof.")
+          PY
+      - name: Commit completed sprite binaries and QA
+        run: |
+          set -e
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/rivers/strasbourg-ill-extensions-003/ hre-1618/reports/strasbourg-ill-extensions-003/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add separate Strasbourg Ill continuous canal extension PNGs and assembled map review [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strasbourg-ill-extensions-003
+          path: |
+            hre-1618/assets/sprites/rivers/strasbourg-ill-extensions-003/
+            hre-1618/reports/strasbourg-ill-extensions-003/
+          if-no-files-found: ignore
