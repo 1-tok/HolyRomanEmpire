@@ -1,0 +1,116 @@
+{
+  "batch": "strasbourg-ill-extensions-003",
+  "status": "MAP-SCALE PROVISIONAL - course requires historical review",
+  "not_a_new_rhine_connection": true,
+  "city_ports_preserved": {
+    "ill-upstream-entry": [
+      1023,
+      2607
+    ],
+    "ill-downstream-exit": [
+      1076,
+      2558
+    ],
+    "ill-canal-branch-a": [
+      1064,
+      2607
+    ],
+    "ill-canal-branch-b": [
+      1079,
+      2584
+    ]
+  },
+  "source": "Existing city painted water and earlier OSM-derived Ill anchors",
+  "exterior_courses": "Conceptual paths between fixed ports and exterior points; NOT historically verified AD 1618",
+  "canal_routes": "Two canal return candidates join a single continuous river mask, but exact historic routing unverified",
+  "water_connectivity": "PASS: exactly one 8-connected painted water component",
+  "city_port_overlap": "PASS: 4 of 4 committed city water ports touch new water",
+  "rgba_reassembly": "PASS: exact RGBA after reading independent PNGs",
+  "original_city_unmodified": true,
+  "composite_layer_order": [
+    "HRE base",
+    "independent river PNGs",
+    "Strasbourg city",
+    "labels"
+  ],
+  "unresolved": "Two north/south outward endpoints await corridor extension; ensure no false joins with Rhine",
+  "approval": "Review only, not final or print-ready",
+  "connectors": [
+    {
+      "id": "ill-south-main-extension",
+      "file": "ill-south-main-extension.png",
+      "x": 942,
+      "y": 2545,
+      "width": 148,
+      "height": 241,
+      "begin": [
+        955,
+        2772
+      ],
+      "end": [
+        1076,
+        2558
+      ],
+      "source": "Ill south continuation with concealed under-city water mask linking north; course provisional",
+      "sha256": "b24144557372cdf177bb3c5011018c279e15a31215bea265f0b2e408adaeed38",
+      "geographic_status": "candidate; must compare with historical map before print"
+    },
+    {
+      "id": "ill-north-main-extension",
+      "file": "ill-north-main-extension.png",
+      "x": 1054,
+      "y": 2362,
+      "width": 58,
+      "height": 210,
+      "begin": [
+        1076,
+        2558
+      ],
+      "end": [
+        1082,
+        2375
+      ],
+      "source": "Ill north continuation; outside-city meanders provisional",
+      "sha256": "7a3d111de49a5b8fe041376405d0de71ef493d7ceb81c9d5fd0bcb5977fc665c",
+      "geographic_status": "candidate; must compare with historical map before print"
+    },
+    {
+      "id": "ill-south-canal-return",
+      "file": "ill-south-canal-return.png",
+      "x": 991,
+      "y": 2598,
+      "width": 95,
+      "height": 72,
+      "begin": [
+        1064,
+        2607
+      ],
+      "end": [
+        1000,
+        2660
+      ],
+      "source": "Canal arm candidate joining southern Ill; historical course unverified",
+      "sha256": "b9745706dc73117f012a1b4ebf5a4c58369cf77ebe83667c938f28e34693ccb3",
+      "geographic_status": "candidate; must compare with historical map before print"
+    },
+    {
+      "id": "ill-east-canal-return",
+      "file": "ill-east-canal-return.png",
+      "x": 1070,
+      "y": 2496,
+      "width": 63,
+      "height": 101,
+      "begin": [
+        1079,
+        2584
+      ],
+      "end": [
+        1099,
+        2505
+      ],
+      "source": "Canal arm candidate joining northern Ill; historical course unverified",
+      "sha256": "46b6a21363d84d202c02300297d5359fa05c395df3a4caa5af6c57869c46aa64",
+      "geographic_status": "candidate; must compare with historical map before print"
+    }
+  ]
+}
