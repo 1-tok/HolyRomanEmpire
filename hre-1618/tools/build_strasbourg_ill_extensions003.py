@@ -82,8 +82,8 @@ def main():
     cb=ports["ill-canal-branch-b"]
     paths=[
       ("ill-south-main-extension",
-       [(up[0],up[1]),(1017,2630),(1000,2660),(985,2697),(968,2738),(955,2772)],12,
-       "Ill south continuation; outside-city meanders provisional"),
+       [(955,2772),(968,2738),(985,2697),(1000,2660),(1017,2630),(up[0],up[1]),(1042,2590),(1060,2574),(down[0],down[1])],12,
+       "Ill south continuation with concealed under-city water mask linking north; course provisional"),
       ("ill-north-main-extension",
        [(down[0],down[1]),(1090,2532),(1099,2505),(1080,2470),(1067,2430),(1082,2375)],12,
        "Ill north continuation; outside-city meanders provisional"),
