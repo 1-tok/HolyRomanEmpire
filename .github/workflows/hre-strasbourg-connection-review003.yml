@@ -1,0 +1,41 @@
+name: HRE Strasbourg River Connection Review 003
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/review_strasbourg_connection_003.py'
+      - '.github/workflows/hre-strasbourg-connection-review003.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-strasbourg-review-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3'
+      - name: Place committed city and connectors and annotate open river endpoints
+        run: python hre-1618/tools/review_strasbourg_connection_003.py
+      - name: Commit map review and QA
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A hre-1618/reports/strasbourg-ill-connection-review-003/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Render Strasbourg actual-map city-to-river placement and open-end review [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - name: Save QA bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-strasbourg-review-003
+          path: hre-1618/reports/strasbourg-ill-connection-review-003/
+          if-no-files-found: ignore
