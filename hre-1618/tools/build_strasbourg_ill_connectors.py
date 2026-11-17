@@ -273,6 +273,6 @@ def build():
           "city_water_port_count":len(edges),"connectors":entries,
           "status":"PROVISIONAL pending historical cartography and visual print approval"}
     (OUT/"manifest.json").write_text(json.dumps(info,indent=2,default=lambda v:v.item() if isinstance(v,np.generic) else str(v))+"\n")
-    (QA/"qa.json").write_text(json.dumps(info,indent=2)+"\n")
+    (QA/"qa.json").write_text(json.dumps(info,indent=2,default=lambda v:v.item() if isinstance(v,np.generic) else str(v))+"\n")
     print("PASS Strasbourg connector batch",len(entries),"sprite PNGs, 4 city ports, geographic Ill",flush=True)
 if __name__=="__main__":build()
