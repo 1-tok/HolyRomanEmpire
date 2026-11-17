@@ -1,0 +1,230 @@
+{
+  "batch": "Rhine valley v010 geographic review",
+  "status": "VISUAL_REVIEW_ONLY_NEW_SEAMS_NOT_APPROVED",
+  "canvas": {
+    "size": [
+      3600,
+      4800
+    ],
+    "base": "hre-1618/base/base_3600.jpg",
+    "projection": "Lambert conformal conic (see hre-1618/spec.md)"
+  },
+  "reference": {
+    "original_approved": "hre-1618/maps/canvas/strasbourg-approved-painted-preview-007.jpg",
+    "candidate_v009": "three-piece continuous painterly Rhine landscape (local review overlay; binary not committed)"
+  },
+  "proposed_artwork_regions": [
+    {
+      "direction": "north",
+      "bbox": [
+        885,
+        1900,
+        1265,
+        2440
+      ],
+      "status": "visual candidate only, gradient blend"
+    },
+    {
+      "direction": "center",
+      "bbox": [
+        802,
+        2269,
+        1273,
+        2976
+      ],
+      "status": "v009 established center, outer blending review"
+    },
+    {
+      "direction": "south",
+      "bbox": [
+        825,
+        2810,
+        1170,
+        3275
+      ],
+      "status": "visual candidate only, gradient blend"
+    }
+  ],
+  "cities": [
+    {
+      "name": "Koblenz",
+      "lat": 50.3568,
+      "lon": 7.59366,
+      "x": 1019.2,
+      "y": 1855.5,
+      "role": "major",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Bingen",
+      "lat": 49.966,
+      "lon": 7.899,
+      "x": 1090.9,
+      "y": 2013.3,
+      "role": "minor",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Mainz",
+      "lat": 50,
+      "lon": 8.26667,
+      "x": 1185.3,
+      "y": 2003.1,
+      "role": "major-existing",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Oppenheim",
+      "lat": 49.851,
+      "lon": 8.354,
+      "x": 1205.8,
+      "y": 2062.8,
+      "role": "minor",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Worms",
+      "lat": 49.63026,
+      "lon": 8.36209,
+      "x": 1205.2,
+      "y": 2150.3,
+      "role": "major-existing",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Speyer",
+      "lat": 49.31656,
+      "lon": 8.43361,
+      "x": 1220,
+      "y": 2275.1,
+      "role": "major-existing",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Germersheim",
+      "lat": 49.222,
+      "lon": 8.366,
+      "x": 1201.3,
+      "y": 2312,
+      "role": "minor",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Gambsheim",
+      "lat": 48.692,
+      "lon": 7.885,
+      "x": 1068.9,
+      "y": 2517.8,
+      "role": "village",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "La Wantzenau",
+      "lat": 48.657,
+      "lon": 7.825,
+      "x": 1052.6,
+      "y": 2531,
+      "role": "village",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Strasbourg",
+      "lat": 48.57333,
+      "lon": 7.75222,
+      "x": 1032.3,
+      "y": 2563.3,
+      "role": "major-existing",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Illkirch",
+      "lat": 48.53,
+      "lon": 7.713,
+      "x": 1021.3,
+      "y": 2580.2,
+      "role": "village-Ill-not-Rhine",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Erstein",
+      "lat": 48.423,
+      "lon": 7.662,
+      "x": 1006.2,
+      "y": 2622,
+      "role": "minor-Ill",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Benfeld",
+      "lat": 48.373,
+      "lon": 7.592,
+      "x": 986.9,
+      "y": 2641.1,
+      "role": "fortified-Ill",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Rhinau",
+      "lat": 48.318,
+      "lon": 7.707,
+      "x": 1016.4,
+      "y": 2664.1,
+      "role": "village",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Marckolsheim",
+      "lat": 48.165,
+      "lon": 7.547,
+      "x": 971.7,
+      "y": 2723,
+      "role": "minor",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Breisach",
+      "lat": 48.033,
+      "lon": 7.582,
+      "x": 978.8,
+      "y": 2775.6,
+      "role": "fortified",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Neuenburg",
+      "lat": 47.814,
+      "lon": 7.561,
+      "x": 969.7,
+      "y": 2862.1,
+      "role": "minor",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    },
+    {
+      "name": "Basel",
+      "lat": 47.55806,
+      "lon": 7.58778,
+      "x": 972.7,
+      "y": 2963.7,
+      "role": "major-existing",
+      "coordinate_status": "modern settlement point, projected with HRE-1618 LCC; historical footprint pending"
+    }
+  ],
+  "render_order": [
+    "base",
+    "painted wetlands and rivers",
+    "reuse existing city sprites",
+    "new smaller town sprites",
+    "period labels"
+  ],
+  "quality_gates": [
+    "historical 1618 Rhine and Ill channels",
+    "painted river matches geographic course",
+    "north and south seams pass geometric pixel bank/water continuity",
+    "no duplicated painted cities",
+    "river side correct for settlements",
+    "avoid post-1618 details",
+    "no replacement of approved v007 until acceptance"
+  ],
+  "print_approval": false,
+  "notes": "Local review output exists outside GitHub as rhine_v010_geo_review.zip. This committed manifest does not include painting binaries or assert approved overlay."
+}
