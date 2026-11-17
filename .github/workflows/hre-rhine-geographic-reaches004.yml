@@ -1,0 +1,64 @@
+name: HRE Rhine Geographical Painted Sprite Reaches 004
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/build_rhine_geographic_reaches004.py'
+      - '.github/workflows/hre-rhine-geographic-reaches004.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-rhine-geographic-reaches004-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3' 'scipy>=1.11,<2'
+      - name: Paint and cut eight geographic reach sprites
+        run: python hre-1618/tools/build_rhine_geographic_reaches004.py
+      - name: Verify transparent PNGs and exact geographic reconstruction
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          p=Path("hre-1618/assets/sprites/rivers/rhine-geographic-reaches-004")
+          m=json.loads((p/"manifest.json").read_text())
+          assert m["river_tile_count"]==8
+          assert m["seam_qa"].startswith("PASS")
+          assert m["no_invented_strasbourg_rhine_connection"]
+          for v in m["connectors"]:
+              f=p/v["file"];im=Image.open(f)
+              assert im.mode=="RGBA" and im.size==(v["width"],v["height"])
+              assert im.getchannel("A").getextrema()[0]<255
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==v["sha256"]
+          assert Path("hre-1618/reports/rhine-geographic-reaches-004/rhine-painted-reaches-cities.jpg").stat().st_size>10000
+          print("PASS all eight georeferenced painted connector sprites")
+          PY
+      - name: Commit accepted sprite PNGs, map preview and placement QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/rivers/rhine-geographic-reaches-004/ hre-1618/reports/rhine-geographic-reaches-004/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add eight continuous painted Rhine geographic reach sprites with map-scale QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-rhine-geographic-reaches004
+          path: |
+            hre-1618/assets/sprites/rivers/rhine-geographic-reaches-004/
+            hre-1618/reports/rhine-geographic-reaches-004/
+          if-no-files-found: ignore
