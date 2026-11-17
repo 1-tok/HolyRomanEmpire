@@ -9,7 +9,7 @@ water at the city's sprite perimeter; buildings never receive river overlay.
 Image sprites are always below city sprites; visual and historic status is
 provisional until human map-scale signoff.
 """
-import csv, hashlib, io, json, math, re, struct, sys, urllib.request, urllib.parse, zipfile
+import csv, hashlib, io, json, math, re, struct, sys, urllib.request, urllib.error, urllib.parse, zipfile
 from pathlib import Path
 import numpy as np
 from scipy.ndimage import distance_transform_edt, gaussian_filter
@@ -36,10 +36,12 @@ def read_ill():
     """
     import xml.etree.ElementTree as ET
     bboxes=[
-        (7.71,48.53,7.77,48.58),
-        (7.71,48.58,7.77,48.63),
-        (7.67,48.51,7.73,48.57),
-        (7.74,48.57,7.80,48.63)
+        (7.735,48.535,7.760,48.558),
+        (7.735,48.558,7.760,48.581),
+        (7.735,48.581,7.760,48.604),
+        (7.735,48.604,7.760,48.627),
+        (7.760,48.558,7.782,48.581),
+        (7.710,48.558,7.735,48.581)
     ]
     ways=[]
     failures=[]
@@ -61,6 +63,8 @@ def read_ill():
                     continue
                 line=[nodes[n.get("ref")] for n in way.findall("nd") if n.get("ref") in nodes]
                 if len(line)>1:ways.append(line)
+        except urllib.error.HTTPError as e:
+            failures.append(str(e.code)+": "+e.read(900).decode("utf-8","replace"))
         except Exception as e:
             failures.append(repr(e))
     if not ways:
