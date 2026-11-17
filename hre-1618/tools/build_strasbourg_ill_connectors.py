@@ -187,19 +187,25 @@ def build():
       ("ill-upstream-entry",upstream,up_port,12,upstream,"NE10m Ill upstream"),
       ("ill-downstream-exit",down_port,downstream,12,downstream,"NE10m Ill downstream")
     ]
-    # Small city-connected canals: fit to two distinct water pixels on
-    # western / eastern perimeter. They are PROVISIONAL branches, since
-    # NE10m does not resolve historic inner-city canals.
-    west_candidates=[p for p in edges if p[0]<=city_c[0]-im.width*.20]
-    east_candidates=[p for p in edges if p[0]>=city_c[0]+im.width*.20]
-    if not west_candidates or not east_candidates:
-        raise RuntimeError("No independent canal water ports found on city east/west perimeter")
-    wport=min(west_candidates,key=lambda p:p[0])
-    eport=max(east_candidates,key=lambda p:p[0])
-    # Only short outward stubs, no invented long 1618 watercourse.
+    # Use TWO ADDITIONAL DISTINCT painted-water ports. The existing city
+    # artwork has no reliable independent west/east river outlets, so do not
+    # invent those locations. Place short stubs at real observed water edges,
+    # and flag their historical course provisional pending map QA.
+    def squared(p,q):
+        return (p[0]-q[0])**2+(p[1]-q[1])**2
+    unused=[p for p in set(edges) if squared(p,up_port)>16 and squared(p,down_port)>16]
+    if len(unused)<2:raise RuntimeError("City art exposes fewer than four usable distinct water ports")
+    canal1=max(unused,key=lambda p:min(squared(p,up_port),squared(p,down_port)))
+    remaining=[p for p in unused if squared(p,canal1)>25]
+    if not remaining:raise RuntimeError("Fourth distinct canal port not available in existing art")
+    canal2=max(remaining,key=lambda p:min(squared(p,up_port),squared(p,down_port),squared(p,canal1)))
+    def out(p,length):
+        vx=p[0]-city_c[0];vy=p[1]-city_c[1]
+        magnitude=max(1.0,math.hypot(vx,vy))
+        return (p[0]+vx/magnitude*length,p[1]+vy/magnitude*length)
     specs += [
-      ("ill-west-canal-branch",wport,(wport[0]-30,wport[1]+10),5,None,"city water port; historic line pending"),
-      ("ill-east-canal-branch",eport,(eport[0]+30,eport[1]-8),5,None,"city water port; historic line pending"),
+      ("ill-canal-branch-a",canal1,out(canal1,24),5,None,"verified city water port; branch course provisional"),
+      ("ill-canal-branch-b",canal2,out(canal2,25),5,None,"verified city water port; branch course provisional"),
     ]
     # All components painted in a shared coordinate system; mask city-overlap
     # pixels at presentation, never cover roofs/walls.
@@ -232,7 +238,7 @@ def build():
         entries.append({"id":name,"file":file,"x":ox,"y":oy,"width":decoded.width,"height":decoded.height,
                         "endpoint_start":[round(p[0],2),round(p[1],2)],
                         "endpoint_end":[round(q[0],2),round(q[1],2)],
-                        "city_water_port":list(map(int,up_port if i==0 else down_port if i==1 else wport if i==2 else eport)),
+                        "city_water_port":list(map(int,up_port if i==0 else down_port if i==1 else canal1 if i==2 else canal2)),
                         "source":source,"sha256":hashlib.sha256(target.read_bytes()).hexdigest(),
                         "validation":"decoded PNG exact; junction endpoint pinned to city-water mask"})
     # Test PNG reassembly at the committed geographical origins.
