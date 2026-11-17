@@ -12,7 +12,7 @@
   ],
   "source_asset_path": "assets/reference/painted-rhine-city-style-atlas-128.jpg",
   "geography": "Natural Earth 10m Rhine centerline / HRE base map Lambert projection",
-  "river_content_sample_blue_fraction": 0.9874,
+  "river_content_sample_blue_fraction": 1.0,
   "seam_qa": "PASS: five independently stored RGBA paintings reassemble byte-for-byte into canonical painted geographic raster",
   "river_shape_qa": "PASS: geometry mask from source river, no invented connectors",
   "city_render_order": "HRE base, painted river sprites, painted city sprites, labels",
@@ -30,63 +30,63 @@
   "connectors": [
     {
       "file": "01-speyer-approach.png",
-      "x": 1183,
+      "x": 1177,
       "y": 2170,
-      "width": 79,
+      "width": 86,
       "height": 150,
       "canvas_interval_y": [
         2170,
         2320
       ],
-      "sha256": "bdbab85307b0809a471ab6d5b1a471530b92f72fadbd7105c15900bf218aec9d"
+      "sha256": "42a6dadb2579803d8221c1442a8230d5541733bebc9e43df54aa184690348d4e"
     },
     {
       "file": "02-upper-rhine-north.png",
-      "x": 1093,
+      "x": 1084,
       "y": 2320,
-      "width": 134,
+      "width": 143,
       "height": 150,
       "canvas_interval_y": [
         2320,
         2470
       ],
-      "sha256": "3156d9937c901e8d827c1253a879c75aa35d05a8a40461b2bf97dc367deb2f42"
+      "sha256": "ea74c43d15ce3fc2944415f63a046991edb649fbd71411818b7dde3243cf9c13"
     },
     {
       "file": "03-north-of-strasbourg.png",
-      "x": 1022,
+      "x": 1014,
       "y": 2470,
-      "width": 128,
+      "width": 143,
       "height": 110,
       "canvas_interval_y": [
         2470,
         2580
       ],
-      "sha256": "cdd9c9c341218e5763ef097d24dedcb76d7b6f7fac82bdf0df05d024a3f81a4b"
+      "sha256": "ee7a46acfd0bcd8b27508ea5190727a8b9cc17a62ce5d53f8bf5ef525de87988"
     },
     {
       "file": "04-strasbourg-rhine-east.png",
-      "x": 993,
+      "x": 987,
       "y": 2580,
-      "width": 76,
+      "width": 88,
       "height": 90,
       "canvas_interval_y": [
         2580,
         2670
       ],
-      "sha256": "ef498913d626a1c49f82740301cd0f158c919cb97a639c9316dbe16f56437af9"
+      "sha256": "b1e43e90e6739fb965b979540083445c18b03f986734979cb1ac96802b54919c"
     },
     {
       "file": "05-south-of-strasbourg.png",
-      "x": 956,
+      "x": 951,
       "y": 2670,
-      "width": 88,
+      "width": 97,
       "height": 103,
       "canvas_interval_y": [
         2670,
         2800
       ],
-      "sha256": "f4403922e3207ec0f6e2a6d409664902f5685188ebd66d02deec43c6287b2e21"
+      "sha256": "7a49dba32f93e17dc71161a5d1f82eddd8a6a318063b1c2dd60fd9db5d372e93"
     }
   ]
 }
