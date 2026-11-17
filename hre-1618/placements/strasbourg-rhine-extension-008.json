@@ -1,0 +1,189 @@
+{
+  "project": "Holy Roman Empire AD 1618",
+  "batch": "STRASBOURG-RHINE-EXTENSION-008",
+  "state": "production_manifest_only_artwork_not_generated",
+  "canvas": {
+    "path": "hre-1618/base/base_3600.jpg",
+    "width": 3600,
+    "height": 4800,
+    "projection": "Lambert Conformal Conic",
+    "reference": "hre-1618/spec.md"
+  },
+  "source_preview": "hre-1618/maps/canvas/strasbourg-approved-painted-preview-007.jpg",
+  "approved_style": "hre-1618/placements/APPROVED-PAINTERLY-MAP-STANDARD-2026-11-17.md",
+  "old_overlap": {
+    "north_y": 2396,
+    "south_y": 2708
+  },
+  "print_approval": false,
+  "reach_windows": [
+    {
+      "id": "RHE-N01",
+      "direction": "north",
+      "bbox": [
+        960,
+        2290,
+        1190,
+        2440
+      ]
+    },
+    {
+      "id": "RHE-N02",
+      "direction": "north",
+      "bbox": [
+        950,
+        2170,
+        1200,
+        2340
+      ]
+    },
+    {
+      "id": "RHE-S01",
+      "direction": "south",
+      "bbox": [
+        850,
+        2660,
+        1160,
+        2825
+      ]
+    },
+    {
+      "id": "RHE-S02",
+      "direction": "south",
+      "bbox": [
+        820,
+        2780,
+        1150,
+        2960
+      ]
+    }
+  ],
+  "settlements": [
+    {
+      "site": "Robertsau",
+      "x": 1043,
+      "y": 2551,
+      "role": "hamlet-fishery",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    },
+    {
+      "site": "La Wantzenau",
+      "x": 1053,
+      "y": 2531,
+      "role": "village",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    },
+    {
+      "site": "Kilstett",
+      "x": 1061,
+      "y": 2523,
+      "role": "small-hamlet-pending-evidence",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    },
+    {
+      "site": "Gambsheim",
+      "x": 1068,
+      "y": 2517,
+      "role": "village",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    },
+    {
+      "site": "Illkirch",
+      "x": 1022,
+      "y": 2582,
+      "role": "village-on-Ill",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    },
+    {
+      "site": "Erstein",
+      "x": 1006,
+      "y": 2622,
+      "role": "minor-town-on-Ill",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    },
+    {
+      "site": "Benfeld",
+      "x": 987,
+      "y": 2642,
+      "role": "fortified-town",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    },
+    {
+      "site": "Rhinau",
+      "x": 1016,
+      "y": 2664,
+      "role": "floodplain-village",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    },
+    {
+      "site": "Marckolsheim",
+      "x": 971,
+      "y": 2724,
+      "role": "walled-minor-town",
+      "anchor_quality": "approximate-projected-modern-place-point",
+      "historical_footprint": "pending",
+      "asset": "pending_generation_or_reuse_check"
+    }
+  ],
+  "underlays": [
+    {
+      "id": "WET-N01",
+      "asset": "pending_generation",
+      "location_qa": "pending"
+    },
+    {
+      "id": "WET-N02",
+      "asset": "pending_generation",
+      "location_qa": "pending"
+    },
+    {
+      "id": "WET-S01",
+      "asset": "pending_generation",
+      "location_qa": "pending"
+    },
+    {
+      "id": "WET-S02",
+      "asset": "pending_generation",
+      "location_qa": "pending"
+    },
+    {
+      "id": "WET-S03",
+      "asset": "pending_generation",
+      "location_qa": "pending"
+    }
+  ],
+  "order": [
+    "base",
+    "wetland/forest",
+    "river",
+    "minor-detail",
+    "settlements/fortifications",
+    "labels"
+  ],
+  "gates": [
+    "validate 1618 Ill and Rhine alignment",
+    "avoid later channel engineering",
+    "deduplicate existing sprites",
+    "transparent alpha",
+    "check seam continuity",
+    "check historic shoreline",
+    "map-scale preview",
+    "historical QA before print"
+  ]
+}
