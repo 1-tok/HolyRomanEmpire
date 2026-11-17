@@ -102,11 +102,11 @@ def paint_one_geographic_master(art,center):
     # A correctly centred atlas lets the actual generated brushwork
     # extend to the banks as a high-res image, not vector water lines.
     swatch=np.asarray(art,dtype=np.uint8)
-    sx=np.clip(np.rint(512+sign*dist*13.0),0,1023).astype(int)
+    sx=np.clip(np.rint(512+sign*dist*8.7),0,1023).astype(int)
     sy=np.clip(np.rint((yy/(hh-1))*1023),0,1023).astype(int)
     source=swatch[sy,sx].copy()
     water=dist<=7.5
-    shore=(dist>7.5)&(dist<=21.0)
+    shore=(dist>7.5)&(dist<=27.0)
     # Water pixels are taken from the painted swatch, but if the model
     # covered the centreline with buildings/grass, QA must fail.
     src_rgb=source[:,:,:3].astype(np.int16)
@@ -116,10 +116,14 @@ def paint_one_geographic_master(art,center):
     if ratio<.38:
         raise RuntimeError(f"Painted reference has insufficient BLUE WATER down its central river strip: {ratio:.2%}. Reject rather than fake paint.")
     # Real painting colors retained, with delicate image-derived bank alpha.
-    max_alpha=np.where(water,246,np.where(shore,np.clip((22-dist)*17,0,188),0)).astype(np.uint8)
+    max_alpha=np.where(water,246,np.where(shore,np.clip((28-dist)*14,0,204),0)).astype(np.uint8)
     # Keep source artwork alpha where present, but always enforce geography.
     source[:,:,3]=np.minimum(np.maximum(source[:,:,3],max_alpha//2),max_alpha)
-    source[dist>21]=0
+    source[dist>27]=0
+    # The uploaded painting has black outside its organic scenic silhouette.
+    # Keep that black transparent rather than printing a dark outline.
+    black=(source[:,:,:3].max(axis=2)<27)
+    source[:,:,3]=np.where(black,0,source[:,:,3]).astype(np.uint8)
     full=Image.new("RGBA",(W,H),(0,0,0,0))
     full.paste(Image.fromarray(source,"RGBA"),(X0,Y0))
     return full,ratio
