@@ -1,0 +1,72 @@
+name: HRE 1618 — Strasbourg Ill Painted Connectors
+
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/build_strasbourg_ill_connectors.py'
+      - '.github/workflows/hre-strasbourg-ill-connectors.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hre-strasbourg-ill-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3' 'scipy>=1.11,<2'
+      - name: Generate separate painted Ill and canal connector PNGs
+        run: python hre-1618/tools/build_strasbourg_ill_connectors.py
+      - name: Validate geographic manifest and separate alpha PNGs
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          root=Path("hre-1618")
+          folder=root/"assets/sprites/rivers/strasbourg-ill-batch-001"
+          q=root/"reports/strasbourg-ill-batch-001"
+          obj=json.loads((folder/"manifest.json").read_text())
+          assert len(obj["connectors"])==4
+          assert obj["png_seam_qa"].startswith("PASS")
+          assert obj["city_port_qa"].startswith("PASS")
+          for c in obj["connectors"]:
+              f=folder/c["file"]
+              img=Image.open(f)
+              assert img.mode=="RGBA"
+              assert img.size==(c["width"],c["height"])
+              assert img.getchannel("A").getextrema()[0]<255
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==c["sha256"]
+          assert (q/"strasbourg-junction-proof.jpg").stat().st_size>10000
+          print("Validated four independent painted Strasbourg Ill connectors")
+          PY
+      - name: Commit images, placement data and QA proof to artwork branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/rivers/strasbourg-ill-batch-001/ hre-1618/reports/strasbourg-ill-batch-001/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Commit four painted Strasbourg Ill connectors and port alignment QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: strasbourg-ill-connectors-${{ github.run_number }}
+          path: |
+            hre-1618/assets/sprites/rivers/strasbourg-ill-batch-001/
+            hre-1618/reports/strasbourg-ill-batch-001/
+          if-no-files-found: ignore
