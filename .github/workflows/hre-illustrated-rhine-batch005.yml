@@ -1,0 +1,76 @@
+name: HRE 1618 — Genuine Painted Rhine River Sprites 005
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/generate_illustrated_rhine_batch005.py'
+      - '.github/workflows/hre-illustrated-rhine-batch005.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-illustrated-rhine-batch005-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  paint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      HRE_IMAGE_MODEL: gpt-image-2.5-flare
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image and geographic validation dependencies
+        run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3' 'scipy>=1.11,<2'
+      - name: Check API credential exists
+        run: |
+          if [ -z "${OPENAI_API_KEY}" ]; then echo "::error::OPENAI_API_KEY not configured"; exit 1; fi
+      - name: Generate source painting using Strasbourg image reference, fit to geography, and cut actual painted PNGs
+        run: python hre-1618/tools/generate_illustrated_rhine_batch005.py
+      - name: Independently verify generated images and assembled preview
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          p=Path('hre-1618/assets/sprites/rivers/rhine-illustrated-batch-005')
+          q=Path('hre-1618/reports/rhine-illustrated-batch-005')
+          m=json.loads((p/'manifest.json').read_text())
+          assert m['actual_image_generation']
+          assert len(m['connectors'])==5
+          assert m['seam_qa'].startswith('PASS')
+          assert (q/'source-painted-water-and-banks.png').stat().st_size>100000
+          for e in m['connectors']:
+              f=p/e['file']; im=Image.open(f)
+              assert im.mode=='RGBA' and im.size==(e['width'],e['height'])
+              assert im.getchannel('A').getextrema()[0]<255
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==e['sha256']
+          assert (q/'illustrated-corridor-cities.jpg').stat().st_size>20000
+          print('PASS: 5 independently PNG-encoded illustrated river sprites; exact geo seams')
+          PY
+      - name: Commit real source painting, five sprites, manifest, and map previews
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/rivers/rhine-illustrated-batch-005/ hre-1618/reports/rhine-illustrated-batch-005/
+          if git diff --cached --quiet; then
+            echo 'No new image bytes to commit'
+          else
+            git commit -m 'Add five actual painted Rhine scenery sprites and geographic placement QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - name: Upload visual review artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-painted-rhine-005-${{ github.run_id }}
+          path: |
+            hre-1618/assets/sprites/rivers/rhine-illustrated-batch-005/
+            hre-1618/reports/rhine-illustrated-batch-005/
+          if-no-files-found: ignore
