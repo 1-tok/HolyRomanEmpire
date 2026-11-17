@@ -124,6 +124,9 @@ def paint_one_geographic_master(art,center):
     # Keep that black transparent rather than printing a dark outline.
     black=(source[:,:,:3].max(axis=2)<27)
     source[:,:,3]=np.where(black,0,source[:,:,3]).astype(np.uint8)
+    # Zero invisible RGB channels so cropped transparent PNGs preserve exact
+    # RGBA at every map pixel, including fully transparent border pixels.
+    source[source[:,:,3]==0]=0
     full=Image.new("RGBA",(W,H),(0,0,0,0))
     full.paste(Image.fromarray(source,"RGBA"),(X0,Y0))
     return full,ratio
