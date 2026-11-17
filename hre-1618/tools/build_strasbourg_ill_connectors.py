@@ -41,6 +41,7 @@ def read_ill():
             for lon in (7.731,7.750,7.769)]
     ways=[]
     failures=[]
+    other_waterways={}
     for left,bottom,right,top in bboxes:
         url="https://api.openstreetmap.org/api/0.6/map?bbox="+",".join(str(v) for v in (left,bottom,right,top))
         try:
@@ -55,7 +56,8 @@ def read_ill():
                 tags={t.get("k"):t.get("v") for t in way.findall("tag")}
                 if tags.get("waterway") not in ("river","stream","canal"):
                     continue
-                if "ill" not in (tags.get("name","")+" "+tags.get("name:fr","")).lower().split():
+                other_waterways[tags.get("name","unnamed")]=other_waterways.get(tags.get("name","unnamed"),0)+1
+                if "ill" not in (tags.get("name","")+" "+tags.get("name:fr","")).lower():
                     continue
                 line=[nodes[n.get("ref")] for n in way.findall("nd") if n.get("ref") in nodes]
                 if len(line)>1:ways.append(line)
@@ -64,7 +66,7 @@ def read_ill():
         except Exception as e:
             failures.append(repr(e))
     if not ways:
-        raise RuntimeError("Official OSM map API lacked named Ill ways in Strasbourg bboxes: "+str(failures))
+        raise RuntimeError("Official OSM map API lacks matched Ill ways. Found names: "+str(other_waterways)+"; errors: "+str(failures))
     print("Mapped Ill waterways:",len(ways),"bbox errors:",len(failures),flush=True)
     return ways
 
