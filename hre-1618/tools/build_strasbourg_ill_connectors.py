@@ -28,35 +28,45 @@ ROI=(875,2380,1160,2730)
 SEED=1618
 
 def read_ill():
-    """OpenStreetMap named Ill ways, not NE 10m, which omits the Ill.
+    """Retrieve observed Ill waterway way geometry from the OSM map API.
 
-    Waterway geometries are fetched from Overpass with coordinates; no
-    guessing based on the nearest Rhine branch. City canals are separately
-    flagged provisional and require period historical approval.
+    Overpass public instances are often congested, so query the official
+    OSM map endpoint over small bounding boxes, then filter named waterways.
+    No hand-drawn substitute for missing geographic data is allowed.
     """
-    query='[out:json][timeout:90];way["waterway"~"river|stream"]["name"="Ill"](48.35,7.35,48.90,8.10);out geom;'
-    endpoints=[
-      "https://overpass.kumi.systems/api/interpreter",
-      "https://overpass-api.de/api/interpreter",
-      "https://overpass.nchc.org.tw/api/interpreter"
+    import xml.etree.ElementTree as ET
+    bboxes=[
+        (7.71,48.53,7.77,48.58),
+        (7.71,48.58,7.77,48.63),
+        (7.67,48.51,7.73,48.57),
+        (7.74,48.57,7.80,48.63)
     ]
-    problems=[]
-    for endpoint in endpoints:
+    ways=[]
+    failures=[]
+    for left,bottom,right,top in bboxes:
+        url="https://api.openstreetmap.org/api/0.6/map?bbox="+",".join(str(v) for v in (left,bottom,right,top))
         try:
-            request=urllib.request.Request(endpoint,data=urllib.parse.urlencode({"data":query}).encode(),
-                       headers={"User-Agent":"HolyRomanEmpire1618-MapResearch/1.0","Content-Type":"application/x-www-form-urlencoded"})
-            with urllib.request.urlopen(request,timeout=110) as response:
-                obj=json.load(response)
-            lines=[]
-            for way in obj.get("elements",[]):
-                coords=[(p["lat"],p["lon"]) for p in way.get("geometry",[])]
-                if len(coords)>1 and any(48.35<lat<48.90 and 7.35<lon<8.1 for lat,lon in coords):
-                    lines.append(coords)
-            if len(lines)<2:raise RuntimeError("Insufficient named Ill ways: "+str(len(lines)))
-            return lines
-        except Exception as exc:
-            problems.append(endpoint+": "+repr(exc))
-    raise RuntimeError("Could not retrieve real Ill geometry from OSM Overpass: "+"; ".join(problems))
+            req=urllib.request.Request(url,headers={"User-Agent":"HolyRomanEmpire1618-MapResearch/1.0"})
+            with urllib.request.urlopen(req,timeout=45) as res:
+                xml=res.read(45_000_000)
+            if len(xml)>=45_000_000:raise RuntimeError("OSM map bbox exceeded size limit")
+            tree=ET.fromstring(xml)
+            nodes={n.get("id"):(float(n.get("lat")),float(n.get("lon")))
+                   for n in tree.findall("node")}
+            for way in tree.findall("way"):
+                tags={t.get("k"):t.get("v") for t in way.findall("tag")}
+                if tags.get("waterway") not in ("river","stream","canal"):
+                    continue
+                if "ill" not in (tags.get("name","")+" "+tags.get("name:fr","")).lower().split():
+                    continue
+                line=[nodes[n.get("ref")] for n in way.findall("nd") if n.get("ref") in nodes]
+                if len(line)>1:ways.append(line)
+        except Exception as e:
+            failures.append(repr(e))
+    if not ways:
+        raise RuntimeError("Official OSM map API lacked named Ill ways in Strasbourg bboxes: "+str(failures))
+    print("Mapped Ill waterways:",len(ways),"bbox errors:",len(failures),flush=True)
+    return ways
 
 def city_and_ports():
     cfg=json.loads(PLACE.read_text())
@@ -154,8 +164,8 @@ def build():
                 if math.dist(p,city_c)<250:pts.append(p)
     if len(pts)<8:raise RuntimeError("Insufficient geographic Ill vertices near Strasbourg")
     # Upstream Ill comes FROM the south; downstream heads NORTH.
-    upstream=max((p for p in pts if p[1]>city_c[1]+30),key=lambda p:p[1],default=None)
-    downstream=min((p for p in pts if p[1]<city_c[1]-30),key=lambda p:p[1],default=None)
+    upstream=max((p for p in pts if p[1]>city_c[1]+10),key=lambda p:p[1],default=None)
+    downstream=min((p for p in pts if p[1]<city_c[1]-10),key=lambda p:p[1],default=None)
     if upstream is None or downstream is None:raise RuntimeError("Ill north/south bounds not resolved")
     # Port at exact visible blue water of committed city; connector touches
     # city sprite at the port, and is subsequently hidden by city overlay.
