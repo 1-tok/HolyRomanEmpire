@@ -1,0 +1,116 @@
+{
+  "batch": "Strasbourg separate Ill river connectors",
+  "city_asset": "sprites/Strasbourg.png",
+  "city_box": [
+    980,
+    2511,
+    105,
+    105
+  ],
+  "mapped_mainline": "OpenStreetMap named Ill river ways; Rhine separate",
+  "historic_note": "Canal stubs are provisional; not a 1618 mapped reconstruction",
+  "layering": [
+    "original base",
+    "separate connector PNGs",
+    "existing Strasbourg sprite",
+    "labels"
+  ],
+  "png_seam_qa": "PASS: exact RGBA reconstruction at manifest coordinates",
+  "city_port_qa": "PASS: each connector ends within 5px of BLUE paint on real city sprite",
+  "city_water_port_count": 336,
+  "connectors": [
+    {
+      "id": "ill-upstream-entry",
+      "file": "ill-upstream-entry.png",
+      "x": 1009,
+      "y": 2564,
+      "width": 29,
+      "height": 58,
+      "endpoint_start": [
+        1023.12,
+        2577.8
+      ],
+      "endpoint_end": [
+        1023,
+        2607
+      ],
+      "city_water_port": [
+        1023,
+        2607
+      ],
+      "source": "NE10m Ill upstream",
+      "sha256": "62dccfb408048909258e4a7f727d2ef5e36c2c68c0b5e1a6190bba8d03d59179",
+      "validation": "decoded PNG exact; junction endpoint pinned to city-water mask"
+    },
+    {
+      "id": "ill-downstream-exit",
+      "file": "ill-downstream-exit.png",
+      "x": 1024,
+      "y": 2531,
+      "width": 67,
+      "height": 42,
+      "endpoint_start": [
+        1076,
+        2558
+      ],
+      "endpoint_end": [
+        1038.48,
+        2545.49
+      ],
+      "city_water_port": [
+        1076,
+        2558
+      ],
+      "source": "NE10m Ill downstream",
+      "sha256": "6e4e44dc17e806dd59261e5c735fc9f4f20bd5c23dfa50243d37f6c05717569e",
+      "validation": "decoded PNG exact; junction endpoint pinned to city-water mask"
+    },
+    {
+      "id": "ill-canal-branch-a",
+      "file": "ill-canal-branch-a.png",
+      "x": 1054,
+      "y": 2597,
+      "width": 35,
+      "height": 40,
+      "endpoint_start": [
+        1064,
+        2607
+      ],
+      "endpoint_end": [
+        1078.08,
+        2626.44
+      ],
+      "city_water_port": [
+        1064,
+        2607
+      ],
+      "source": "verified city water port; branch course provisional",
+      "sha256": "078b57a849f5e7c40388e6a0d497276a37f89cd684067fc5641715a83e7d3f49",
+      "validation": "decoded PNG exact; junction endpoint pinned to city-water mask"
+    },
+    {
+      "id": "ill-canal-branch-b",
+      "file": "ill-canal-branch-b.png",
+      "x": 1069,
+      "y": 2574,
+      "width": 44,
+      "height": 31,
+      "endpoint_start": [
+        1079,
+        2584
+      ],
+      "endpoint_end": [
+        1101.88,
+        2594.08
+      ],
+      "city_water_port": [
+        1079,
+        2584
+      ],
+      "source": "verified city water port; branch course provisional",
+      "sha256": "7f265d3d995bc6e49692b02b1a52d68a3ef8c295d033104d83122f7b192904cf",
+      "validation": "decoded PNG exact; junction endpoint pinned to city-water mask"
+    }
+  ],
+  "status": "PROVISIONAL pending historical cartography and visual print approval"
+}
