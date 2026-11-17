@@ -1,0 +1,167 @@
+{
+  "batch": "Rhine geographic painted reaches 004",
+  "status": "review candidate; historical 1618 channel locations not yet certified",
+  "source": "Natural Earth 10m named Rhine geometry, same map projection as existing base",
+  "no_invented_strasbourg_rhine_connection": true,
+  "strasbourg_city_on_ill": true,
+  "city_rhine_separation_px": 50,
+  "river_tile_count": 8,
+  "geographic_course_segment_count": 241,
+  "seam_qa": "PASS: independent RGBA PNGs exactly reconstruct geographic continuous master",
+  "city_layer_qa": "PASS: all 5 existing city sprites rendered above river",
+  "note": "Strasbourg local Ill canal system not extended in this Rhine batch. Previously hand-drawn loops are superseded for geographic preview but preserved in history.",
+  "coverage": "north of Basel through Mainz, with the Rhine east of Strasbourg",
+  "register_to_map": true,
+  "approved_for_print": false,
+  "connectors": [
+    {
+      "id": "01-mainz-to-worms",
+      "file": "01-mainz-to-worms.png",
+      "x": 1006,
+      "y": 1900,
+      "width": 230,
+      "height": 175,
+      "source_map_y": [
+        1900,
+        2075
+      ],
+      "sha256": "30cef182d7d3661d983c2d0abf828b47a1cf446fa1e54501e2d4d77cb6c41964",
+      "role": "individual painted water-and-bank river sprite"
+    },
+    {
+      "id": "02-worms-to-speyer",
+      "file": "02-worms-to-speyer.png",
+      "x": 1184,
+      "y": 2075,
+      "width": 76,
+      "height": 145,
+      "source_map_y": [
+        2075,
+        2220
+      ],
+      "sha256": "6e2454aaec60761dd4ad0131753cec7e032d433f08e298908046f52e0618eccd",
+      "role": "individual painted water-and-bank river sprite"
+    },
+    {
+      "id": "03-speyer-north",
+      "file": "03-speyer-north.png",
+      "x": 1164,
+      "y": 2220,
+      "width": 97,
+      "height": 155,
+      "source_map_y": [
+        2220,
+        2375
+      ],
+      "sha256": "7a24a5af1c2148c2454fd656906b98f683f5670a10340d532afa20ca90a577e3",
+      "role": "individual painted water-and-bank river sprite"
+    },
+    {
+      "id": "04-speyer-to-strasbourg-north",
+      "file": "04-speyer-to-strasbourg-north.png",
+      "x": 1050,
+      "y": 2375,
+      "width": 166,
+      "height": 140,
+      "source_map_y": [
+        2375,
+        2515
+      ],
+      "sha256": "4f9365fd75643078cc94713370eaa3a4d1bfb4d04bc67cb681efc7f44f12df77",
+      "role": "individual painted water-and-bank river sprite"
+    },
+    {
+      "id": "05-strasbourg-rhine-east",
+      "file": "05-strasbourg-rhine-east.png",
+      "x": 1006,
+      "y": 2515,
+      "width": 104,
+      "height": 100,
+      "source_map_y": [
+        2515,
+        2615
+      ],
+      "sha256": "010143bf4ee22930c6ce1c1e6449749bcebc82aa01529120eb48b991a47c0c12",
+      "role": "individual painted water-and-bank river sprite"
+    },
+    {
+      "id": "06-strasbourg-south",
+      "file": "06-strasbourg-south.png",
+      "x": 954,
+      "y": 2615,
+      "width": 99,
+      "height": 135,
+      "source_map_y": [
+        2615,
+        2750
+      ],
+      "sha256": "11b4a6689873eccf2b77c2e21b51b1b1d46d75df1d01e4c8ac543842f2266d2c",
+      "role": "individual painted water-and-bank river sprite"
+    },
+    {
+      "id": "07-upper-rhine-north",
+      "file": "07-upper-rhine-north.png",
+      "x": 939,
+      "y": 2750,
+      "width": 73,
+      "height": 140,
+      "source_map_y": [
+        2750,
+        2890
+      ],
+      "sha256": "7df6d98b4b000bed4049ed5800337e1281eb666f6dd0ff7302e404508b3c6864",
+      "role": "individual painted water-and-bank river sprite"
+    },
+    {
+      "id": "08-upper-rhine-to-basel",
+      "file": "08-upper-rhine-to-basel.png",
+      "x": 933,
+      "y": 2890,
+      "width": 412,
+      "height": 103,
+      "source_map_y": [
+        2890,
+        3050
+      ],
+      "sha256": "c2a7b0a6f908c21fe4c375ebe956f9be6d381ee40da923cc1c30ced32e560928",
+      "role": "individual painted water-and-bank river sprite"
+    }
+  ],
+  "cities": [
+    {
+      "site": "Basel",
+      "x": 921,
+      "y": 2912,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Strasbourg",
+      "x": 980,
+      "y": 2511,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Speyer",
+      "x": 1168,
+      "y": 2223,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Worms",
+      "x": 1153,
+      "y": 2098,
+      "width": 105,
+      "height": 105
+    },
+    {
+      "site": "Mainz",
+      "x": 1133,
+      "y": 1951,
+      "width": 105,
+      "height": 105
+    }
+  ]
+}
