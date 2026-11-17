@@ -1,0 +1,59 @@
+name: HRE Strasbourg Painted River Canvas 006
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/assemble_strasbourg_painted_canvas006.py'
+      - '.github/workflows/hre-strasbourg-painted-canvas006.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-strasbourg-painted-canvas006-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  place:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3'
+      - name: Assemble painterly river sprites on authoritative HRE map and validate joins
+        run: python hre-1618/tools/assemble_strasbourg_painted_canvas006.py
+      - name: Validate actual canvas files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from PIL import Image
+          r=Path('hre-1618')
+          q=json.loads((r/'reports/strasbourg-painted-canvas-006/qa.json').read_text())
+          assert q['tiles']==5 and len(q['placed_cities'])==5
+          assert q['pixel_seams'].startswith('PASS')
+          master=Image.open(r/'maps/canvas/strasbourg-painted-rhine-006.png')
+          assert master.mode=='RGBA' and master.size==(3600,4800)
+          assert (r/'maps/canvas/strasbourg-painted-rhine-006.jpg').stat().st_size>100000
+          print('Canvas passes PNG, painterly river seam and city sprite placement checks')
+          PY
+      - name: Commit painted river canvas and visual QA
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/maps/canvas/ hre-1618/reports/strasbourg-painted-canvas-006/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Place seamless painted Rhine segments on HRE canvas with Strasbourg QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-strasbourg-painted-canvas-006
+          path: |
+            hre-1618/maps/canvas/
+            hre-1618/reports/strasbourg-painted-canvas-006/
+          if-no-files-found: ignore
