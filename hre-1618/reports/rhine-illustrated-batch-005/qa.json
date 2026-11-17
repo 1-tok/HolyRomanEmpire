@@ -1,0 +1,92 @@
+{
+  "batch": "Rhine real image-generation painted river reaches 005",
+  "source_artwork": "reports/rhine-illustrated-batch-005/source-painted-water-and-banks.png",
+  "source_artwork_sha256": "3405e97cc9aedf8116967c1bdf8b6c9835ca8677dd235ee154566dcf52ae764e",
+  "image_model": "previous ChatGPT ImageGen hand-painted illustration; compact reference uploaded via GitHub binary blob",
+  "actual_image_generation": true,
+  "image_generation_provenance": "Existing painted ImageGen asset from this conversation; no new API call in this build",
+  "painted_source_format": "Previous original ChatGPT ImageGen painted river artwork, compacted to 128px JPEG for authenticated binary intake; upsampled to 1024px for geographic wrapping",
+  "source_asset_resolution": [
+    128,
+    128
+  ],
+  "source_asset_path": "assets/reference/painted-rhine-city-style-atlas-128.jpg",
+  "geography": "Natural Earth 10m Rhine centerline / HRE base map Lambert projection",
+  "river_content_sample_blue_fraction": 0.9874,
+  "seam_qa": "PASS: five independently stored RGBA paintings reassemble byte-for-byte into canonical painted geographic raster",
+  "river_shape_qa": "PASS: geometry mask from source river, no invented connectors",
+  "city_render_order": "HRE base, painted river sprites, painted city sprites, labels",
+  "historic_accuracy": "PROVISIONAL: modern coarse hydrography does not establish AD 1618 Rhine/Ill separation accurately",
+  "approval": "review only - not print ready",
+  "count": 5,
+  "segments": 92,
+  "cities": [
+    "Basel",
+    "Strasbourg",
+    "Speyer",
+    "Worms",
+    "Mainz"
+  ],
+  "connectors": [
+    {
+      "file": "01-speyer-approach.png",
+      "x": 1183,
+      "y": 2170,
+      "width": 79,
+      "height": 150,
+      "canvas_interval_y": [
+        2170,
+        2320
+      ],
+      "sha256": "bdbab85307b0809a471ab6d5b1a471530b92f72fadbd7105c15900bf218aec9d"
+    },
+    {
+      "file": "02-upper-rhine-north.png",
+      "x": 1093,
+      "y": 2320,
+      "width": 134,
+      "height": 150,
+      "canvas_interval_y": [
+        2320,
+        2470
+      ],
+      "sha256": "3156d9937c901e8d827c1253a879c75aa35d05a8a40461b2bf97dc367deb2f42"
+    },
+    {
+      "file": "03-north-of-strasbourg.png",
+      "x": 1022,
+      "y": 2470,
+      "width": 128,
+      "height": 110,
+      "canvas_interval_y": [
+        2470,
+        2580
+      ],
+      "sha256": "cdd9c9c341218e5763ef097d24dedcb76d7b6f7fac82bdf0df05d024a3f81a4b"
+    },
+    {
+      "file": "04-strasbourg-rhine-east.png",
+      "x": 993,
+      "y": 2580,
+      "width": 76,
+      "height": 90,
+      "canvas_interval_y": [
+        2580,
+        2670
+      ],
+      "sha256": "ef498913d626a1c49f82740301cd0f158c919cb97a639c9316dbe16f56437af9"
+    },
+    {
+      "file": "05-south-of-strasbourg.png",
+      "x": 956,
+      "y": 2670,
+      "width": 88,
+      "height": 103,
+      "canvas_interval_y": [
+        2670,
+        2800
+      ],
+      "sha256": "f4403922e3207ec0f6e2a6d409664902f5685188ebd66d02deec43c6287b2e21"
+    }
+  ]
+}
