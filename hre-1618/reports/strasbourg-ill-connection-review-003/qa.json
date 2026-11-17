@@ -1,0 +1,101 @@
+{
+  "origin_canvas": "base/base_3600.jpg",
+  "city_asset": "sprites/Strasbourg.png",
+  "connector_manifest": "assets/sprites/rivers/strasbourg-ill-batch-002/manifest.json",
+  "layer_order": [
+    "base",
+    "separate river connectors",
+    "existing Strasbourg city",
+    "labels"
+  ],
+  "connectors_registered": 4,
+  "png_position_qa": "PASS: committed connector global map coordinates used",
+  "actual_city_port_qa": "PASS: committed four true port pixel checks",
+  "end_to_end_watercourse_qa": "NOT PASSED: four free ends have no adjoining painted corridor sprite registered",
+  "new_chat_generated_artwork": "Not committed; this review does not claim those illustrations were placed",
+  "strasbourg_ill_vs_rhine": "Separate waterways; do not join city canals to main Rhine arbitrarily",
+  "river_branches_1618": "Canal stub courses remain historically provisional",
+  "accept_for_print": false,
+  "connector_details": [
+    {
+      "name": "ill-upstream-entry",
+      "file": "ill-upstream-entry.png",
+      "map_xy": [
+        1009,
+        2564
+      ],
+      "water_port_xy": [
+        1023,
+        2607
+      ],
+      "city_port_alpha_confirmed": true,
+      "outer_endpoint_xy": [
+        1023.12,
+        2577.8
+      ],
+      "status": "outward endpoint UNCONNECTED: no next sprite registered in this review",
+      "course_qa": "modern OSM candidate",
+      "unconnected_endpoint_marked": true
+    },
+    {
+      "name": "ill-downstream-exit",
+      "file": "ill-downstream-exit.png",
+      "map_xy": [
+        1024,
+        2531
+      ],
+      "water_port_xy": [
+        1076,
+        2558
+      ],
+      "city_port_alpha_confirmed": true,
+      "outer_endpoint_xy": [
+        1038.48,
+        2545.49
+      ],
+      "status": "outward endpoint UNCONNECTED: no next sprite registered in this review",
+      "course_qa": "modern OSM candidate",
+      "unconnected_endpoint_marked": true
+    },
+    {
+      "name": "ill-canal-branch-a",
+      "file": "ill-canal-branch-a.png",
+      "map_xy": [
+        1054,
+        2597
+      ],
+      "water_port_xy": [
+        1064,
+        2607
+      ],
+      "city_port_alpha_confirmed": true,
+      "outer_endpoint_xy": [
+        1078.08,
+        2626.44
+      ],
+      "status": "outward endpoint UNCONNECTED: no next sprite registered in this review",
+      "course_qa": "historic canal course not verified",
+      "unconnected_endpoint_marked": true
+    },
+    {
+      "name": "ill-canal-branch-b",
+      "file": "ill-canal-branch-b.png",
+      "map_xy": [
+        1069,
+        2574
+      ],
+      "water_port_xy": [
+        1079,
+        2584
+      ],
+      "city_port_alpha_confirmed": true,
+      "outer_endpoint_xy": [
+        1101.88,
+        2594.08
+      ],
+      "status": "outward endpoint UNCONNECTED: no next sprite registered in this review",
+      "course_qa": "historic canal course not verified",
+      "unconnected_endpoint_marked": true
+    }
+  ]
+}
