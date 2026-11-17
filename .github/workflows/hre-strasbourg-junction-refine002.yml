@@ -1,0 +1,80 @@
+name: HRE 1618 — Strasbourg Painted Junction Refinement 002
+
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/refine_strasbourg_ill_batch002.py'
+      - '.github/workflows/hre-strasbourg-junction-refine002.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hre-strasbourg-junction-refine002-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  paint-and-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3' 'scipy>=1.11,<2'
+      - name: Repaint and blend four separate city-attached river sprites
+        run: python hre-1618/tools/refine_strasbourg_ill_batch002.py
+      - name: Verify city attachment, alpha shapes, hashes, color and map preview
+        run: |
+          python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          from PIL import Image, ImageChops
+          root=Path('hre-1618')
+          old=root/'assets/sprites/rivers/strasbourg-ill-batch-001'
+          new=root/'assets/sprites/rivers/strasbourg-ill-batch-002'
+          qa=root/'reports/strasbourg-ill-batch-002'
+          m=json.loads((new/'manifest.json').read_text())
+          assert m['connector_count']==4
+          assert m['geometry_preserved'] and m['city_buildings_unchanged']
+          assert m['seam_qa'].startswith('PASS')
+          assert m['water_tint_qa'].startswith('PASS')
+          for item in m['connectors']:
+              a=Image.open(new/item['file']).convert('RGBA')
+              b=Image.open(old/item['file']).convert('RGBA')
+              assert a.size==b.size==(item['width'],item['height'])
+              assert ImageChops.difference(a.getchannel('A'),b.getchannel('A')).getbbox() is None
+              assert hashlib.sha256((new/item['file']).read_bytes()).hexdigest()==item['sha256']
+              assert item['new_color_distance']<=item['old_color_distance']+.1
+              assert item['new_color_distance']<=17
+              assert (qa/'city-junctions'/(item['id']+'.jpg')).stat().st_size>4000
+          for name in ('before-after.jpg','strasbourg-refined-assembled.jpg','full-map-preview.jpg','qa.json'):
+              assert (qa/name).stat().st_size>2000
+          print('PASS — 4 painted sprites, 4 port matches, identical alpha, approved QA artifact format')
+          PY
+      - name: Commit final PNG binaries, placement manifest and QA artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/rivers/strasbourg-ill-batch-002/ hre-1618/reports/strasbourg-ill-batch-002/
+          if git diff --cached --quiet; then
+            echo 'No changes in painted bank sprites'
+          else
+            git commit -m 'Refine Strasbourg painted Ill banks and canal junctions, validate map QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - name: Upload QA bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strasbourg-painted-bank-refinement-${{ github.run_number }}
+          path: |
+            hre-1618/assets/sprites/rivers/strasbourg-ill-batch-002/
+            hre-1618/reports/strasbourg-ill-batch-002/
+          if-no-files-found: ignore
