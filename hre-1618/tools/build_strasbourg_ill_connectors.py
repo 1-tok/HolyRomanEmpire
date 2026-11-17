@@ -9,7 +9,7 @@ water at the city's sprite perimeter; buildings never receive river overlay.
 Image sprites are always below city sprites; visual and historic status is
 provisional until human map-scale signoff.
 """
-import csv, hashlib, io, json, math, re, struct, sys, urllib.request, zipfile
+import csv, hashlib, io, json, math, re, struct, sys, urllib.request, urllib.parse, zipfile
 from pathlib import Path
 import numpy as np
 from scipy.ndimage import distance_transform_edt, gaussian_filter
@@ -28,38 +28,35 @@ ROI=(875,2380,1160,2730)
 SEED=1618
 
 def read_ill():
-    data=urllib.request.urlopen(SOURCE,timeout=110).read()
-    z=zipfile.ZipFile(io.BytesIO(data))
-    shp=z.read(next(x for x in z.namelist() if x.endswith(".shp")))
-    dbf=z.read(next(x for x in z.namelist() if x.endswith(".dbf")))
-    count=struct.unpack("<I",dbf[4:8])[0]
-    hl,rl=struct.unpack("<HH",dbf[8:12])
-    fields=[];k=32
-    while dbf[k]!=13:
-        fields.append((dbf[k:k+11].split(b"\0")[0].decode(),dbf[k+16]));k+=32
-    names=[]
-    for i in range(count):
-        row=dbf[hl+i*rl:hl+(i+1)*rl];off=1;name=""
-        for key,ln in fields:
-            if key.lower()=="name":name=row[off:off+ln].decode("latin-1").strip("\0 ").lower()
-            off+=ln
-        names.append(name)
-    pos=100; idx=0; lines=[];all_near=[]
-    while pos+8<=len(shp):
-        ln=struct.unpack(">i",shp[pos+4:pos+8])[0]*2
-        rec=shp[pos+8:pos+8+ln];pos+=8+ln
-        name=names[idx] if idx<len(names) else "";idx+=1
-        if name != "ill" or struct.unpack("<i",rec[:4])[0]!=3:continue
-        groups,points=struct.unpack("<ii",rec[36:44])
-        inds=list(struct.unpack("<%di"%groups,rec[44:44+4*groups]))+[points]
-        raw=struct.unpack("<%dd"%(2*points),rec[44+4*groups:44+4*groups+16*points])
-        for j in range(groups):
-            coordinates=[(raw[2*i+1],raw[2*i]) for i in range(inds[j],inds[j+1])]
-            if any(47.8<=lat<=49.0 and 7.15<=lon<=8.4 for lat,lon in coordinates):
-                lines.append(coordinates)
-    if not lines:
-        raise RuntimeError("No named Ill centerline in NE 10m; cannot claim geographic validation")
-    return lines
+    """OpenStreetMap named Ill ways, not NE 10m, which omits the Ill.
+
+    Waterway geometries are fetched from Overpass with coordinates; no
+    guessing based on the nearest Rhine branch. City canals are separately
+    flagged provisional and require period historical approval.
+    """
+    query='[out:json][timeout:90];way["waterway"~"river|stream"]["name"="Ill"](48.35,7.35,48.90,8.10);out geom;'
+    endpoints=[
+      "https://overpass.kumi.systems/api/interpreter",
+      "https://overpass-api.de/api/interpreter",
+      "https://overpass.nchc.org.tw/api/interpreter"
+    ]
+    problems=[]
+    for endpoint in endpoints:
+        try:
+            request=urllib.request.Request(endpoint,data=urllib.parse.urlencode({"data":query}).encode(),
+                       headers={"User-Agent":"HolyRomanEmpire1618-MapResearch/1.0","Content-Type":"application/x-www-form-urlencoded"})
+            with urllib.request.urlopen(request,timeout=110) as response:
+                obj=json.load(response)
+            lines=[]
+            for way in obj.get("elements",[]):
+                coords=[(p["lat"],p["lon"]) for p in way.get("geometry",[])]
+                if len(coords)>1 and any(48.35<lat<48.90 and 7.35<lon<8.1 for lat,lon in coords):
+                    lines.append(coords)
+            if len(lines)<2:raise RuntimeError("Insufficient named Ill ways: "+str(len(lines)))
+            return lines
+        except Exception as exc:
+            problems.append(endpoint+": "+repr(exc))
+    raise RuntimeError("Could not retrieve real Ill geometry from OSM Overpass: "+"; ".join(problems))
 
 def city_and_ports():
     cfg=json.loads(PLACE.read_text())
@@ -250,7 +247,7 @@ def build():
     mapview.resize((1200,1600),Image.Resampling.LANCZOS).convert("RGB").save(QA/"map-progress.jpg",quality=89)
     info={"batch":"Strasbourg separate Ill river connectors",
           "city_asset":"sprites/Strasbourg.png","city_box":[city_x,city_y,im.width,im.height],
-          "mapped_mainline":"Natural Earth 10m Ill, not Rhine",
+          "mapped_mainline":"OpenStreetMap named Ill river ways; Rhine separate",
           "historic_note":"Canal stubs are provisional; not a 1618 mapped reconstruction",
           "layering":["original base","separate connector PNGs","existing Strasbourg sprite","labels"],
           "png_seam_qa":"PASS: exact RGBA reconstruction at manifest coordinates",
