@@ -1,0 +1,66 @@
+name: HRE Strasbourg Approved Painting Placement 007
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/place_strasbourg_approved_art007.py'
+      - '.github/workflows/hre-strasbourg-approved-placement007.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-strasbourg-approved007-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  place:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3'
+      - name: Place approved artwork as three separate geographic canvas sprites and validate join pixels
+        run: python hre-1618/tools/place_strasbourg_approved_art007.py
+      - name: QA approved painting, seam locations, full-map proof
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          root=Path('hre-1618')
+          p=root/'assets/sprites/rivers/strasbourg-approved-placement-007'
+          qa=json.loads((p/'manifest.json').read_text())
+          assert len(qa['pieces'])==3
+          assert qa['pixel_seams'].startswith('PASS')
+          assert qa['water_across_seams'].startswith('PASS')
+          assert Image.open(root/'maps/canvas/strasbourg-approved-painted-overlay-007.png').size==(3600,4800)
+          for x in qa['pieces']:
+              img=Image.open(p/x['file'])
+              assert img.mode=='RGBA' and img.size==(x['width'],x['height'])
+              assert hashlib.sha256((p/x['file']).read_bytes()).hexdigest()==x['sha256']
+          assert (root/'reports/strasbourg-approved-placement-007/strasbourg-map-section-preview.jpg').stat().st_size>25000
+          print('Validated three painted PNG sections and authentic full-map preview')
+          PY
+      - name: Commit approved art sprites and map canvas
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/rivers/strasbourg-approved-placement-007/ hre-1618/maps/canvas/strasbourg-approved-painted-preview-007.jpg hre-1618/maps/canvas/strasbourg-approved-painted-overlay-007.png hre-1618/reports/strasbourg-approved-placement-007/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Place approved Strasbourg painterly river artwork on HRE map and commit three seam-tested sprites [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strasbourg-approved-art-placement-007
+          path: |
+            hre-1618/assets/sprites/rivers/strasbourg-approved-placement-007/
+            hre-1618/maps/canvas/strasbourg-approved-painted-preview-007.jpg
+            hre-1618/reports/strasbourg-approved-placement-007/
+          if-no-files-found: ignore
