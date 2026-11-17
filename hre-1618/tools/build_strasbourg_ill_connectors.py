@@ -35,14 +35,10 @@ def read_ill():
     No hand-drawn substitute for missing geographic data is allowed.
     """
     import xml.etree.ElementTree as ET
-    bboxes=[
-        (7.735,48.535,7.760,48.558),
-        (7.735,48.558,7.760,48.581),
-        (7.735,48.581,7.760,48.604),
-        (7.735,48.604,7.760,48.627),
-        (7.760,48.558,7.782,48.581),
-        (7.710,48.558,7.735,48.581)
-    ]
+    # Tiny 0.007° squares evade OSM's 50,000-node cap in central Strasbourg.
+    bboxes=[(lon-.0035,lat-.0035,lon+.0035,lat+.0035)
+            for lat in (48.535,48.553,48.575,48.597,48.619)
+            for lon in (7.731,7.750,7.769)]
     ways=[]
     failures=[]
     for left,bottom,right,top in bboxes:
