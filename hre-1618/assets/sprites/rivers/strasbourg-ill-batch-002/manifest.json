@@ -1,0 +1,221 @@
+{
+  "batch": "Strasbourg Ill painted-bank and canal-junction refinement 002",
+  "source_city": "hre-1618/sprites/Strasbourg.png",
+  "city_box": [
+    980,
+    2511,
+    105,
+    105
+  ],
+  "geometry_source": "batch-001 mapped Ill candidate endpoints, OSM modern-way references",
+  "geometry_preserved": true,
+  "new_historically_verified_1618_canal_routes": 0,
+  "historic_accuracy": "UNVERIFIED: no period historical waterways digitization is in repository",
+  "water_tint_qa": "PASS: port-local city-water color convergence for each connector",
+  "seam_qa": "PASS: all four separate PNGs preserve original alpha footprint; exact RGBA on-disk reassembly",
+  "layer_order": [
+    "original base",
+    "painted river connector sprites",
+    "committed city PNG",
+    "labels"
+  ],
+  "city_buildings_unchanged": true,
+  "city_sprites": 1,
+  "connector_count": 4,
+  "connectors": [
+    {
+      "id": "ill-upstream-entry",
+      "file": "ill-upstream-entry.png",
+      "x": 1009,
+      "y": 2564,
+      "width": 29,
+      "height": 58,
+      "endpoint_start": [
+        1023.12,
+        2577.8
+      ],
+      "endpoint_end": [
+        1023,
+        2607
+      ],
+      "city_water_port": [
+        1023,
+        2607
+      ],
+      "source": "NE10m Ill upstream",
+      "sha256": "8c9b6c84d918c20e50bae1168bf5f1215e971bf0f18865d102389f6df65c30f6",
+      "validation": "decoded PNG exact; junction endpoint pinned to city-water mask",
+      "attachment_port": [
+        1023,
+        2607
+      ],
+      "city_water_rgb": [
+        62.0,
+        108.0,
+        102.0
+      ],
+      "old_port_rgb": [
+        52.0,
+        112.0,
+        138.0
+      ],
+      "new_port_rgb": [
+        61.0,
+        109.0,
+        107.0
+      ],
+      "old_color_distance": 37.58,
+      "new_color_distance": 5.2,
+      "alpha_footprint_preserved": true,
+      "port_overlap_pixels": 170,
+      "source_geometry": "Inherited from validated batch-001 city port and mapped Ill candidate",
+      "historical_course_qa": "OSM modern named Ill reference; AD 1618 course not established"
+    },
+    {
+      "id": "ill-downstream-exit",
+      "file": "ill-downstream-exit.png",
+      "x": 1024,
+      "y": 2531,
+      "width": 67,
+      "height": 42,
+      "endpoint_start": [
+        1076,
+        2558
+      ],
+      "endpoint_end": [
+        1038.48,
+        2545.49
+      ],
+      "city_water_port": [
+        1076,
+        2558
+      ],
+      "source": "NE10m Ill downstream",
+      "sha256": "c80f90067616ef6084306727a5ed54ed429e31aa606c35411c5823f19d3eb856",
+      "validation": "decoded PNG exact; junction endpoint pinned to city-water mask",
+      "attachment_port": [
+        1076,
+        2558
+      ],
+      "city_water_rgb": [
+        72.0,
+        131.0,
+        137.0
+      ],
+      "old_port_rgb": [
+        78.0,
+        138.0,
+        164.0
+      ],
+      "new_port_rgb": [
+        72.0,
+        131.0,
+        140.0
+      ],
+      "old_color_distance": 28.53,
+      "new_color_distance": 3.0,
+      "alpha_footprint_preserved": true,
+      "port_overlap_pixels": 174,
+      "source_geometry": "Inherited from validated batch-001 city port and mapped Ill candidate",
+      "historical_course_qa": "OSM modern named Ill reference; AD 1618 course not established"
+    },
+    {
+      "id": "ill-canal-branch-a",
+      "file": "ill-canal-branch-a.png",
+      "x": 1054,
+      "y": 2597,
+      "width": 35,
+      "height": 40,
+      "endpoint_start": [
+        1064,
+        2607
+      ],
+      "endpoint_end": [
+        1078.08,
+        2626.44
+      ],
+      "city_water_port": [
+        1064,
+        2607
+      ],
+      "source": "verified city water port; branch course provisional",
+      "sha256": "fb4c1e2facea96cbd0758d601b346ac25c0eb183fe65400775835b6f2f402a5c",
+      "validation": "decoded PNG exact; junction endpoint pinned to city-water mask",
+      "attachment_port": [
+        1064,
+        2607
+      ],
+      "city_water_rgb": [
+        67.0,
+        126.0,
+        135.0
+      ],
+      "old_port_rgb": [
+        54.0,
+        114.0,
+        140.0
+      ],
+      "new_port_rgb": [
+        65.0,
+        124.0,
+        135.0
+      ],
+      "old_color_distance": 18.38,
+      "new_color_distance": 2.83,
+      "alpha_footprint_preserved": true,
+      "port_overlap_pixels": 61,
+      "source_geometry": "Inherited from validated batch-001 city port and mapped Ill candidate",
+      "historical_course_qa": "UNVERIFIED: port-attached short stub only"
+    },
+    {
+      "id": "ill-canal-branch-b",
+      "file": "ill-canal-branch-b.png",
+      "x": 1069,
+      "y": 2574,
+      "width": 44,
+      "height": 31,
+      "endpoint_start": [
+        1079,
+        2584
+      ],
+      "endpoint_end": [
+        1101.88,
+        2594.08
+      ],
+      "city_water_port": [
+        1079,
+        2584
+      ],
+      "source": "verified city water port; branch course provisional",
+      "sha256": "25d81e8fb012dbb93eab59be03c4af9aecb0b6888413a5afae9c0d5f718088ad",
+      "validation": "decoded PNG exact; junction endpoint pinned to city-water mask",
+      "attachment_port": [
+        1079,
+        2584
+      ],
+      "city_water_rgb": [
+        72.0,
+        131.0,
+        138.0
+      ],
+      "old_port_rgb": [
+        71.0,
+        131.0,
+        157.0
+      ],
+      "new_port_rgb": [
+        72.0,
+        131.5,
+        140.0
+      ],
+      "old_color_distance": 19.03,
+      "new_color_distance": 2.06,
+      "alpha_footprint_preserved": true,
+      "port_overlap_pixels": 60,
+      "source_geometry": "Inherited from validated batch-001 city port and mapped Ill candidate",
+      "historical_course_qa": "UNVERIFIED: port-attached short stub only"
+    }
+  ],
+  "review_status": "provisional; inspect city shoreline and 1618 Ill/canal course at map scale",
+  "comparison": "reports/strasbourg-ill-batch-002/before-after.jpg"
+}
