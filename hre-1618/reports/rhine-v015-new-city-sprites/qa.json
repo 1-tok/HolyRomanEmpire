@@ -88,17 +88,17 @@
         1821
       ],
       "bbox": [
-        934,
-        1791,
-        1011,
-        1851
+        930,
+        1796,
+        968,
+        1825
       ],
       "size": [
-        77,
-        60
+        38,
+        29
       ],
       "file": "andernach.png",
-      "sha256": "30ed3a2109bb2652cb2b48532d2d7d39a0449971d90849b9e193df3767d4a3ee",
+      "sha256": "da89f1382f08225b0feb0c2bba68d7e89f0ac24ae87dd0674e6bdabc470669d6",
       "status": "illustrative 1618 settlement sprite, historical footprint pending"
     },
     {
@@ -132,17 +132,17 @@
         1905
       ],
       "bbox": [
-        982,
-        1879,
-        1050,
-        1932
+        984,
+        1904,
+        1018,
+        1930
       ],
       "size": [
-        68,
-        53
+        34,
+        26
       ],
       "file": "boppard.png",
-      "sha256": "077e99de65367c2b5bd166daf16364805e197c9cea8f683a55e4c9ba6cc8b73b",
+      "sha256": "b169b6acba262534e37a4352ba3b2bc4350b582a74c0c5ea4546ff787616dc07",
       "status": "illustrative 1618 settlement sprite, historical footprint pending"
     },
     {
@@ -220,17 +220,17 @@
         2518
       ],
       "bbox": [
-        1047,
-        2501,
-        1092,
-        2536
+        1069,
+        2497,
+        1093,
+        2515
       ],
       "size": [
-        45,
-        35
+        24,
+        18
       ],
       "file": "gambsheim.png",
-      "sha256": "7aa682eea9d324480ec1525fe406b69fa6b0d5cb0b4ec752ed2472688682d07b",
+      "sha256": "c09ea89dbcd79a79c6105e1b31fd5dcce4646d228cc785bdff6f0cb923e4471c",
       "status": "illustrative 1618 settlement sprite, historical footprint pending"
     },
     {
@@ -242,17 +242,17 @@
         2531
       ],
       "bbox": [
-        1031,
-        2514,
-        1076,
-        2549
+        1030,
+        2536,
+        1052,
+        2553
       ],
       "size": [
-        45,
-        35
+        22,
+        17
       ],
       "file": "la-wantzenau.png",
-      "sha256": "9829866073508adda71356ecbe363b993ddb3096b368ba33a08a41ee0704557c",
+      "sha256": "c9eeca3c9faff61f5ea6ffe3a6d62472817f1707fd47985cfcb2509a94c4310b",
       "status": "illustrative 1618 settlement sprite, historical footprint pending"
     },
     {
@@ -286,17 +286,17 @@
         2723
       ],
       "bbox": [
-        940,
-        2699,
-        1004,
-        2748
+        937,
+        2700,
+        975,
+        2729
       ],
       "size": [
-        64,
-        49
+        38,
+        29
       ],
       "file": "marckolsheim.png",
-      "sha256": "78240f939c50f3574a31935ac09f41fd69623a8c12797582fbf48ddddc0eb957",
+      "sha256": "2df4c9aceefb36c64c10c5cf16f5d7a301e8ac45f60da7f96dcfd0b275c8ed1d",
       "status": "illustrative 1618 settlement sprite, historical footprint pending"
     },
     {
