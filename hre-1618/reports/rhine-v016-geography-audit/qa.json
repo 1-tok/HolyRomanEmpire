@@ -1,0 +1,297 @@
+{
+  "version": "v016",
+  "status": "GEOGRAPHIC QA ONLY; NOT APPROVED",
+  "painting_source": "assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png",
+  "reference": "maps/canvas/rhine-v012-geographic-overlay.png",
+  "reference_limit": "Natural Earth 10m generalized modern centerline is not a historical 1618 channel map",
+  "water_color_detection": "Threshold on RGBA painted blue water-like pixels; dark/noisy image can yield false positive/negative",
+  "geographic_rhine_visualized": "Magenta centerline water and outline superimposed over ORIGINAL painting in QA only",
+  "cities": [
+    [
+      "Mainz",
+      1185,
+      2003
+    ],
+    [
+      "Worms",
+      1205,
+      2150
+    ],
+    [
+      "Speyer",
+      1220,
+      2275
+    ],
+    [
+      "Strasbourg (Ill)",
+      1032,
+      2563
+    ],
+    [
+      "Breisach",
+      979,
+      2776
+    ],
+    [
+      "Basel",
+      973,
+      2964
+    ]
+  ],
+  "bands": [
+    {
+      "band": "north_mainz",
+      "interval": [
+        1900,
+        2100
+      ],
+      "geographic_water_pixels": 4219,
+      "painted_waterlike_pixels": 7430,
+      "median_distance_geo_to_paint_px": 5.83,
+      "p90_distance_geo_to_paint_px": 16.64,
+      "geographic_water_within_12px_of_paint_fraction": 0.822,
+      "geographic_water_within_24px_of_paint_fraction": 0.97,
+      "painted_water_within_24px_of_geographic_fraction": 0.391
+    },
+    {
+      "band": "worms_speyer",
+      "interval": [
+        2100,
+        2350
+      ],
+      "geographic_water_pixels": 3223,
+      "painted_waterlike_pixels": 11548,
+      "median_distance_geo_to_paint_px": 3.16,
+      "p90_distance_geo_to_paint_px": 11.4,
+      "geographic_water_within_12px_of_paint_fraction": 0.912,
+      "geographic_water_within_24px_of_paint_fraction": 1.0,
+      "painted_water_within_24px_of_geographic_fraction": 0.341
+    },
+    {
+      "band": "north_strasbourg",
+      "interval": [
+        2350,
+        2490
+      ],
+      "geographic_water_pixels": 2046,
+      "painted_waterlike_pixels": 7565,
+      "median_distance_geo_to_paint_px": 1.41,
+      "p90_distance_geo_to_paint_px": 8.54,
+      "geographic_water_within_12px_of_paint_fraction": 0.958,
+      "geographic_water_within_24px_of_paint_fraction": 1.0,
+      "painted_water_within_24px_of_geographic_fraction": 0.339
+    },
+    {
+      "band": "strasbourg_ill",
+      "interval": [
+        2490,
+        2650
+      ],
+      "geographic_water_pixels": 2153,
+      "painted_waterlike_pixels": 9267,
+      "median_distance_geo_to_paint_px": 8.06,
+      "p90_distance_geo_to_paint_px": 20.61,
+      "geographic_water_within_12px_of_paint_fraction": 0.673,
+      "geographic_water_within_24px_of_paint_fraction": 0.942,
+      "painted_water_within_24px_of_geographic_fraction": 0.038
+    },
+    {
+      "band": "south_strasbourg",
+      "interval": [
+        2650,
+        2850
+      ],
+      "geographic_water_pixels": 2474,
+      "painted_waterlike_pixels": 14392,
+      "median_distance_geo_to_paint_px": 5.1,
+      "p90_distance_geo_to_paint_px": 13.6,
+      "geographic_water_within_12px_of_paint_fraction": 0.844,
+      "geographic_water_within_24px_of_paint_fraction": 0.998,
+      "painted_water_within_24px_of_geographic_fraction": 0.078
+    },
+    {
+      "band": "breisach_basel",
+      "interval": [
+        2850,
+        3050
+      ],
+      "geographic_water_pixels": 6261,
+      "painted_waterlike_pixels": 9144,
+      "median_distance_geo_to_paint_px": 21.26,
+      "p90_distance_geo_to_paint_px": 56.4,
+      "geographic_water_within_12px_of_paint_fraction": 0.355,
+      "geographic_water_within_24px_of_paint_fraction": 0.547,
+      "painted_water_within_24px_of_geographic_fraction": 0.283
+    },
+    {
+      "band": "south_extension",
+      "interval": [
+        3050,
+        3274
+      ],
+      "geographic_water_pixels": 0,
+      "painted_waterlike_pixels": 8953,
+      "median_distance_geo_to_paint_px": null,
+      "p90_distance_geo_to_paint_px": null,
+      "geographic_water_within_12px_of_paint_fraction": null,
+      "geographic_water_within_24px_of_paint_fraction": null,
+      "painted_water_within_24px_of_geographic_fraction": 0.0
+    }
+  ],
+  "rows": [
+    {
+      "map_y": 1920,
+      "rhine_center_x": 1026,
+      "nearest_painted_blue_x": 998,
+      "delta_px": 28
+    },
+    {
+      "map_y": 1965,
+      "rhine_center_x": 1055,
+      "nearest_painted_blue_x": 1055,
+      "delta_px": 0
+    },
+    {
+      "map_y": 2010,
+      "rhine_center_x": 1103,
+      "nearest_painted_blue_x": 1117,
+      "delta_px": 14
+    },
+    {
+      "map_y": 2055,
+      "rhine_center_x": 1206,
+      "nearest_painted_blue_x": 1206,
+      "delta_px": 0
+    },
+    {
+      "map_y": 2100,
+      "rhine_center_x": 1231,
+      "nearest_painted_blue_x": 1201,
+      "delta_px": 30
+    },
+    {
+      "map_y": 2145,
+      "rhine_center_x": 1207,
+      "nearest_painted_blue_x": 1207,
+      "delta_px": 0
+    },
+    {
+      "map_y": 2190,
+      "rhine_center_x": 1220,
+      "nearest_painted_blue_x": 1219,
+      "delta_px": 1
+    },
+    {
+      "map_y": 2235,
+      "rhine_center_x": 1236,
+      "nearest_painted_blue_x": 1209,
+      "delta_px": 27
+    },
+    {
+      "map_y": 2280,
+      "rhine_center_x": 1231,
+      "nearest_painted_blue_x": 1227,
+      "delta_px": 4
+    },
+    {
+      "map_y": 2325,
+      "rhine_center_x": 1202,
+      "nearest_painted_blue_x": 1226,
+      "delta_px": 24
+    },
+    {
+      "map_y": 2370,
+      "rhine_center_x": 1189,
+      "nearest_painted_blue_x": 1189,
+      "delta_px": 0
+    },
+    {
+      "map_y": 2415,
+      "rhine_center_x": 1156,
+      "nearest_painted_blue_x": 1137,
+      "delta_px": 19
+    },
+    {
+      "map_y": 2460,
+      "rhine_center_x": 1130,
+      "nearest_painted_blue_x": 1105,
+      "delta_px": 25
+    },
+    {
+      "map_y": 2505,
+      "rhine_center_x": 1088,
+      "nearest_painted_blue_x": 1074,
+      "delta_px": 14
+    },
+    {
+      "map_y": 2550,
+      "rhine_center_x": 1047,
+      "nearest_painted_blue_x": 1009,
+      "delta_px": 38
+    },
+    {
+      "map_y": 2595,
+      "rhine_center_x": 1038,
+      "nearest_painted_blue_x": 1015,
+      "delta_px": 23
+    },
+    {
+      "map_y": 2640,
+      "rhine_center_x": 1026,
+      "nearest_painted_blue_x": 1006,
+      "delta_px": 20
+    },
+    {
+      "map_y": 2685,
+      "rhine_center_x": 1010,
+      "nearest_painted_blue_x": 1023,
+      "delta_px": 13
+    },
+    {
+      "map_y": 2730,
+      "rhine_center_x": 985,
+      "nearest_painted_blue_x": 983,
+      "delta_px": 2
+    },
+    {
+      "map_y": 2775,
+      "rhine_center_x": 981,
+      "nearest_painted_blue_x": 1011,
+      "delta_px": 30
+    },
+    {
+      "map_y": 2820,
+      "rhine_center_x": 976,
+      "nearest_painted_blue_x": 1057,
+      "delta_px": 81
+    },
+    {
+      "map_y": 2865,
+      "rhine_center_x": 961,
+      "nearest_painted_blue_x": 1035,
+      "delta_px": 74
+    },
+    {
+      "map_y": 2910,
+      "rhine_center_x": 955,
+      "nearest_painted_blue_x": 999,
+      "delta_px": 44
+    },
+    {
+      "map_y": 2955,
+      "rhine_center_x": 1108,
+      "nearest_painted_blue_x": 1097,
+      "delta_px": 11
+    }
+  ],
+  "historical_concerns": [
+    "Strasbourg is on the Ill west of main Rhine; do not imply main Rhine physically encircles cathedral",
+    "Wide braided channel, islands and meanders depicted by painting cannot be accepted without period evidence",
+    "Modern coarse Rhine centerline alone cannot verify 1618 Rhine channel braiding and banks",
+    "City-painted river paths must align correctly at Mainz, Worms, Speyer, Strasbourg and Basel",
+    "Verify historic city architecture and city-scale relative distances"
+  ],
+  "print_approved": false,
+  "source_painting_modified": false,
+  "disposition": "HOLD geography/river placement pending section-by-section correction if measured drift is material"
+}
