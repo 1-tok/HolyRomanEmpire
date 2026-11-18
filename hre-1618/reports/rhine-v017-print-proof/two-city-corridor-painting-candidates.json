@@ -1,0 +1,50 @@
+{
+  "version": "v017",
+  "status": "TWO NEW PAINTED CANDIDATES CREATED; GEOGRAPHY NOT APPROVED",
+  "branch": "artwork/rhine-city-batch-001",
+  "regions": [
+    {
+      "id": "bingen-mainz-frankfurt",
+      "image": "a_detailed_illustrated_isometric_oblique_painted_m.png",
+      "size": [
+        2172,
+        724
+      ],
+      "labels_embedded": false,
+      "reference": "reports/rhine-v017-geometry-lock-001/bingen-mainz-frankfurt-registration-3x.jpg"
+    },
+    {
+      "id": "mainz-worms-speyer",
+      "image": "a_detailed_hand_painted_renaissance_style_isometri.png",
+      "size": [
+        1774,
+        887
+      ],
+      "labels_embedded": true,
+      "reference": "reports/rhine-v017-geometry-lock-001/worms-speyer-registration-3x.jpg"
+    }
+  ],
+  "design_rules": [
+    "No horizon or sky anywhere",
+    "Single geographic Rhine and Main underlay, not independent painted river paths",
+    "No embedded city labels in final art",
+    "City and landscape assets on distinct transparent layers",
+    "Avoid duplicate Mainz city when panels overlap"
+  ],
+  "findings": [
+    "New painting style generally consistent, but independent panoramas are NOT registered to city anchors",
+    "Second image has embedded labels, which need replacement with overlay labels",
+    "Neither native image has sufficient source fidelity for final full-sheet 300 PPI",
+    "Cannot infer riverbank join success from visual consistency"
+  ],
+  "approvals": {
+    "art_style_provisional": true,
+    "geographic_city_placement": false,
+    "river_seam": false,
+    "print_ready": false,
+    "map_integration": false
+  },
+  "original_v016_protected": true,
+  "next": "Use existing fixed registration guides to remake city/river components at correct coordinates, verify panel overlapping seam masks before placing into map.",
+  "note": "Actual PNG binaries remain in conversation attachments, not committed to repository by this metadata commit."
+}
