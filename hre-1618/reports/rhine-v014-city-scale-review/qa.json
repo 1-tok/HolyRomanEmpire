@@ -1,0 +1,193 @@
+{
+  "version": "v014",
+  "status": "MAP-SCALE CITY ART VISUAL REVIEW",
+  "base": "base/base_3600.jpg",
+  "canvas_size": [
+    3600,
+    4800
+  ],
+  "painted_geographic_scenery": "maps/canvas/rhine-v013-geographic-painted-overlay.png",
+  "historic_rhine_1618_certified": false,
+  "new_chat_painted_panels_embedded": false,
+  "source_notes": "All placed large city art comes from existing committed independently named city sprites; Strasbourg artwork from v007 Ill-centered overlay.",
+  "citylayer": "maps/canvas/rhine-v014-major-city-sprites-overlay.png",
+  "map_preview": "maps/canvas/rhine-v014-full-map-painted-cities-review.jpg",
+  "exact_river_sprite_seams": "PASS: v013 canonical master equals its 13 native PNG pieces",
+  "cities": [
+    {
+      "name": "Basel",
+      "source": "sprites/Basel.png",
+      "center": [
+        972.67,
+        2963.67
+      ],
+      "bbox": [
+        901,
+        2892,
+        1046,
+        3037
+      ],
+      "sprite_px": [
+        145,
+        145
+      ],
+      "layer": "foreground-city",
+      "historical_accuracy": "review"
+    },
+    {
+      "name": "Speyer",
+      "source": "sprites/Speyer.png",
+      "center": [
+        1220,
+        2275
+      ],
+      "bbox": [
+        1161,
+        2216,
+        1279,
+        2334
+      ],
+      "sprite_px": [
+        118,
+        118
+      ],
+      "layer": "foreground-city",
+      "historical_accuracy": "review"
+    },
+    {
+      "name": "Worms",
+      "source": "sprites/Worms.png",
+      "center": [
+        1205.33,
+        2150.33
+      ],
+      "bbox": [
+        1146,
+        2091,
+        1264,
+        2209
+      ],
+      "sprite_px": [
+        118,
+        118
+      ],
+      "layer": "foreground-city",
+      "historical_accuracy": "review"
+    },
+    {
+      "name": "Mainz",
+      "source": "sprites/Mainz.png",
+      "center": [
+        1185.33,
+        2003
+      ],
+      "bbox": [
+        1113,
+        1931,
+        1258,
+        2076
+      ],
+      "sprite_px": [
+        145,
+        145
+      ],
+      "layer": "foreground-city",
+      "historical_accuracy": "review"
+    }
+  ],
+  "approved_strasbourg_asset": "maps/canvas/strasbourg-approved-painted-overlay-007.png",
+  "supplementary_city_anchors": [
+    {
+      "name": "Cologne",
+      "x": 869,
+      "y": 1616,
+      "role": "major-pending-unique-art"
+    },
+    {
+      "name": "Bonn",
+      "x": 902,
+      "y": 1700,
+      "role": "town-pending-art"
+    },
+    {
+      "name": "Andernach",
+      "x": 972,
+      "y": 1821,
+      "role": "town-pending-art"
+    },
+    {
+      "name": "Koblenz",
+      "x": 1019,
+      "y": 1856,
+      "role": "major-pending-unique-art"
+    },
+    {
+      "name": "Boppard",
+      "x": 1016,
+      "y": 1905,
+      "role": "town-pending-art"
+    },
+    {
+      "name": "Bingen",
+      "x": 1091,
+      "y": 2013,
+      "role": "town-pending-art"
+    },
+    {
+      "name": "Oppenheim",
+      "x": 1206,
+      "y": 2063,
+      "role": "town-pending-art"
+    },
+    {
+      "name": "Germersheim",
+      "x": 1201,
+      "y": 2312,
+      "role": "town-pending-art"
+    },
+    {
+      "name": "Gambsheim",
+      "x": 1069,
+      "y": 2518,
+      "role": "village-pending-art"
+    },
+    {
+      "name": "La Wantzenau",
+      "x": 1053,
+      "y": 2531,
+      "role": "village-pending-art"
+    },
+    {
+      "name": "Rhinau",
+      "x": 1016,
+      "y": 2664,
+      "role": "village-pending-art"
+    },
+    {
+      "name": "Marckolsheim",
+      "x": 972,
+      "y": 2723,
+      "role": "town-pending-art"
+    },
+    {
+      "name": "Breisach",
+      "x": 979,
+      "y": 2776,
+      "role": "fortified-town-pending-art"
+    },
+    {
+      "name": "Neuenburg",
+      "x": 970,
+      "y": 2862,
+      "role": "town-pending-art"
+    }
+  ],
+  "historic_warnings": [
+    "Do not add completed Cologne cathedral towers before nineteenth century",
+    "Do not include Neuwied town (founded 1653) or Neuf-Brisach (founded 1699)",
+    "Strasbourg is on the Ill; do not paint main Rhine directly through city",
+    "Modern generalized river course does not prove 1618 channels and islands"
+  ],
+  "qa_gate": "WAIT for user map-scale review and unique artwork binary intake",
+  "print_approval": false
+}
