@@ -1,0 +1,333 @@
+{
+  "version": "v017",
+  "title": "Rhine and Main confluence 1618 five-panel painted atlas",
+  "status": "geographic panel layout established; high-res native painting pending",
+  "coordinate_system": "HRE 1618 WGS84 Lambert conformal conic matching build_rhine_batch001.px",
+  "working_grid_px": [
+    3600,
+    4800
+  ],
+  "proof_canvas_px": [
+    7200,
+    9600
+  ],
+  "final_print_canvas_px": [
+    10800,
+    14400
+  ],
+  "physical_print_inches": [
+    36,
+    48
+  ],
+  "final_print_ppi": 300,
+  "intermediate_proof_ppi_at_36x48": 200,
+  "art_reference": "assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png",
+  "main_river_source": "assets/sprites/rivers/main/manifest.json",
+  "panels": [
+    {
+      "id": "A",
+      "name": "Northern Rhine city corridor",
+      "bbox_work_px": [
+        720,
+        1480,
+        1400,
+        2115
+      ],
+      "cities": [
+        "Cologne",
+        "Bonn",
+        "Andernach",
+        "Koblenz",
+        "Boppard",
+        "Bingen"
+      ],
+      "notes": "Extends beyond original v011 art above y=1901; new native painting needed; do not stretch source north"
+    },
+    {
+      "id": "B",
+      "name": "Mainz/Main confluence and Frankfurt east spur",
+      "bbox_work_px": [
+        1010,
+        1740,
+        1850,
+        2180
+      ],
+      "cities": [
+        "Mainz",
+        "Frankfurt",
+        "Hanau",
+        "Aschaffenburg"
+      ],
+      "notes": "Main enters Rhine from the east at Mainz; location and river geometry must be controlled by Main sprites, not fantasy bend. Mainz appears only once in final composition."
+    },
+    {
+      "id": "C",
+      "name": "Middle Rhine towns",
+      "bbox_work_px": [
+        1040,
+        2050,
+        1420,
+        2435
+      ],
+      "cities": [
+        "Oppenheim",
+        "Worms",
+        "Speyer",
+        "Germersheim"
+      ],
+      "notes": "City masses avoid overlap and follow actual Rhine bank side"
+    },
+    {
+      "id": "D",
+      "name": "Strasbourg and Ill floodplain",
+      "bbox_work_px": [
+        775,
+        2350,
+        1355,
+        2745
+      ],
+      "cities": [
+        "Gambsheim",
+        "La Wantzenau",
+        "Strasbourg",
+        "Illkirch",
+        "Erstein",
+        "Benfeld",
+        "Rhinau"
+      ],
+      "notes": "Strasbourg city water may visually meet Rhine by user approval, but geographic rivers retained as distinct in metadata"
+    },
+    {
+      "id": "E",
+      "name": "Breisach to Basel and Rhine southern approach",
+      "bbox_work_px": [
+        790,
+        2650,
+        1330,
+        3220
+      ],
+      "cities": [
+        "Marckolsheim",
+        "Breisach",
+        "Neuenburg",
+        "Basel"
+      ],
+      "notes": "High-priority alignment QA: v016 painted water diverges south of Breisach; no claims of geography approval"
+    }
+  ],
+  "cities": [
+    {
+      "site": "Cologne",
+      "lat": 50.94222,
+      "lon": 6.95778,
+      "scale": "major",
+      "panel": "A"
+    },
+    {
+      "site": "Bonn",
+      "lat": 50.73528,
+      "lon": 7.10222,
+      "scale": "secondary",
+      "panel": "A"
+    },
+    {
+      "site": "Andernach",
+      "lat": 50.439,
+      "lon": 7.401,
+      "scale": "secondary",
+      "panel": "A"
+    },
+    {
+      "site": "Koblenz",
+      "lat": 50.3568,
+      "lon": 7.59366,
+      "scale": "major",
+      "panel": "A"
+    },
+    {
+      "site": "Boppard",
+      "lat": 50.231,
+      "lon": 7.589,
+      "scale": "secondary",
+      "panel": "A"
+    },
+    {
+      "site": "Bingen",
+      "lat": 49.966,
+      "lon": 7.899,
+      "scale": "secondary",
+      "panel": "A"
+    },
+    {
+      "site": "Mainz",
+      "lat": 50,
+      "lon": 8.26667,
+      "scale": "major",
+      "panel": "B"
+    },
+    {
+      "site": "Frankfurt",
+      "lat": 50.11056,
+      "lon": 8.68222,
+      "scale": "major",
+      "panel": "B"
+    },
+    {
+      "site": "Hanau",
+      "lat": 50.13278,
+      "lon": 8.91694,
+      "scale": "secondary",
+      "panel": "B"
+    },
+    {
+      "site": "Aschaffenburg",
+      "lat": 49.97405,
+      "lon": 9.14936,
+      "scale": "secondary",
+      "panel": "B"
+    },
+    {
+      "site": "Oppenheim",
+      "lat": 49.851,
+      "lon": 8.354,
+      "scale": "secondary",
+      "panel": "C"
+    },
+    {
+      "site": "Worms",
+      "lat": 49.63026,
+      "lon": 8.36209,
+      "scale": "major",
+      "panel": "C"
+    },
+    {
+      "site": "Speyer",
+      "lat": 49.31656,
+      "lon": 8.43361,
+      "scale": "major",
+      "panel": "C"
+    },
+    {
+      "site": "Germersheim",
+      "lat": 49.222,
+      "lon": 8.366,
+      "scale": "secondary",
+      "panel": "C"
+    },
+    {
+      "site": "Gambsheim",
+      "lat": 48.692,
+      "lon": 7.885,
+      "scale": "village",
+      "panel": "D"
+    },
+    {
+      "site": "La Wantzenau",
+      "lat": 48.657,
+      "lon": 7.825,
+      "scale": "village",
+      "panel": "D"
+    },
+    {
+      "site": "Strasbourg",
+      "lat": 48.57333,
+      "lon": 7.75222,
+      "scale": "major",
+      "panel": "D"
+    },
+    {
+      "site": "Illkirch",
+      "lat": 48.53,
+      "lon": 7.713,
+      "scale": "village",
+      "panel": "D"
+    },
+    {
+      "site": "Erstein",
+      "lat": 48.423,
+      "lon": 7.662,
+      "scale": "secondary",
+      "panel": "D"
+    },
+    {
+      "site": "Benfeld",
+      "lat": 48.373,
+      "lon": 7.592,
+      "scale": "secondary",
+      "panel": "D"
+    },
+    {
+      "site": "Rhinau",
+      "lat": 48.318,
+      "lon": 7.707,
+      "scale": "village",
+      "panel": "D"
+    },
+    {
+      "site": "Marckolsheim",
+      "lat": 48.165,
+      "lon": 7.547,
+      "scale": "secondary",
+      "panel": "E"
+    },
+    {
+      "site": "Breisach",
+      "lat": 48.033,
+      "lon": 7.582,
+      "scale": "major",
+      "panel": "E"
+    },
+    {
+      "site": "Neuenburg",
+      "lat": 47.814,
+      "lon": 7.561,
+      "scale": "secondary",
+      "panel": "E"
+    },
+    {
+      "site": "Basel",
+      "lat": 47.55806,
+      "lon": 7.58778,
+      "scale": "major",
+      "panel": "E"
+    }
+  ],
+  "city_size_px_on_final_master": {
+    "major": [
+      220,
+      420
+    ],
+    "secondary": [
+      120,
+      230
+    ],
+    "village": [
+      55,
+      115
+    ]
+  },
+  "watercourse_rules": {
+    "rhine": "Keep existing projected geographic centerline as geometry guide; v016 painting as visual-only style reference",
+    "main": "Main fork leaves Mainz eastward along the canonical named Main geometry",
+    "strasbourg": "Allow stylistically close/connected river scenery per user instruction; keep named Ill and Rhine distinct in historical metadata",
+    "historical_quality": "1618 braided channels, urban footprints and period architecture require specific historical QA"
+  },
+  "join_rules": {
+    "panel_overlap_work_px": 50,
+    "edges": "paint 10-15% redundant border from same georeferenced design; feather or mask scenic LAND only",
+    "water": "single continuous geographic water path through seams",
+    "cities": "city skyline and walls must never be bisected by a seam; unique illustration per city"
+  },
+  "outputs": {
+    "reference_preview": "maps/canvas/rhine-v017-reference-7200x9600.jpg",
+    "panels": "reports/rhine-v017-print-proof/panel-*.jpg",
+    "qa": "reports/rhine-v017-print-proof/qa.json"
+  },
+  "approval": {
+    "print_ready": false,
+    "high_resolution_originals_ready": false,
+    "full_1618_hydrography_certified": false,
+    "existing_v016_preserved": true
+  },
+  "note": "This v017 layout is registration/planning and a 2x upscale proof only. True 300 PPI at preselected 36 x 48 requires newly detailed native artwork at 10800 x 14400, not interpolated pixels."
+}
