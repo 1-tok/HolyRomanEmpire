@@ -99,4 +99,3 @@ qa=dict(version="v017-B",status="GEOGRAPHIC SOURCE REGISTERED; NATIVE ARTWORK NO
     ])
 (RPT/"qa.json").write_text(json.dumps(qa,indent=2)+"\n")
 print("PASS Panel B geo context",W,H,"3x",W*3,H*3,"settlements",len(sites))
-if __name__=="__main__":main()
