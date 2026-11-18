@@ -4,6 +4,7 @@ on:
     paths:
       - 'hre-1618/assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png'
       - '.github/workflows/hre-rhine-v016-original-painting.yml'
+      - 'hre-1618/tools/render_rhine_v016_original_painting.py'
   workflow_dispatch:
 permissions:
   contents: write
