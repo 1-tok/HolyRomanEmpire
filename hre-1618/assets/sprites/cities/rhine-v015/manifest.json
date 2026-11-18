@@ -1,0 +1,347 @@
+{
+  "batch": "v015 river settlement sprite review",
+  "canvas_size": [
+    3600,
+    4800
+  ],
+  "original_v014_preserved": true,
+  "original_strasbourg_preserved": true,
+  "geographical_base": "base/base_3600.jpg",
+  "river_source": "maps/canvas/rhine-v013-geographic-painted-overlay.png",
+  "historic_rhine_course_1618_verified": false,
+  "new_unique_city_sprites": 14,
+  "historic_exclusions": [
+    "Neuwied (founded 1653)",
+    "Neuf-Brisach (founded 1699)",
+    "finished Cologne Cathedral towers (19th century)"
+  ],
+  "style": "oblique painterly city sketches, distinct source per town; not yet based on new high-resolution standalone chat images",
+  "source_image_note": "Uncommitted stand-alone north/south chat concept paintings are not encoded in repo; this renderer builds native differentiable city sprites for trial placement.",
+  "approved_original_city_sprites_preserved": [
+    "Strasbourg-v007",
+    "Basel",
+    "Mainz",
+    "Speyer",
+    "Worms"
+  ],
+  "layer_order": [
+    "geographic base",
+    "v013 georeferenced wetland and Rhine",
+    "v007 Strasbourg Ill",
+    "v014 major cities",
+    "v015 new city sprites",
+    "labels"
+  ],
+  "join_qa": "Existing v013 geography retained unaltered. Newly painted cities have feathered transparent grounds; historical riverbank integration still requires inspection.",
+  "print_approval": false,
+  "placements": [
+    {
+      "name": "Cologne",
+      "latitude": 50.94222,
+      "longitude": 6.95778,
+      "anchor": [
+        869,
+        1616
+      ],
+      "bbox": [
+        798,
+        1561,
+        940,
+        1671
+      ],
+      "size": [
+        142,
+        110
+      ],
+      "file": "cologne.png",
+      "sha256": "e2f3340b44dc8aedc6833a08ca74d503d8d762c9c367cc29cd0c722f909cf783",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Bonn",
+      "latitude": 50.73528,
+      "longitude": 7.10222,
+      "anchor": [
+        902,
+        1700
+      ],
+      "bbox": [
+        865,
+        1671,
+        940,
+        1729
+      ],
+      "size": [
+        75,
+        58
+      ],
+      "file": "bonn.png",
+      "sha256": "1413831b99ca8e47790449072bc7190502d7c626255e2e8d763d5e917cbf15c0",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Andernach",
+      "latitude": 50.439,
+      "longitude": 7.401,
+      "anchor": [
+        972,
+        1821
+      ],
+      "bbox": [
+        934,
+        1791,
+        1011,
+        1851
+      ],
+      "size": [
+        77,
+        60
+      ],
+      "file": "andernach.png",
+      "sha256": "30ed3a2109bb2652cb2b48532d2d7d39a0449971d90849b9e193df3767d4a3ee",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Koblenz",
+      "latitude": 50.3568,
+      "longitude": 7.59366,
+      "anchor": [
+        1019,
+        1856
+      ],
+      "bbox": [
+        960,
+        1810,
+        1078,
+        1902
+      ],
+      "size": [
+        118,
+        92
+      ],
+      "file": "koblenz.png",
+      "sha256": "51afb87d6283f7d7db509e415128ba79b73cee4f2d02a25e9b2bc18f549b9910",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Boppard",
+      "latitude": 50.231,
+      "longitude": 7.589,
+      "anchor": [
+        1016,
+        1905
+      ],
+      "bbox": [
+        982,
+        1879,
+        1050,
+        1932
+      ],
+      "size": [
+        68,
+        53
+      ],
+      "file": "boppard.png",
+      "sha256": "077e99de65367c2b5bd166daf16364805e197c9cea8f683a55e4c9ba6cc8b73b",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Bingen",
+      "latitude": 49.966,
+      "longitude": 7.899,
+      "anchor": [
+        1091,
+        2013
+      ],
+      "bbox": [
+        1053,
+        1983,
+        1130,
+        2043
+      ],
+      "size": [
+        77,
+        60
+      ],
+      "file": "bingen.png",
+      "sha256": "f3afe38cad8545af3e5edcd8f4405f917f99e6f89407905e4c9872733e887791",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Oppenheim",
+      "latitude": 49.851,
+      "longitude": 8.354,
+      "anchor": [
+        1206,
+        2063
+      ],
+      "bbox": [
+        1170,
+        2035,
+        1243,
+        2091
+      ],
+      "size": [
+        73,
+        56
+      ],
+      "file": "oppenheim.png",
+      "sha256": "458246fe0d8ada217c4726bfd8f65decf3c532bb1fb3cc0d3c538105801b3901",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Germersheim",
+      "latitude": 49.222,
+      "longitude": 8.366,
+      "anchor": [
+        1201,
+        2312
+      ],
+      "bbox": [
+        1165,
+        2284,
+        1238,
+        2340
+      ],
+      "size": [
+        73,
+        56
+      ],
+      "file": "germersheim.png",
+      "sha256": "6efee0684206c0c6a811bcedc411a7e780ad96959f59481222b8c06f60e4182e",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Gambsheim",
+      "latitude": 48.692,
+      "longitude": 7.885,
+      "anchor": [
+        1069,
+        2518
+      ],
+      "bbox": [
+        1047,
+        2501,
+        1092,
+        2536
+      ],
+      "size": [
+        45,
+        35
+      ],
+      "file": "gambsheim.png",
+      "sha256": "7aa682eea9d324480ec1525fe406b69fa6b0d5cb0b4ec752ed2472688682d07b",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "La Wantzenau",
+      "latitude": 48.657,
+      "longitude": 7.825,
+      "anchor": [
+        1053,
+        2531
+      ],
+      "bbox": [
+        1031,
+        2514,
+        1076,
+        2549
+      ],
+      "size": [
+        45,
+        35
+      ],
+      "file": "la-wantzenau.png",
+      "sha256": "9829866073508adda71356ecbe363b993ddb3096b368ba33a08a41ee0704557c",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Rhinau",
+      "latitude": 48.318,
+      "longitude": 7.707,
+      "anchor": [
+        1016,
+        2664
+      ],
+      "bbox": [
+        993,
+        2646,
+        1040,
+        2682
+      ],
+      "size": [
+        47,
+        36
+      ],
+      "file": "rhinau.png",
+      "sha256": "cffdd0508a34c75a46f71ab0102a3b2f6fa450df00829e218e8dbf81601370fd",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Marckolsheim",
+      "latitude": 48.165,
+      "longitude": 7.547,
+      "anchor": [
+        972,
+        2723
+      ],
+      "bbox": [
+        940,
+        2699,
+        1004,
+        2748
+      ],
+      "size": [
+        64,
+        49
+      ],
+      "file": "marckolsheim.png",
+      "sha256": "78240f939c50f3574a31935ac09f41fd69623a8c12797582fbf48ddddc0eb957",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Breisach",
+      "latitude": 48.033,
+      "longitude": 7.582,
+      "anchor": [
+        979,
+        2776
+      ],
+      "bbox": [
+        927,
+        2736,
+        1031,
+        2817
+      ],
+      "size": [
+        104,
+        81
+      ],
+      "file": "breisach.png",
+      "sha256": "415beff8bfb3d3df3ffdb18cfbd9e324206e58f239032c43b93dd0340aa3deb4",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    },
+    {
+      "name": "Neuenburg",
+      "latitude": 47.814,
+      "longitude": 7.561,
+      "anchor": [
+        970,
+        2862
+      ],
+      "bbox": [
+        939,
+        2838,
+        1002,
+        2887
+      ],
+      "size": [
+        63,
+        49
+      ],
+      "file": "neuenburg.png",
+      "sha256": "1eeedd1a24e2d29e01d38b5abfdb27ea7608f3d07ca9babf877e2a606f4faae7",
+      "status": "illustrative 1618 settlement sprite, historical footprint pending"
+    }
+  ]
+}
