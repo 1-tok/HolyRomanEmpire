@@ -1,0 +1,203 @@
+{
+  "status": "GEOGRAPHIC CANVAS REVIEW ONLY",
+  "canvas_size": [
+    3600,
+    4800
+  ],
+  "base": "base/base_3600.jpg",
+  "geometry": "Natural Earth 10m river polyline, same geometry/projection as HRE base",
+  "historic_1618_course_certified": false,
+  "river_segments": 313,
+  "scenery_segments": 11,
+  "exact_sprite_seams": "PASS - one canonical georeferenced painting sliced and reassembled pixel-exactly",
+  "existing_city_sprites": [
+    {
+      "site": "Basel",
+      "asset": "sprites/Basel.png",
+      "x": 921,
+      "y": 2912
+    },
+    {
+      "site": "Strasbourg",
+      "asset": "sprites/Strasbourg.png",
+      "x": 980,
+      "y": 2511
+    },
+    {
+      "site": "Speyer",
+      "asset": "sprites/Speyer.png",
+      "x": 1168,
+      "y": 2223
+    },
+    {
+      "site": "Worms",
+      "asset": "sprites/Worms.png",
+      "x": 1153,
+      "y": 2098
+    },
+    {
+      "site": "Mainz",
+      "asset": "sprites/Mainz.png",
+      "x": 1133,
+      "y": 1951
+    }
+  ],
+  "additional_city_markers": [
+    "Cologne",
+    "Bonn",
+    "Andernach",
+    "Koblenz",
+    "Boppard",
+    "Bingen",
+    "Oppenheim",
+    "Germersheim",
+    "Gambsheim",
+    "La Wantzenau",
+    "Rhinau",
+    "Marckolsheim",
+    "Breisach",
+    "Neuenburg"
+  ],
+  "style_note": "Procedural painterly wetland scenery derived from fixed Rhine course; newer standalone chat-generated paintings are not embedded because their binaries are not committed to this branch.",
+  "strasbourg": "City on Ill; main Rhine follows geometry separately; do not infer a fabricated connecting channel",
+  "limitations": [
+    "Natural Earth 10m is modern generalized hydrography",
+    "minor-city sprite imagery still to be produced",
+    "1618 floodplain banks, islands and historical city walls not certified"
+  ],
+  "print_approval": false,
+  "pieces": [
+    {
+      "file": "rhine-v012-02.png",
+      "x": 797,
+      "y": 1515,
+      "width": 141,
+      "height": 115,
+      "source_y": [
+        1490,
+        1630
+      ],
+      "sha256": "3454c121b79b66045a266dde851b804b10fe65b75a6f8ed3c16ae31167a638df"
+    },
+    {
+      "file": "rhine-v012-03.png",
+      "x": 822,
+      "y": 1630,
+      "width": 195,
+      "height": 140,
+      "source_y": [
+        1630,
+        1770
+      ],
+      "sha256": "d81f6c5f11fda3ea1adf301e2a968ead75d24d92c2da50a7787b6c45c15b312b"
+    },
+    {
+      "file": "rhine-v012-04.png",
+      "x": 876,
+      "y": 1770,
+      "width": 222,
+      "height": 140,
+      "source_y": [
+        1770,
+        1910
+      ],
+      "sha256": "8ddfe5cbb976a72d14677444abd13471dfe0a94f07f13b960cb363152b8c7931"
+    },
+    {
+      "file": "rhine-v012-05.png",
+      "x": 966,
+      "y": 1910,
+      "width": 314,
+      "height": 140,
+      "source_y": [
+        1910,
+        2050
+      ],
+      "sha256": "c76c867825f2fbf12ff76b211f1c84d04806df1375d500136755931002631609"
+    },
+    {
+      "file": "rhine-v012-06.png",
+      "x": 1036,
+      "y": 2050,
+      "width": 250,
+      "height": 140,
+      "source_y": [
+        2050,
+        2190
+      ],
+      "sha256": "30af871f6a95b8ec8202ddfcc7a67d867a2f04fce409cdbe69332dbcaa3bcb01"
+    },
+    {
+      "file": "rhine-v012-07.png",
+      "x": 1141,
+      "y": 2190,
+      "width": 145,
+      "height": 140,
+      "source_y": [
+        2190,
+        2330
+      ],
+      "sha256": "3aa24af1343f9de6fb9687a1673cdd903ed43f16233fb1db34e92d477457d251"
+    },
+    {
+      "file": "rhine-v012-08.png",
+      "x": 1032,
+      "y": 2330,
+      "width": 245,
+      "height": 140,
+      "source_y": [
+        2330,
+        2470
+      ],
+      "sha256": "416f71030a0bb13a65a8e32ae6f64cf2633417f8cd684bfd481ede4d8caaa3a9"
+    },
+    {
+      "file": "rhine-v012-09.png",
+      "x": 978,
+      "y": 2470,
+      "width": 217,
+      "height": 140,
+      "source_y": [
+        2470,
+        2610
+      ],
+      "sha256": "a821fa9f6cc0828c4b306c955ef90fa0f782ff34ed44ed0cddd09f8f29ca60e5"
+    },
+    {
+      "file": "rhine-v012-10.png",
+      "x": 930,
+      "y": 2610,
+      "width": 166,
+      "height": 140,
+      "source_y": [
+        2610,
+        2750
+      ],
+      "sha256": "89b42b3b4d17ce295c13c1952a46364a52775a1734c02869e89dda0f4ac19197"
+    },
+    {
+      "file": "rhine-v012-11.png",
+      "x": 907,
+      "y": 2750,
+      "width": 499,
+      "height": 140,
+      "source_y": [
+        2750,
+        2890
+      ],
+      "sha256": "8fb00ff0e992cf94e3157739c82318ab12d9df959212a3ae9903c9dcf2aec6d8"
+    },
+    {
+      "file": "rhine-v012-12.png",
+      "x": 907,
+      "y": 2890,
+      "width": 499,
+      "height": 129,
+      "source_y": [
+        2890,
+        3030
+      ],
+      "sha256": "94b94ae633594c552c925a40ca66eb95cfe5147cfef541380618fe71fb69c996"
+    }
+  ]
+}
