@@ -1,0 +1,27 @@
+name: HRE Live Write and Build Path Check
+on:
+  push:
+    paths:
+      - '.github/workflows/hre-live-path-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify map assets and python runtime
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+          root=Path('hre-1618')
+          expected=[root/'base/base_3600.jpg',root/'maps/canvas/rhine-v015-illustrated-settlements-full-map.jpg',root/'tools/render_rhine_v014_city_scale.py']
+          for p in expected:
+              if not p.is_file():
+                  raise SystemExit(f'Missing expected map file: {p}')
+              print(f'OK {p} {p.stat().st_size} bytes SHA256 {hashlib.sha256(p.read_bytes()).hexdigest()}')
+          print('LIVE_GITHUB_BUILD_PATH_OK')
+          PY
