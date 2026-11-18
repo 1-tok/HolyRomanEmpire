@@ -15,7 +15,7 @@ import json, hashlib
 from PIL import Image, ImageChops
 ROOT=Path(__file__).resolve().parents[1]
 BASE=ROOT/"base/base_3600.jpg"
-SOURCE=ROOT/"assets/reference/rhine-v011-registered-overlay-3600x4800.png"
+SOURCE=ROOT/"assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png"
 OUT=ROOT/"maps/canvas"
 REPORT=ROOT/"reports/rhine-v016-restored-painted-strip"
 WIDTH,HEIGHT=3600,4800
