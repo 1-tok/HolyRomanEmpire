@@ -1,0 +1,67 @@
+{
+  "version": "v017",
+  "scope": "Panel B Mainz/Main joining with northern and southern transitional paintings",
+  "status": "STYLE_REVIEW_PASS_GEOGRAPHIC_SEAM_FAIL",
+  "branch": "artwork/rhine-city-batch-001",
+  "source_artworks": [
+    {
+      "role": "north",
+      "filename": "a_detailed_hand_painted_renaissance_style_landscap.png",
+      "size_px": [
+        2172,
+        724
+      ],
+      "source": "newly generated artwork in conversation; PNG not yet transferred to GitHub"
+    },
+    {
+      "role": "center",
+      "filename": "a_detailed_hand_painted_atlas_style_landscape_a_r.png",
+      "size_px": [
+        1728,
+        910
+      ],
+      "source": "Panel B candidate 002 in conversation; PNG not yet transferred to GitHub"
+    },
+    {
+      "role": "south",
+      "filename": "a_highly_detailed_hand_painted_parchment_toned_re.png",
+      "size_px": [
+        2172,
+        724
+      ],
+      "source": "newly generated artwork in conversation; PNG not yet transferred to GitHub"
+    }
+  ],
+  "local_review_artifacts": [
+    "rhine_v017_three_paintings_hard_join_QA.jpg",
+    "rhine_v017_three_paintings_feathered_style_proof.jpg",
+    "rhine_v017_three_paintings_join_QA.json"
+  ],
+  "join_test": {
+    "method": "stack panoramic paintings after proportional width matching; compare hard joins and 88-px crossfade",
+    "pixel_density": "review only; no native 10800×14400 map artwork produced",
+    "mean_absolute_rgb_delta_across_hard_joins": [
+      69.98,
+      65.48
+    ],
+    "result": "The artistic palette is compatible; main painted riverbank and inlet/outlet positions do not align at either join.",
+    "geography_validation": "FAILED: neither painterly panel is georeferenced; no 1618 watercourse certification",
+    "city_registration": "FAILED: fictional/unverified city architecture and skyline positions",
+    "printer_ready": false
+  },
+  "next_steps": [
+    "Acquire/transfer full RGB/RGBA northern and southern PNGs to GitHub via verified base64 text-chunk intake as used for v011.",
+    "Create three independent geo-registered alpha layers instead of stretching composite paintings into fixed panel bounds.",
+    "Fix Rhine channel exit and entry to projected x coordinates at both panel seams; place Mainz confluence eastward Main spur at projected coordinate.",
+    "Regenerate local seam transitions without duplicating city masses, then test at final map coordinates.",
+    "Retain v016 approved painted source until join edges and geographic city anchors pass."
+  ],
+  "approval": {
+    "visual_style_compatible": true,
+    "north_join_seamless": false,
+    "south_join_seamless": false,
+    "original_v016_preserved": true,
+    "accepted_for_placement": false,
+    "approved_for_print": false
+  }
+}
