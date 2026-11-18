@@ -1,0 +1,37 @@
+{
+  "version": "v017",
+  "status": "GEOGRAPHIC_REGISTRATION_FAILED__RETAIN_SOURCE_CANDIDATES",
+  "method": "Estimated visual city positions normalized to 1000x500px and fitted as one similarity transform against existing HRE projected coordinates. Visual-center placements are approximate and measurements are diagnostic.",
+  "median_displacement_candidate_pixels": 104.2,
+  "max_displacement_candidate_pixels": 193.9,
+  "source_paintings": [
+    "a_detailed_illustrated_isometric_oblique_painted_m.png",
+    "a_detailed_hand_painted_renaissance_style_isometri.png"
+  ],
+  "checks": [
+    {
+      "cities": "Bingen–Mainz",
+      "finding": "Geographic target nearly same latitude; depicted Mainz is far down the river in panorama."
+    },
+    {
+      "cities": "Frankfurt–Hanau",
+      "finding": "Painting slopes downward east, while registered city anchors tilt northward east."
+    },
+    {
+      "cities": "Mainz–Worms–Speyer",
+      "finding": "Broad order southward is correct, but distances and river banks do not satisfy geographic registration."
+    }
+  ],
+  "duplicate_mainz": true,
+  "visual_join_pass": false,
+  "geographic_placement_allowed": false,
+  "print_ready": false,
+  "source_v016_unchanged": true,
+  "required_next": [
+    "Build geo-constrained artwork based on river masks with fixed inlet/outlet tangents and bank widths.",
+    "Paint independent city sprites with transparent edges at projected coordinates.",
+    "Raster/alpha reassemble both areas on one coordinate canvas and verify one uninterrupted Rhine component.",
+    "Verify historical architecture and remove embedded text in final layer.",
+    "Target 36x48 inches 10800x14400px at 300PPI."
+  ]
+}
