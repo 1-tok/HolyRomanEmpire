@@ -1,0 +1,290 @@
+{
+  "version": "v017",
+  "status": "GEOREGISTRATION LOCKED; NATIVE REPAINT PENDING",
+  "print_master": [
+    10800,
+    14400
+  ],
+  "print_inches": [
+    36,
+    48
+  ],
+  "dpi": 300,
+  "original_v016_preserved": true,
+  "source_water": "rhine-v012 geographic and main-canonical guide",
+  "historical_watercourse_accuracy_1618_unverified": true,
+  "horizon_in_paintings_allowed": false,
+  "font_or_label_in_paintings_allowed": false,
+  "full_visual_join_pass": false,
+  "print_approval": false,
+  "original_new_highres_paintings_completed": false,
+  "selected_regions": [
+    {
+      "id": "bingen-mainz-frankfurt",
+      "bbox_work_px": [
+        955,
+        1860,
+        1550,
+        2115
+      ],
+      "print_bbox_px": [
+        2865,
+        5580,
+        4650,
+        6345
+      ],
+      "site_anchors": [
+        {
+          "name": "Bingen",
+          "map_px": [
+            1090.94,
+            2013.32
+          ],
+          "final_print_px": [
+            3272.83,
+            6039.96
+          ],
+          "local_panel_px": [
+            135.94,
+            153.32
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Mainz",
+          "map_px": [
+            1185.33,
+            2003.05
+          ],
+          "final_print_px": [
+            3555.98,
+            6009.15
+          ],
+          "local_panel_px": [
+            230.33,
+            143.05
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Frankfurt",
+          "map_px": [
+            1292.61,
+            1962.31
+          ],
+          "final_print_px": [
+            3877.82,
+            5886.92
+          ],
+          "local_panel_px": [
+            337.61,
+            102.31
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Hanau",
+          "map_px": [
+            1352.63,
+            1954.97
+          ],
+          "final_print_px": [
+            4057.89,
+            5864.92
+          ],
+          "local_panel_px": [
+            397.63,
+            94.97
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Aschaffenburg",
+          "map_px": [
+            1410.58,
+            2019.16
+          ],
+          "final_print_px": [
+            4231.75,
+            6057.48
+          ],
+          "local_panel_px": [
+            455.58,
+            159.16
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Oppenheim",
+          "map_px": [
+            1205.83,
+            2062.78
+          ],
+          "final_print_px": [
+            3617.48,
+            6188.34
+          ],
+          "local_panel_px": [
+            250.83,
+            202.78
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Boppard",
+          "map_px": [
+            1016.0,
+            1905.3
+          ],
+          "final_print_px": [
+            3048.0,
+            5715.9
+          ],
+          "local_panel_px": [
+            61.0,
+            45.3
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Worms",
+          "map_px": [
+            1205.24,
+            2150.29
+          ],
+          "in_frame": false
+        }
+      ],
+      "source_image": "bingen-mainz-frankfurt-source-1x.png",
+      "registered_guide": "bingen-mainz-frankfurt-registration-3x.jpg",
+      "geometry": "same global projected coordinates for both neighboring sections",
+      "must_repaint": "independent horizon-free city, bank, field and terrain art above fixed river layer",
+      "bridge_and_bank_approval": false
+    },
+    {
+      "id": "worms-speyer",
+      "bbox_work_px": [
+        1060,
+        2050,
+        1430,
+        2380
+      ],
+      "print_bbox_px": [
+        3180,
+        6150,
+        4290,
+        7140
+      ],
+      "site_anchors": [
+        {
+          "name": "Oppenheim",
+          "map_px": [
+            1205.83,
+            2062.78
+          ],
+          "final_print_px": [
+            3617.48,
+            6188.34
+          ],
+          "local_panel_px": [
+            145.83,
+            12.78
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Worms",
+          "map_px": [
+            1205.24,
+            2150.29
+          ],
+          "final_print_px": [
+            3615.73,
+            6450.88
+          ],
+          "local_panel_px": [
+            145.24,
+            100.29
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Speyer",
+          "map_px": [
+            1219.98,
+            2275.12
+          ],
+          "final_print_px": [
+            3659.95,
+            6825.35
+          ],
+          "local_panel_px": [
+            159.98,
+            225.12
+          ],
+          "in_frame": true
+        },
+        {
+          "name": "Germersheim",
+          "map_px": [
+            1201.34,
+            2312.05
+          ],
+          "final_print_px": [
+            3604.02,
+            6936.15
+          ],
+          "local_panel_px": [
+            141.34,
+            262.05
+          ],
+          "in_frame": true
+        }
+      ],
+      "source_image": "worms-speyer-source-1x.png",
+      "registered_guide": "worms-speyer-registration-3x.jpg",
+      "geometry": "same global projected coordinates for both neighboring sections",
+      "must_repaint": "independent horizon-free city, bank, field and terrain art above fixed river layer",
+      "bridge_and_bank_approval": false
+    }
+  ],
+  "city_relations": [
+    {
+      "a": "Bingen",
+      "b": "Mainz",
+      "dx_px": 94.4,
+      "dy_px": -10.3,
+      "distance_work_px": 94.9
+    },
+    {
+      "a": "Mainz",
+      "b": "Frankfurt",
+      "dx_px": 107.3,
+      "dy_px": -40.7,
+      "distance_work_px": 114.8
+    },
+    {
+      "a": "Mainz",
+      "b": "Worms",
+      "dx_px": 19.9,
+      "dy_px": 147.2,
+      "distance_work_px": 148.6
+    },
+    {
+      "a": "Worms",
+      "b": "Speyer",
+      "dx_px": 14.7,
+      "dy_px": 124.8,
+      "distance_work_px": 125.7
+    },
+    {
+      "a": "Speyer",
+      "b": "Germersheim",
+      "dx_px": -18.6,
+      "dy_px": 36.9,
+      "distance_work_px": 41.4
+    }
+  ],
+  "corrected_method": "Use one true projected map for river/settlement locations; compose independent horizon-free native artwork and test its alpha/join at the exact same fixed coordinates.",
+  "next_requirement": "Native city-bearing transparent paintings based on this exact guide; no stretching of previously generated panoramas"
+}
