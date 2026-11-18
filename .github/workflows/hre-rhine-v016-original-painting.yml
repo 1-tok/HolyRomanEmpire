@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'hre-1618/assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png'
+      - '.github/workflows/hre-rhine-v016-original-painting.yml'
   workflow_dispatch:
 permissions:
   contents: write
@@ -21,7 +22,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install 'Pillow>=10,<13'
-      - name: Require exact approved original v009 painted PNG binary
+      - name: Require exact approved original full v011 painted PNG binary
         shell: bash
         run: |
           set -euo pipefail
@@ -56,7 +57,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A -- hre-1618/maps/canvas/rhine-v016-original-painted-strip-full-map.jpg hre-1618/maps/canvas/rhine-v016-original-painted-overlay.png hre-1618/reports/rhine-v016-restored-painted-strip/
           if ! git diff --cached --quiet; then
-            git commit -m 'Render actual approved v009 painting on real Rhine HRE map [skip ci]'
+            git commit -m 'Render actual full approved v011 painting on real HRE canvas [skip ci]'
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
       - if: always()
