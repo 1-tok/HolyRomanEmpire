@@ -3,8 +3,6 @@ on:
   push:
     paths:
       - 'hre-1618/assets/reference/rhine-v009-registered-overlay-3600x4800.png'
-      - 'hre-1618/tools/render_rhine_v016_original_painting.py'
-      - '.github/workflows/hre-rhine-v016-original-painting.yml'
   workflow_dispatch:
 permissions:
   contents: write
