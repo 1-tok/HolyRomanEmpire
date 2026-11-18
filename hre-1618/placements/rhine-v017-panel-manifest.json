@@ -1,7 +1,7 @@
 {
   "version": "v017",
   "title": "Rhine and Main confluence 1618 five-panel painted atlas",
-  "status": "geographic panel layout established; high-res native painting pending",
+  "status": "PAINTERLY LARGE-SECTION MASTER RESTORED AS DESIGN REQUIREMENT; v016 preserved; v017 city-bearing source paintings not yet geographically registered",
   "coordinate_system": "HRE 1618 WGS84 Lambert conformal conic matching build_rhine_batch001.px",
   "working_grid_px": [
     3600,
@@ -41,7 +41,8 @@
         "Boppard",
         "Bingen"
       ],
-      "notes": "Extends beyond original v011 art above y=1901; new native painting needed; do not stretch source north"
+      "notes": "Extends beyond original v011 art above y=1901; new native painting needed; do not stretch source north",
+      "visual_content_requirement": "large continuous rich painted section with integrated towns, river scenery, fields, vineyards, forests and architecture; no horizon; no hard rectangular seam; original art and geographic QA kept separate"
     },
     {
       "id": "B",
@@ -58,7 +59,8 @@
         "Hanau",
         "Aschaffenburg"
       ],
-      "notes": "Main enters Rhine from the east at Mainz; location and river geometry must be controlled by Main sprites, not fantasy bend. Mainz appears only once in final composition."
+      "notes": "Main enters Rhine from the east at Mainz; location and river geometry must be controlled by Main sprites, not fantasy bend. Mainz appears only once in final composition.",
+      "visual_content_requirement": "large continuous rich painted section with integrated towns, river scenery, fields, vineyards, forests and architecture; no horizon; no hard rectangular seam; original art and geographic QA kept separate"
     },
     {
       "id": "C",
@@ -75,7 +77,8 @@
         "Speyer",
         "Germersheim"
       ],
-      "notes": "City masses avoid overlap and follow actual Rhine bank side"
+      "notes": "City masses avoid overlap and follow actual Rhine bank side",
+      "visual_content_requirement": "large continuous rich painted section with integrated towns, river scenery, fields, vineyards, forests and architecture; no horizon; no hard rectangular seam; original art and geographic QA kept separate"
     },
     {
       "id": "D",
@@ -95,7 +98,8 @@
         "Benfeld",
         "Rhinau"
       ],
-      "notes": "Strasbourg city water may visually meet Rhine by user approval, but geographic rivers retained as distinct in metadata"
+      "notes": "Strasbourg city water may visually meet Rhine by user approval, but geographic rivers retained as distinct in metadata",
+      "visual_content_requirement": "large continuous rich painted section with integrated towns, river scenery, fields, vineyards, forests and architecture; no horizon; no hard rectangular seam; original art and geographic QA kept separate"
     },
     {
       "id": "E",
@@ -112,7 +116,8 @@
         "Neuenburg",
         "Basel"
       ],
-      "notes": "High-priority alignment QA: v016 painted water diverges south of Breisach; no claims of geography approval"
+      "notes": "High-priority alignment QA: v016 painted water diverges south of Breisach; no claims of geography approval",
+      "visual_content_requirement": "large continuous rich painted section with integrated towns, river scenery, fields, vineyards, forests and architecture; no horizon; no hard rectangular seam; original art and geographic QA kept separate"
     }
   ],
   "cities": [
@@ -327,7 +332,10 @@
     "print_ready": false,
     "high_resolution_originals_ready": false,
     "full_1618_hydrography_certified": false,
-    "existing_v016_preserved": true
+    "existing_v016_preserved": true,
+    "large_painted_visual_master_required": true,
+    "seven_city_sprite_composite_approved": false,
+    "v017_paintings_registered": false
   },
   "note": "This v017 layout is registration/planning and a 2x upscale proof only. True 300 PPI at preselected 36 x 48 requires newly detailed native artwork at 10800 x 14400, not interpolated pixels.",
   "permanent_art_rules": {
@@ -341,5 +349,22 @@
   },
   "registration_audit": "reports/rhine-v017-print-proof/horizon-free-city-proximity-audit.json",
   "registration_status": "HORIZON-FREE STYLE APPROVED; THIS 1024x1536 IMAGE REJECTED FOR DIRECT GEOGRAPHIC PLACEMENT",
-  "next_approved_workflow": "Start local anchor-locked river/city panels; align north/south river bank crossings before art; no full-scene affine warp"
+  "next_approved_workflow": "Start local anchor-locked river/city panels; align north/south river bank crossings before art; no full-scene affine warp",
+  "visual_master": "assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png",
+  "production_priority": "full illustrated painted LANDSCAPE panels, not isolated city icons",
+  "layer_order": [
+    "real geographic basemap as invisible registration reference",
+    "large horizon-free illustrated landscape and urban corridor paintings including cities, farms, forest, canals and floodplain",
+    "continuous geographically anchored Rhine and Main seam constraints (QA guides, not procedural visual substitutes)",
+    "selective supplemental transparent city sprites ONLY where missing in large paintings",
+    "separate names, heraldry and cartouches above final artwork"
+  ],
+  "prohibited_substitutions": [
+    "DO NOT promote the seven-city-only proof to v017 primary visual map",
+    "DO NOT replace rich large paintings with v012 procedural shoreline, flat underlay, or isolated miniatures",
+    "DO NOT treat interpolated 7200x9600 previews as newly painted native 300PPI detail",
+    "DO NOT claim panorama geometry accurate until map-scale registration and river join checks pass"
+  ],
+  "previous_city_layer_001": "QA-only city coordinate placement proof, NOT the approved visual composition",
+  "registration_method": "Use historic-geographic city anchors and canonical Rhine/Main river geometry to warp or repaint *whole scenic painted panels* and their entrance/exit transition regions; retain integrated city masses and landscape wherever possible."
 }
