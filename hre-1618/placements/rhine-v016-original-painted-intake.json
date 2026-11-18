@@ -21,5 +21,11 @@
   "workflow": ".github/workflows/hre-rhine-v016-original-painting.yml",
   "note": "No v009 image binary has been committed yet. Automation rejects absent or different bytes; no procedural replacements.",
   "print_approval": false,
-  "notes": "Use full 1373-px high extended v011 painting, not cropped 707-px v009 registered painting. No raster has yet been uploaded to repo; v016 Actions explicitly requires full source. Do not substitute procedural city art."
+  "notes": "Use full 1373-px high extended v011 painting, not cropped 707-px v009 registered painting. No raster has yet been uploaded to repo; v016 Actions explicitly requires full source. Do not substitute procedural city art.",
+  "chunk_count": 16,
+  "chunk_encoding": "independently base64 encoded raw byte ranges (each part decoded before concatenation)",
+  "chunk_naming": "part-00000.b64 through part-00015.b64",
+  "chunk_directory": "hre-1618/assets/intake/rhine-v011/chunks",
+  "chunk_data_origin": "verbatim 1,894,209 bytes SHA256-verified v011 PNG, segmented at 120,000 raw bytes per part",
+  "transfer_status": "TEXT_CHUNK_INTAKE_READY_AWAITING_PART_FILES"
 }
