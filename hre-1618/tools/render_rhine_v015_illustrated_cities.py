@@ -30,16 +30,16 @@ result=Image.alpha_composite(Image.alpha_composite(Image.alpha_composite(base,rh
 records=[
 ("Cologne",50.94222,6.95778,142,"major","unfinished-gothic"),
 ("Bonn",50.73528,7.10222,75,"town","church"),
-("Andernach",50.439,7.401,77,"walled","church"),
+("Andernach",50.439,7.401,38,"walled","church"),
 ("Koblenz",50.3568,7.59366,118,"major","confluence"),
-("Boppard",50.231,7.589,68,"town","church"),
+("Boppard",50.231,7.589,34,"town","church"),
 ("Bingen",49.966,7.899,77,"walled","church"),
 ("Oppenheim",49.851,8.354,73,"walled","church"),
 ("Germersheim",49.222,8.366,73,"walled","church"),
-("Gambsheim",48.692,7.885,45,"village","church"),
-("La Wantzenau",48.657,7.825,45,"village","church"),
+("Gambsheim",48.692,7.885,24,"village","church"),
+("La Wantzenau",48.657,7.825,22,"village","church"),
 ("Rhinau",48.318,7.707,47,"village","church"),
-("Marckolsheim",48.165,7.547,64,"walled","church"),
+("Marckolsheim",48.165,7.547,38,"walled","church"),
 ("Breisach",48.033,7.582,104,"walled","hill"),
 ("Neuenburg",47.814,7.561,63,"town","church"),
 ]
@@ -114,13 +114,23 @@ for name,lat,lon,width,kind,landmark in records:
     sprite=scene_city(name,width,kind,landmark)
     path=DEST/(name.lower().replace(' ','-')+'.png')
     sprite.save(path,optimize=True)
-    xx=x-sprite.width//2;yy=y-sprite.height//2
+    offsets={'Andernach':(-23,-11),'Boppard':(-15,12),'Gambsheim':(12,-12),
+             'La Wantzenau':(-12,13),'Marckolsheim':(-16,-9)}
+    dx,dy=offsets.get(name,(0,0))
+    xx=x-sprite.width//2+dx;yy=y-sprite.height//2+dy
     city_layer.alpha_composite(sprite,(xx,yy))
     manifest.append(dict(name=name,latitude=lat,longitude=lon,anchor=[x,y],
          bbox=[xx,yy,xx+sprite.width,yy+sprite.height],size=[sprite.width,sprite.height],
          file=path.name,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
          status='illustrative 1618 settlement sprite, historical footprint pending'))
-# Check duplicate sprite images aren't literally identical, and none overrides original files.
+# Reject large overlapping city illustrations while retaining true map anchors.
+for i,m in enumerate(manifest):
+    ax,ay,AX,AY=m['bbox']
+    for n in manifest[i+1:]:
+        bx,by,BX,BY=n['bbox']
+        area=max(0,min(AX,BX)-max(ax,bx))*max(0,min(AY,BY)-max(ay,by))
+        if area > .18*min((AX-ax)*(AY-ay),(BX-bx)*(BY-by)):
+            raise RuntimeError('City art overlap requires review: '+m['name']+' / '+n['name'])
 assert len({m['sha256'] for m in manifest})==len(manifest)
 # Old major centers protected; new city artwork is additive and review-only.
 result=Image.alpha_composite(result,city_layer)
