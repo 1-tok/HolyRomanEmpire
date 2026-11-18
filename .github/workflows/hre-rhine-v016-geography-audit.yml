@@ -1,0 +1,57 @@
+name: HRE v016 Painted Rhine Geographic Alignment Audit
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/audit_rhine_v016_geography.py'
+      - '.github/workflows/hre-rhine-v016-geography-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v016-geo-audit-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3' 'scipy>=1.12,<2'
+      - name: Measure painted water against registered geographic Rhine
+        run: python hre-1618/tools/audit_rhine_v016_geography.py
+      - name: Confirm geographic review is not print-approved
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from PIL import Image
+          p=Path('hre-1618/reports/rhine-v016-geography-audit')
+          q=json.loads((p/'qa.json').read_text())
+          assert not q['print_approved']
+          assert len(q['bands'])==7
+          assert (p/'original-painting-with-registered-rhine-overlay.jpg').stat().st_size>20000
+          assert (p/'strasbourg-cities-vs-rhine.jpg').stat().st_size>20000
+          print('Geographic QA generated; actual historical channels remain unapproved')
+          PY
+      - name: Commit geographic audit, diagnostic images and metrics
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/reports/rhine-v016-geography-audit/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Audit original painted Rhine against geographic line without changing art [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-v016-rhine-geographic-qa
+          path: hre-1618/reports/rhine-v016-geography-audit/
+          if-no-files-found: ignore
