@@ -1,0 +1,60 @@
+name: HRE v017 Fixed Rhine Main Geography & City Anchors
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/render_rhine_v017_geometry_lock_001.py'
+      - '.github/workflows/hre-rhine-v017-geometry-lock.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v017-geolock-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Lock projected geographic Rhine/Main centerlines and site anchors
+        run: python hre-1618/tools/render_rhine_v017_geometry_lock_001.py
+      - name: Confirm site proximities and print review hold
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from PIL import Image
+          p=Path('hre-1618/reports/rhine-v017-geometry-lock-001')
+          q=json.loads((p/'qa.json').read_text())
+          assert not q['print_approval'] and not q['full_visual_join_pass']
+          assert q['print_master']==[10800,14400]
+          assert len(q['selected_regions'])==2 and len(q['city_relations'])==5
+          for region in q['selected_regions']:
+            a,b,c,d=region['bbox_work_px']
+            assert Image.open(p/region['registered_guide']).size==((c-a)*3,(d-b)*3)
+          assert next(x for x in q['city_relations'] if x['a']=='Mainz' and x['b']=='Frankfurt')['dx_px']>0
+          print('PASS geography lock, print approval held')
+          PY
+      - name: Commit fixed-coordinate map proof images and city audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/reports/rhine-v017-geometry-lock-001/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Commit Bingen-Mainz-Frankfurt and Worms-Speyer fixed geographic guides [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-v017-geometry-lock-001
+          path: hre-1618/reports/rhine-v017-geometry-lock-001/
+          if-no-files-found: ignore
