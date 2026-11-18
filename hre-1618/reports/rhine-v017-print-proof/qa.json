@@ -1,0 +1,493 @@
+{
+  "version": "v017",
+  "build": "2x-interpolated reference from v016",
+  "full_map_proof": "maps/canvas/rhine-v017-reference-7200x9600.jpg",
+  "source_painting_sha256": "b24dd693d513704b87fb26e7bb02eeaf771e8ef10a0a1790481940b7611e1af4",
+  "original_canvas_size": [
+    3600,
+    4800
+  ],
+  "reference_proof_size": [
+    7200,
+    9600
+  ],
+  "reference_proof_ppi_at_36x48": 200,
+  "final_master_size": [
+    10800,
+    14400
+  ],
+  "final_master_ppi": 300,
+  "final_sheet_inch": [
+    36,
+    48
+  ],
+  "source_pixels_interpolated": true,
+  "genuinely_new_high_resolution_painted_pixels": false,
+  "print_ready": false,
+  "merge_to_main_allowed": false,
+  "original_v016_untouched": true,
+  "panels": [
+    {
+      "id": "A",
+      "source_bbox_work_px": [
+        720,
+        1480,
+        1400,
+        2115
+      ],
+      "proof_bbox": [
+        1440,
+        2960,
+        2800,
+        4230
+      ],
+      "print_bbox": [
+        2160,
+        4440,
+        4200,
+        6345
+      ],
+      "panel_filename": "panel-a-reference-2x.jpg",
+      "city_qa_filename": "panel-a-city-registration-qa.jpg",
+      "overlap_preserved_via_single_master": true,
+      "native_redraw_complete": false
+    },
+    {
+      "id": "B",
+      "source_bbox_work_px": [
+        1010,
+        1740,
+        1850,
+        2180
+      ],
+      "proof_bbox": [
+        2020,
+        3480,
+        3700,
+        4360
+      ],
+      "print_bbox": [
+        3030,
+        5220,
+        5550,
+        6540
+      ],
+      "panel_filename": "panel-b-reference-2x.jpg",
+      "city_qa_filename": "panel-b-city-registration-qa.jpg",
+      "overlap_preserved_via_single_master": true,
+      "native_redraw_complete": false
+    },
+    {
+      "id": "C",
+      "source_bbox_work_px": [
+        1040,
+        2050,
+        1420,
+        2435
+      ],
+      "proof_bbox": [
+        2080,
+        4100,
+        2840,
+        4870
+      ],
+      "print_bbox": [
+        3120,
+        6150,
+        4260,
+        7305
+      ],
+      "panel_filename": "panel-c-reference-2x.jpg",
+      "city_qa_filename": "panel-c-city-registration-qa.jpg",
+      "overlap_preserved_via_single_master": true,
+      "native_redraw_complete": false
+    },
+    {
+      "id": "D",
+      "source_bbox_work_px": [
+        775,
+        2350,
+        1355,
+        2745
+      ],
+      "proof_bbox": [
+        1550,
+        4700,
+        2710,
+        5490
+      ],
+      "print_bbox": [
+        2325,
+        7050,
+        4065,
+        8235
+      ],
+      "panel_filename": "panel-d-reference-2x.jpg",
+      "city_qa_filename": "panel-d-city-registration-qa.jpg",
+      "overlap_preserved_via_single_master": true,
+      "native_redraw_complete": false
+    },
+    {
+      "id": "E",
+      "source_bbox_work_px": [
+        790,
+        2650,
+        1330,
+        3220
+      ],
+      "proof_bbox": [
+        1580,
+        5300,
+        2660,
+        6440
+      ],
+      "print_bbox": [
+        2370,
+        7950,
+        3990,
+        9660
+      ],
+      "panel_filename": "panel-e-reference-2x.jpg",
+      "city_qa_filename": "panel-e-city-registration-qa.jpg",
+      "overlap_preserved_via_single_master": true,
+      "native_redraw_complete": false
+    }
+  ],
+  "cities": [
+    {
+      "site": "Cologne",
+      "lat": 50.94222,
+      "lon": 6.95778,
+      "scale": "major",
+      "panel": "A",
+      "x_work_px": 869.42,
+      "y_work_px": 1616.43,
+      "x_proof_px": 1738.84,
+      "y_proof_px": 3232.86,
+      "x_final_px": 2608.26,
+      "y_final_px": 4849.29
+    },
+    {
+      "site": "Bonn",
+      "lat": 50.73528,
+      "lon": 7.10222,
+      "scale": "secondary",
+      "panel": "A",
+      "x_work_px": 901.72,
+      "y_work_px": 1700.15,
+      "x_proof_px": 1803.44,
+      "y_proof_px": 3400.29,
+      "x_final_px": 2705.15,
+      "y_final_px": 5100.44
+    },
+    {
+      "site": "Andernach",
+      "lat": 50.439,
+      "lon": 7.401,
+      "scale": "secondary",
+      "panel": "A",
+      "x_work_px": 971.78,
+      "y_work_px": 1820.91,
+      "x_proof_px": 1943.56,
+      "y_proof_px": 3641.82,
+      "x_final_px": 2915.34,
+      "y_final_px": 5462.73
+    },
+    {
+      "site": "Koblenz",
+      "lat": 50.3568,
+      "lon": 7.59366,
+      "scale": "major",
+      "panel": "A",
+      "x_work_px": 1019.2,
+      "y_work_px": 1855.51,
+      "x_proof_px": 2038.41,
+      "y_proof_px": 3711.02,
+      "x_final_px": 3057.61,
+      "y_final_px": 5566.54
+    },
+    {
+      "site": "Boppard",
+      "lat": 50.231,
+      "lon": 7.589,
+      "scale": "secondary",
+      "panel": "A",
+      "x_work_px": 1016.0,
+      "y_work_px": 1905.3,
+      "x_proof_px": 2032.0,
+      "y_proof_px": 3810.6,
+      "x_final_px": 3048.0,
+      "y_final_px": 5715.9
+    },
+    {
+      "site": "Bingen",
+      "lat": 49.966,
+      "lon": 7.899,
+      "scale": "secondary",
+      "panel": "A",
+      "x_work_px": 1090.94,
+      "y_work_px": 2013.32,
+      "x_proof_px": 2181.89,
+      "y_proof_px": 4026.64,
+      "x_final_px": 3272.83,
+      "y_final_px": 6039.96
+    },
+    {
+      "site": "Mainz",
+      "lat": 50,
+      "lon": 8.26667,
+      "scale": "major",
+      "panel": "B",
+      "x_work_px": 1185.33,
+      "y_work_px": 2003.05,
+      "x_proof_px": 2370.65,
+      "y_proof_px": 4006.1,
+      "x_final_px": 3555.98,
+      "y_final_px": 6009.15
+    },
+    {
+      "site": "Frankfurt",
+      "lat": 50.11056,
+      "lon": 8.68222,
+      "scale": "major",
+      "panel": "B",
+      "x_work_px": 1292.61,
+      "y_work_px": 1962.31,
+      "x_proof_px": 2585.22,
+      "y_proof_px": 3924.61,
+      "x_final_px": 3877.82,
+      "y_final_px": 5886.92
+    },
+    {
+      "site": "Hanau",
+      "lat": 50.13278,
+      "lon": 8.91694,
+      "scale": "secondary",
+      "panel": "B",
+      "x_work_px": 1352.63,
+      "y_work_px": 1954.97,
+      "x_proof_px": 2705.26,
+      "y_proof_px": 3909.95,
+      "x_final_px": 4057.89,
+      "y_final_px": 5864.92
+    },
+    {
+      "site": "Aschaffenburg",
+      "lat": 49.97405,
+      "lon": 9.14936,
+      "scale": "secondary",
+      "panel": "B",
+      "x_work_px": 1410.58,
+      "y_work_px": 2019.16,
+      "x_proof_px": 2821.17,
+      "y_proof_px": 4038.32,
+      "x_final_px": 4231.75,
+      "y_final_px": 6057.48
+    },
+    {
+      "site": "Oppenheim",
+      "lat": 49.851,
+      "lon": 8.354,
+      "scale": "secondary",
+      "panel": "C",
+      "x_work_px": 1205.83,
+      "y_work_px": 2062.78,
+      "x_proof_px": 2411.66,
+      "y_proof_px": 4125.56,
+      "x_final_px": 3617.48,
+      "y_final_px": 6188.34
+    },
+    {
+      "site": "Worms",
+      "lat": 49.63026,
+      "lon": 8.36209,
+      "scale": "major",
+      "panel": "C",
+      "x_work_px": 1205.24,
+      "y_work_px": 2150.29,
+      "x_proof_px": 2410.48,
+      "y_proof_px": 4300.59,
+      "x_final_px": 3615.73,
+      "y_final_px": 6450.88
+    },
+    {
+      "site": "Speyer",
+      "lat": 49.31656,
+      "lon": 8.43361,
+      "scale": "major",
+      "panel": "C",
+      "x_work_px": 1219.98,
+      "y_work_px": 2275.12,
+      "x_proof_px": 2439.97,
+      "y_proof_px": 4550.23,
+      "x_final_px": 3659.95,
+      "y_final_px": 6825.35
+    },
+    {
+      "site": "Germersheim",
+      "lat": 49.222,
+      "lon": 8.366,
+      "scale": "secondary",
+      "panel": "C",
+      "x_work_px": 1201.34,
+      "y_work_px": 2312.05,
+      "x_proof_px": 2402.68,
+      "y_proof_px": 4624.1,
+      "x_final_px": 3604.02,
+      "y_final_px": 6936.15
+    },
+    {
+      "site": "Gambsheim",
+      "lat": 48.692,
+      "lon": 7.885,
+      "scale": "village",
+      "panel": "D",
+      "x_work_px": 1068.85,
+      "y_work_px": 2517.75,
+      "x_proof_px": 2137.7,
+      "y_proof_px": 5035.5,
+      "x_final_px": 3206.56,
+      "y_final_px": 7553.25
+    },
+    {
+      "site": "La Wantzenau",
+      "lat": 48.657,
+      "lon": 7.825,
+      "scale": "village",
+      "panel": "D",
+      "x_work_px": 1052.6,
+      "y_work_px": 2531.03,
+      "x_proof_px": 2105.21,
+      "y_proof_px": 5062.05,
+      "x_final_px": 3157.81,
+      "y_final_px": 7593.08
+    },
+    {
+      "site": "Strasbourg",
+      "lat": 48.57333,
+      "lon": 7.75222,
+      "scale": "major",
+      "panel": "D",
+      "x_work_px": 1032.24,
+      "y_work_px": 2563.43,
+      "x_proof_px": 2064.47,
+      "y_proof_px": 5126.86,
+      "x_final_px": 3096.71,
+      "y_final_px": 7690.3
+    },
+    {
+      "site": "Illkirch",
+      "lat": 48.53,
+      "lon": 7.713,
+      "scale": "village",
+      "panel": "D",
+      "x_work_px": 1021.26,
+      "y_work_px": 2580.19,
+      "x_proof_px": 2042.53,
+      "y_proof_px": 5160.38,
+      "x_final_px": 3063.79,
+      "y_final_px": 7740.57
+    },
+    {
+      "site": "Erstein",
+      "lat": 48.423,
+      "lon": 7.662,
+      "scale": "secondary",
+      "panel": "D",
+      "x_work_px": 1006.17,
+      "y_work_px": 2622.03,
+      "x_proof_px": 2012.34,
+      "y_proof_px": 5244.06,
+      "x_final_px": 3018.51,
+      "y_final_px": 7866.09
+    },
+    {
+      "site": "Benfeld",
+      "lat": 48.373,
+      "lon": 7.592,
+      "scale": "secondary",
+      "panel": "D",
+      "x_work_px": 986.92,
+      "y_work_px": 2641.09,
+      "x_proof_px": 1973.84,
+      "y_proof_px": 5282.17,
+      "x_final_px": 2960.76,
+      "y_final_px": 7923.26
+    },
+    {
+      "site": "Rhinau",
+      "lat": 48.318,
+      "lon": 7.707,
+      "scale": "village",
+      "panel": "D",
+      "x_work_px": 1016.41,
+      "y_work_px": 2664.07,
+      "x_proof_px": 2032.82,
+      "y_proof_px": 5328.14,
+      "x_final_px": 3049.22,
+      "y_final_px": 7992.21
+    },
+    {
+      "site": "Marckolsheim",
+      "lat": 48.165,
+      "lon": 7.547,
+      "scale": "secondary",
+      "panel": "E",
+      "x_work_px": 971.66,
+      "y_work_px": 2722.95,
+      "x_proof_px": 1943.32,
+      "y_proof_px": 5445.9,
+      "x_final_px": 2914.99,
+      "y_final_px": 8168.86
+    },
+    {
+      "site": "Breisach",
+      "lat": 48.033,
+      "lon": 7.582,
+      "scale": "major",
+      "panel": "E",
+      "x_work_px": 978.81,
+      "y_work_px": 2775.59,
+      "x_proof_px": 1957.61,
+      "y_proof_px": 5551.19,
+      "x_final_px": 2936.42,
+      "y_final_px": 8326.78
+    },
+    {
+      "site": "Neuenburg",
+      "lat": 47.814,
+      "lon": 7.561,
+      "scale": "secondary",
+      "panel": "E",
+      "x_work_px": 969.68,
+      "y_work_px": 2862.08,
+      "x_proof_px": 1939.35,
+      "y_proof_px": 5724.15,
+      "x_final_px": 2909.03,
+      "y_final_px": 8586.23
+    },
+    {
+      "site": "Basel",
+      "lat": 47.55806,
+      "lon": 7.58778,
+      "scale": "major",
+      "panel": "E",
+      "x_work_px": 972.7,
+      "y_work_px": 2963.71,
+      "x_proof_px": 1945.41,
+      "y_proof_px": 5927.42,
+      "x_final_px": 2918.11,
+      "y_final_px": 8891.13
+    }
+  ],
+  "main_fork_geometry": "Existing named Main geographic PNG shown in Panel B QA only; do not infer that it is rendered in new highres painted style",
+  "strasbourg": "User permits visual water connection; Ill remains separately named geographic river",
+  "geographic_quality": "Requires 1618 river-bank/channel historical certification",
+  "acceptance_gate": [
+    "Produce new detailed native painted artwork at 3x scale for each accepted panel",
+    "Do not interpolate the 3600px painted v011 source and call it 300PPI detail",
+    "Confluence at Mainz must follow main-canonical-transparent.png geometry",
+    "Correct Breisach\u2013Basel geographic river mismatch before final print",
+    "Per-panel source pixel count, alpha edges, city landmarks, density and seams must pass QA"
+  ]
+}
