@@ -1,0 +1,51 @@
+name: HRE Rhine v011 Lossless Text Chunk Intake
+on:
+  push:
+    branches:
+      - artwork/rhine-city-batch-001
+    paths:
+      - 'hre-1618/assets/intake/rhine-v011/chunks/**'
+      - 'hre-1618/placements/rhine-v016-original-painted-intake.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v011-lossless-intake-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Reassemble exact PNG binary from Base64 chunk files
+        run: python hre-1618/tools/intake_rhine_v011_base64_chunks.py
+      - name: Verify unmodified source checksum
+        run: |
+          echo 'b24dd693d513704b87fb26e7bb02eeaf771e8ef10a0a1790481940b7611e1af4  hre-1618/assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png' | sha256sum -c -
+      - name: Commit lossless painted PNG and QA to same branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png hre-1618/reports/rhine-v016-restored-painted-strip/binary-intake-qa.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Restore exact v011 illustrated Rhine painting from verified Base64 text chunks [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-rhine-v011-exact-painting-intake
+          path: |
+            hre-1618/assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png
+            hre-1618/reports/rhine-v016-restored-painted-strip/binary-intake-qa.json
+          if-no-files-found: ignore
