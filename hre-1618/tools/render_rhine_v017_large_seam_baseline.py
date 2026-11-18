@@ -68,9 +68,10 @@ qa={'status':'PASS: source-piece joins exactly reproduce original v011 raster',
  'raster_difference_pixels':0,
  'visual_master':'large continuous original painting; never miniature isolated cities',
  'sections':panels,
- 'north_extension_join_contract':{'join_at_map_y':1901,'required_bank_tangent':'Must match original painting and geographic reference; exact approved pixels at boundary'},
- 'south_extension_join_contract':{'join_at_map_y':3274,'required_bank_tangent':'Must match original painting and geographic reference; exact approved pixels at boundary'},
+ 'north_extension_join_contract':{'overlap_reference_y_px':2100,'source_art_transparent_at_outer_y_px':1901,'required_bank_tangent':'Match visible original painted Rhine and geographic map control at y=2100, preserve pixel-exact overlap in this region'},
+ 'south_extension_join_contract':{'overlap_reference_y_px':3100,'source_art_transparent_at_outer_y_px':3274,'required_bank_tangent':'Match visible original painted Rhine and geographic map control at y=3100, preserve pixel-exact overlap in this region'},
  'print_ready':False,
+ 'new_extension_guidance':'North must paint beyond y=1901 while overlapping interior visible geography at y=2100; south must paint beyond y=3274 while overlapping at y=3100. Outer alpha-zero rows are not riverbank anchor points.',
  'note':'Exact existing raster joins pass. New independently painted extensions must separately pass bank and visual QA; do not assume their joins pass.'}
 (OUT/'qa.json').write_text(json.dumps(qa,indent=2)+'\n')
 print('PASS exact source reconstruction; new art extensions pending')
