@@ -1,0 +1,66 @@
+name: HRE Rhine v015 Illustrated Settlement Placement
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/render_rhine_v015_illustrated_cities.py'
+      - '.github/workflows/hre-rhine-v015-illustrated-cities.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v015-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3'
+      - name: Generate unique illustrated settlement artwork on actual geographic Rhine canvas
+        run: python hre-1618/tools/render_rhine_v015_illustrated_cities.py
+      - name: Verify geographic anchors, image dimensions and individual sprite hashes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib
+          from PIL import Image
+          r=Path('hre-1618')
+          q=json.loads((r/'reports/rhine-v015-new-city-sprites/qa.json').read_text())
+          assert q['canvas_size']==[3600,4800] and not q['print_approval']
+          assert q['new_unique_city_sprites']>=12
+          assert Image.open(r/'maps/canvas/rhine-v015-illustrated-settlements-full-map.jpg').size==(3600,4800)
+          seen=set()
+          for v in q['placements']:
+              f=r/'assets/sprites/cities/rhine-v015'/v['file']
+              assert Image.open(f).size==tuple(v['size'])
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==v['sha256']
+              assert v['name'] not in seen
+              seen.add(v['name'])
+          assert 'Neuwied' not in seen and 'Neuf-Brisach' not in seen
+          print('PASS georeferenced v015 distinct city sprites and full canvas')
+          PY
+      - name: Commit native city sprites and map-scale review
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/sprites/cities/rhine-v015/ hre-1618/maps/canvas/rhine-v015-illustrated-settlements-full-map.jpg hre-1618/maps/canvas/rhine-v015-new-city-sprites-overlay.png hre-1618/reports/rhine-v015-new-city-sprites/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Commit v015 georeferenced Rhine city artwork review [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-rhine-v015-full-canvas
+          path: |
+            hre-1618/maps/canvas/rhine-v015-illustrated-settlements-full-map.jpg
+            hre-1618/reports/rhine-v015-new-city-sprites/
+          if-no-files-found: ignore
