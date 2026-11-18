@@ -329,5 +329,17 @@
     "full_1618_hydrography_certified": false,
     "existing_v016_preserved": true
   },
-  "note": "This v017 layout is registration/planning and a 2x upscale proof only. True 300 PPI at preselected 36 x 48 requires newly detailed native artwork at 10800 x 14400, not interpolated pixels."
+  "note": "This v017 layout is registration/planning and a 2x upscale proof only. True 300 PPI at preselected 36 x 48 requires newly detailed native artwork at 10800 x 14400, not interpolated pixels.",
+  "permanent_art_rules": {
+    "horizon": "PROHIBITED: no visible horizon, distant mountains skyline, sky, vanishing point or scenic horizon on ANY panel",
+    "perspective": "Consistent moderately elevated oblique north-facing viewpoint through all adjoining artwork; map position must not reset viewpoint",
+    "edges": "All canvas edges must be continuous fillable terrain, never sky",
+    "cities": "Paint original city sprites as separate transparent assets, place exactly on projected geographic anchors, and layer labels separately",
+    "hydrography": "Use one georeferenced Rhine + Main course with exact edge crossings, not regenerated independent river paths",
+    "registration": "Reject a complete panorama if best-fit city displacements exceed visual-to-scale tolerance; redraw local scene groups, do not spatially warp detailed architecture",
+    "print": "Native painted detail sized for 10800x14400 final sheet, 36x48in, 300 PPI"
+  },
+  "registration_audit": "reports/rhine-v017-print-proof/horizon-free-city-proximity-audit.json",
+  "registration_status": "HORIZON-FREE STYLE APPROVED; THIS 1024x1536 IMAGE REJECTED FOR DIRECT GEOGRAPHIC PLACEMENT",
+  "next_approved_workflow": "Start local anchor-locked river/city panels; align north/south river bank crossings before art; no full-scene affine warp"
 }
