@@ -1,0 +1,184 @@
+{
+  "version": "v017-B",
+  "status": "GEOGRAPHIC SOURCE REGISTERED; NATIVE ARTWORK NOT YET DELIVERED",
+  "panel_bbox_work_px": [
+    1010,
+    1740,
+    1850,
+    2180
+  ],
+  "panel_size_final_print_native_px": [
+    2520,
+    1320
+  ],
+  "final_sheet_native_px": [
+    10800,
+    14400
+  ],
+  "source_sha256": "b24dd693d513704b87fb26e7bb02eeaf771e8ef10a0a1790481940b7611e1af4",
+  "source_art": "assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png",
+  "main_geography": "reports/main-batch-001/main-canonical-transparent.png",
+  "geo_layer_mode": "QA only magenta; never baked into original artwork",
+  "city_anchors": [
+    {
+      "site": "Koblenz",
+      "panel": "A",
+      "map_work_px": [
+        1019.2,
+        1855.51
+      ],
+      "panel_work_px": [
+        9.2,
+        115.51
+      ],
+      "panel_final_native_px": [
+        27.61,
+        346.54
+      ]
+    },
+    {
+      "site": "Boppard",
+      "panel": "A",
+      "map_work_px": [
+        1016.0,
+        1905.3
+      ],
+      "panel_work_px": [
+        6.0,
+        165.3
+      ],
+      "panel_final_native_px": [
+        18.0,
+        495.9
+      ]
+    },
+    {
+      "site": "Bingen",
+      "panel": "A",
+      "map_work_px": [
+        1090.94,
+        2013.32
+      ],
+      "panel_work_px": [
+        80.94,
+        273.32
+      ],
+      "panel_final_native_px": [
+        242.83,
+        819.96
+      ]
+    },
+    {
+      "site": "Mainz",
+      "panel": "B",
+      "map_work_px": [
+        1185.33,
+        2003.05
+      ],
+      "panel_work_px": [
+        175.33,
+        263.05
+      ],
+      "panel_final_native_px": [
+        525.98,
+        789.15
+      ]
+    },
+    {
+      "site": "Frankfurt",
+      "panel": "B",
+      "map_work_px": [
+        1292.61,
+        1962.31
+      ],
+      "panel_work_px": [
+        282.61,
+        222.31
+      ],
+      "panel_final_native_px": [
+        847.82,
+        666.92
+      ]
+    },
+    {
+      "site": "Hanau",
+      "panel": "B",
+      "map_work_px": [
+        1352.63,
+        1954.97
+      ],
+      "panel_work_px": [
+        342.63,
+        214.97
+      ],
+      "panel_final_native_px": [
+        1027.89,
+        644.92
+      ]
+    },
+    {
+      "site": "Aschaffenburg",
+      "panel": "B",
+      "map_work_px": [
+        1410.58,
+        2019.16
+      ],
+      "panel_work_px": [
+        400.58,
+        279.16
+      ],
+      "panel_final_native_px": [
+        1201.75,
+        837.48
+      ]
+    },
+    {
+      "site": "Oppenheim",
+      "panel": "C",
+      "map_work_px": [
+        1205.83,
+        2062.78
+      ],
+      "panel_work_px": [
+        195.83,
+        322.78
+      ],
+      "panel_final_native_px": [
+        587.48,
+        968.34
+      ]
+    },
+    {
+      "site": "Worms",
+      "panel": "C",
+      "map_work_px": [
+        1205.24,
+        2150.29
+      ],
+      "panel_work_px": [
+        195.24,
+        410.29
+      ],
+      "panel_final_native_px": [
+        585.73,
+        1230.88
+      ]
+    }
+  ],
+  "main_confluence_constraints": [
+    "Main flows westward into Rhine at Mainz; it is a river tributary, not an independent northern Rhine channel",
+    "Mainz city occupies actual Mainz bank location, distinct from Frankfurt/Hanau on upstream east river",
+    "Only a single painted Mainz city; preserve v016 stylistic brushwork",
+    "No unrelated Rhine city/cathedral replicas inside this narrow panel",
+    "Render separate transparent finished native art for background terrain, riverbank scenery, cities and decorative text",
+    "Water channel and junction QA against existing Main and Rhine projected geometry"
+  ],
+  "native_original_art_pixels": false,
+  "source_interpolated": true,
+  "historical_city_fabric_verified": false,
+  "print_ready": false,
+  "deliverables": [
+    "reports/rhine-v017-panel-b/panel-b-main-fork-geographic-qa-3x.jpg",
+    "reports/rhine-v017-panel-b/panel-b-v016-painting-reference-3x.jpg"
+  ]
+}
