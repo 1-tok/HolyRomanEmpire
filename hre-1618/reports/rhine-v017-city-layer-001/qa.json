@@ -1,0 +1,154 @@
+{
+  "version": "v017",
+  "status": "PLACEMENT PROOF ONLY; NOT NATIVE HIGH-RES ART",
+  "geographic_frame_bbox": [
+    935,
+    1830,
+    1570,
+    2400
+  ],
+  "existing_city_sprite_count": 3,
+  "missing_city_sprite_count": 4,
+  "sites": [
+    {
+      "name": "Bingen",
+      "work_pixel": [
+        1090.94,
+        2013.32
+      ],
+      "final_pixel": [
+        3272.83,
+        6039.96
+      ],
+      "source": null,
+      "status": "anchored_pending_sprite"
+    },
+    {
+      "name": "Mainz",
+      "work_pixel": [
+        1185.33,
+        2003.05
+      ],
+      "final_pixel": [
+        3555.98,
+        6009.15
+      ],
+      "source": "sprites/Mainz.png",
+      "status": "legacy_city_sprite_preview_only",
+      "shown_size_px": [
+        105,
+        105
+      ],
+      "bbox_panel_pixels": [
+        198,
+        121,
+        303,
+        226
+      ],
+      "native_detail_at_300ppi": "NOT VERIFIED"
+    },
+    {
+      "name": "Frankfurt",
+      "work_pixel": [
+        1292.61,
+        1962.31
+      ],
+      "final_pixel": [
+        3877.82,
+        5886.92
+      ],
+      "source": null,
+      "status": "anchored_pending_sprite"
+    },
+    {
+      "name": "Oppenheim",
+      "work_pixel": [
+        1205.83,
+        2062.78
+      ],
+      "final_pixel": [
+        3617.48,
+        6188.34
+      ],
+      "source": null,
+      "status": "anchored_pending_sprite"
+    },
+    {
+      "name": "Worms",
+      "work_pixel": [
+        1205.24,
+        2150.29
+      ],
+      "final_pixel": [
+        3615.73,
+        6450.88
+      ],
+      "source": "sprites/Worms.png",
+      "status": "legacy_city_sprite_preview_only",
+      "shown_size_px": [
+        105,
+        105
+      ],
+      "bbox_panel_pixels": [
+        218,
+        268,
+        323,
+        373
+      ],
+      "native_detail_at_300ppi": "NOT VERIFIED"
+    },
+    {
+      "name": "Speyer",
+      "work_pixel": [
+        1219.98,
+        2275.12
+      ],
+      "final_pixel": [
+        3659.95,
+        6825.35
+      ],
+      "source": "sprites/Speyer.png",
+      "status": "legacy_city_sprite_preview_only",
+      "shown_size_px": [
+        105,
+        105
+      ],
+      "bbox_panel_pixels": [
+        233,
+        393,
+        338,
+        498
+      ],
+      "native_detail_at_300ppi": "NOT VERIFIED"
+    },
+    {
+      "name": "Germersheim",
+      "work_pixel": [
+        1201.34,
+        2312.05
+      ],
+      "final_pixel": [
+        3604.02,
+        6936.15
+      ],
+      "source": null,
+      "status": "anchored_pending_sprite"
+    }
+  ],
+  "collisions": [],
+  "artwork_unique_count": 3,
+  "river_source": "maps/canvas/rhine-v012-geographic-overlay.png",
+  "main_source": "reports/main-batch-001/main-canonical-transparent.png",
+  "expected_print_master": [
+    10800,
+    14400
+  ],
+  "ppi_at_36_by_48": 300,
+  "v016_sha256": "b24dd693d513704b87fb26e7bb02eeaf771e8ef10a0a1790481940b7611e1af4",
+  "print_ready": false,
+  "original_v016_unchanged": true,
+  "river_watercourse_historical_1618_verified": false,
+  "geo_registration_pass": true,
+  "visual_landscape_join_pass": false,
+  "statement": "This is a first actual coordinate-locked composition using three existing city sprites and verified geographic Main/Rhine. It is NOT painted city landscape and does not claim new Bingen/Frankfurt art."
+}
