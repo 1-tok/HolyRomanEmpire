@@ -1,0 +1,133 @@
+{
+  "version": "v017",
+  "title": "Horizon-free Rhine painted city proximity registration",
+  "status": "GEOGRAPHIC PROXIMITY FAIL — DO NOT APPLY TO MAP",
+  "date": "2026-11-18",
+  "reference": "HRE 1618 v017 city anchor manifest + WGS84 Lambert conformal conic base",
+  "candidate": "a_highly_detailed_hand_painted_medieval_map_style.png",
+  "source_resolution": [
+    1024,
+    1536
+  ],
+  "basis": "Approximately interpreted center of city architecture (not labels), compared with georeferenced HRE map projected city anchors; individual candidate centers uncertain ±20–40px",
+  "city_count": 22,
+  "best_fit_similarity_median_error_painting_pixels": 162.3,
+  "key_tests": [
+    {
+      "pair": "Mainz–Frankfurt",
+      "map_delta_work_px": [
+        107.3,
+        -40.7
+      ],
+      "paint_delta_px": [
+        314,
+        -57
+      ],
+      "result": "EASTWARD APPROXIMATELY CORRECT; DISTANCE EXAGGERATED"
+    },
+    {
+      "pair": "Mainz–Worms",
+      "map_delta_work_px": [
+        19.9,
+        147.2
+      ],
+      "paint_delta_px": [
+        88,
+        189
+      ],
+      "result": "SOUTHWARD CORRECT; EAST DISPLACEMENT EXAGGERATED"
+    },
+    {
+      "pair": "Mainz–Strasbourg",
+      "map_delta_work_px": [
+        -153.1,
+        560.4
+      ],
+      "paint_delta_px": [
+        187,
+        552
+      ],
+      "result": "FAIL: STRASBOURG MUST BE WEST, NOT EAST, OF MAINZ"
+    },
+    {
+      "pair": "Breisach–Neuenburg",
+      "map_delta_work_px": [
+        -9.1,
+        86.5
+      ],
+      "paint_delta_px": [
+        242,
+        -2
+      ],
+      "result": "FAIL: NEUENBURG MUST BE MOSTLY SOUTH OF BREISACH"
+    },
+    {
+      "pair": "Strasbourg–Basel",
+      "map_delta_work_px": [
+        -59.5,
+        400.3
+      ],
+      "paint_delta_px": [
+        16,
+        513
+      ],
+      "result": "FAIL: SOUTHERN CORRIDOR DIRECTION"
+    },
+    {
+      "pair": "Bingen–Mainz",
+      "map_delta_work_px": [
+        94.4,
+        -10.3
+      ],
+      "paint_delta_px": [
+        59,
+        122
+      ],
+      "result": "FAIL: MAINZ IS APPROXIMATELY EAST, NOT FAR SOUTH, OF BINGEN"
+    },
+    {
+      "pair": "Speyer–Germersheim",
+      "map_delta_work_px": [
+        -18.6,
+        36.9
+      ],
+      "paint_delta_px": [
+        96,
+        59
+      ],
+      "result": "FAIL: GERMERSHEIM EAST DISPLACEMENT"
+    }
+  ],
+  "passing": {
+    "horizon_free": true,
+    "terrain_continuity_concept": true,
+    "painted_city_visual_style": true,
+    "main_fork_rough_eastward_direction": true
+  },
+  "failing": {
+    "uniform_map_scale": true,
+    "registered_city_distances": true,
+    "registered_city_directions": true,
+    "print_resolution": true,
+    "historic_riverbanks_unverified": true
+  },
+  "permanent_art_rules": {
+    "no_sky": true,
+    "no_horizon": true,
+    "no_distant_vanishing_point": true,
+    "oblique_pov": "fixed elevated map view looking north; no perspective reset in adjoining panels",
+    "edges": "filled terrain at each edge for unlimited north/south/east/west extension",
+    "river": "all painted water from one shared map-registered Rhine/Main water system",
+    "labels": "separate layers; never baked into painterly original",
+    "city_placement": "use map projected x/y; redraw silhouettes independently over registered terrain rather than distort whole composite",
+    "seams": "exact river bank positions plus tangent on panel boundaries; 10–15% safe LAND underlay overlaps, no skyline split"
+  },
+  "next_step": "Use the horizon-free image ONLY as stylistic reference. Draw each registered city/riverbank in smaller spatially controlled panels, first Mainz–Bingen and Mainz–Frankfurt, then Worms–Speyer, then Strasbourg/Breisach/Basel.",
+  "print_master": [
+    10800,
+    14400
+  ],
+  "review_only": true,
+  "approved_for_placement": false,
+  "local_image_qa": "hre_v017_horizon_free_city_registration_QA.jpg (conversation attachment; not yet committed to repo)"
+}
