@@ -1,0 +1,37 @@
+{
+  "version": "v017",
+  "batch": "north-mainz-south-river-seam-check",
+  "status": "FAIL_ORIGINAL_THREE_PANEL_JOIN; SINGLE_REDRAW_VISUAL_CANDIDATE",
+  "timestamp": "2026-11-18",
+  "original_three_paintings": {
+    "north": "a_detailed_hand_painted_renaissance_style_landscap.png",
+    "center": "a_detailed_hand_painted_atlas_style_landscape_a_r.png",
+    "south": "a_highly_detailed_hand_painted_parchment_toned_re.png",
+    "north_join": "FAIL: the lower north panel's Rhine exit is not co-registered with the center panel's northern Rhine entry",
+    "south_join": "FAIL: the center panel's southern Rhine exit and the south panel's northern river entry and bank widths diverge",
+    "feathering": "DOES NOT SOLVE watercourse continuity; only blends textures/colors",
+    "note": "Earlier hard-join and feathered reviews are diagnostic only."
+  },
+  "single_painting_candidate": {
+    "local_original": "a_highly_detailed_hand_painted_antique_cartographi.png",
+    "dimensions_px": [
+      1024,
+      1536
+    ],
+    "type": "one continuous vertical painting with no independent panel joins",
+    "visual_rhine_continuity": "PASS conceptually within one illustration; not pixel-georeferenced or hydrologically audited",
+    "geographic_city_anchors": "NOT REGISTERED",
+    "main_fork_mainz": "NOT GEOGRAPHICALLY VERIFIED",
+    "print_ready": false,
+    "repo_binary_present": false,
+    "decision": "Keep as coherent style/composition reference; do not overwrite v016 or the v017 source panels."
+  },
+  "required_correction": [
+    "Register the full Rhino/Rhine centerline and Main fork at precise HRE 1618 map coordinates",
+    "Fix shared inlet/outlet x positions and tangent directions at both panel boundaries",
+    "Generate land + river continuous underpainting first, with city artwork on independent layers",
+    "Ensure no city walls or cathedral skylines are bisected by the panel joins",
+    "Only then author new native-resolution city-bearing panels to final 10800x14400 sheet specs",
+    "Rebuild map-scale composite and confirm seamless water mask connectivity"
+  ]
+}
