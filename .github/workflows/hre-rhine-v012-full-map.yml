@@ -1,0 +1,71 @@
+name: HRE Rhine v012 Geographic Full Canvas Review
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/render_rhine_v012_full_canvas.py'
+      - '.github/workflows/hre-rhine-v012-full-map.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-rhine-v012-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install geographic renderer packages
+        run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3'
+      - name: Render real geographic map and pixel-exact Rhine sprites
+        run: python hre-1618/tools/render_rhine_v012_full_canvas.py
+      - name: Validate full-map canvas and non-overlapping georeferenced sprites
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image,ImageChops
+          root=Path('hre-1618')
+          qa=json.loads((root/'reports/rhine-v012-full-canvas/qa.json').read_text())
+          assert qa['canvas_size']==[3600,4800]
+          assert qa['exact_sprite_seams'].startswith('PASS')
+          assert qa['historic_1618_course_certified'] is False
+          assert len(qa['pieces'])>=5
+          overlay=Image.open(root/'maps/canvas/rhine-v012-geographic-overlay.png').convert('RGBA')
+          assert overlay.size==(3600,4800)
+          rebuild=Image.new('RGBA',overlay.size,(0,0,0,0))
+          for p in qa['pieces']:
+              f=root/'assets/sprites/rivers/rhine-v012'/p['file']
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==p['sha256']
+              tile=Image.open(f).convert('RGBA')
+              assert tile.size==(p['width'],p['height'])
+              rebuild.paste(tile,(p['x'],p['y']))
+          assert not any(ch.getbbox() for ch in ImageChops.difference(overlay,rebuild).split())
+          assert Image.open(root/'maps/canvas/rhine-v012-geographic-full-map-review.jpg').size==(3600,4800)
+          print('PASS: real base canvas, continuous Rhine painting, exact sprite join; 1618 historic certification remains pending')
+          PY
+      - name: Commit review-only canvas and sprites to current branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/maps/canvas/rhine-v012-geographic-full-map-review.jpg hre-1618/maps/canvas/rhine-v012-geographic-overlay.png hre-1618/assets/sprites/rivers/rhine-v012/ hre-1618/reports/rhine-v012-full-canvas/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Render Rhine v012 on real HRE canvas with geography and QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-rhine-v012-full-canvas-review
+          path: |
+            hre-1618/maps/canvas/rhine-v012-geographic-full-map-review.jpg
+            hre-1618/reports/rhine-v012-full-canvas/
+          if-no-files-found: ignore
