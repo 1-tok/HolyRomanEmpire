@@ -1,0 +1,59 @@
+name: HRE Rhine v017 Unique City Layer Registration
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/render_rhine_v017_city_layer_001.py'
+      - '.github/workflows/hre-rhine-v017-city-layer.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v017-city-layer-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Render canonical river plus unique painted city sprites
+        run: python hre-1618/tools/render_rhine_v017_city_layer_001.py
+      - name: Verify no invented city replacements or hidden collisions
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          p=Path('hre-1618/reports/rhine-v017-city-layer-001')
+          d=json.loads((p/'qa.json').read_text())
+          assert d['existing_city_sprite_count']==3
+          assert d['missing_city_sprite_count']==4
+          assert not d['print_ready'] and not d['visual_landscape_join_pass']
+          assert d['original_v016_unchanged']
+          assert not d['collisions'], f"City sprite collision: {d['collisions']}"
+          assert Image.open(p/'unique-city-transparent-layer.png').mode=='RGBA'
+          print('PASS actual city-layer placement at locked anchors; remaining city artwork pending')
+          PY
+      - name: Commit map-scale review and unique transparent city layer
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/reports/rhine-v017-city-layer-001/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Commit coordinate-locked v017 Rhine/Main city layer QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-v017-unique-city-layer-review
+          path: hre-1618/reports/rhine-v017-city-layer-001/
+          if-no-files-found: ignore
