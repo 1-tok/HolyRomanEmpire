@@ -1,0 +1,43 @@
+{
+  "version": "v017",
+  "panel": "B",
+  "revision": "painting-candidate-002",
+  "status": "PAINTED CANDIDATE — NOT GEOGRAPHICALLY REGISTERED — NOT PRINT-READY",
+  "project": "Holy Roman Empire, 1618",
+  "bbox_work_px": [
+    1010,
+    1740,
+    1850,
+    2180
+  ],
+  "native_target_print_px": [
+    2520,
+    1320
+  ],
+  "candidate_generated_px": [
+    1728,
+    910
+  ],
+  "candidate_aspect_ratio": 1.8989010989010988,
+  "target_aspect_ratio": 1.9090909090909092,
+  "source_image": "a_detailed_hand_painted_atlas_style_landscape_a_r.png",
+  "source_image_location": "Conversation-generated candidate; PNG binary not yet committed to repository",
+  "original_v016_unchanged": true,
+  "painting_intent": "Focal Mainz/Main confluence, early modern fortified urban detail, Main runs east toward Frankfurt/Hanau/Aschaffenburg, elevated painterly perspective, no labels/cartouche",
+  "warnings": [
+    "Candidate contains unlabeled and non-georeferenced fantasy city clusters and unverified landmarks",
+    "Cannot stretch raster or use as a registered river/settlement source",
+    "Raster is only 1728x910; needs genuinely new pixel detail to meet 2520x1320 final panel resolution",
+    "Main confluence shape must be fitted to Rhine and Main geographic control curves",
+    "Preserve v016 strip until seam and urban alignment accepted"
+  ],
+  "deliverable_gates": [
+    "Transfer the exact candidate PNG to assets/reference/panel-b-v017-painting-candidate-002.png by verified lossless chunk intake or another real binary source",
+    "Create georeferenced transparent component layers for townscapes, landscape and banks instead of stretching combined illustration",
+    "Overlay against existing Panel B geographic QA: Mainz, Frankfurt, Hanau, Aschaffenburg anchors",
+    "Native-resolution repaint 2520x1320 or higher before print acceptance",
+    "Apply on map only after city anchor, historical integrity, edge alpha and Rhine/Main seam QA pass"
+  ],
+  "review_painting_print_ready": false,
+  "registered_for_map": false
+}
