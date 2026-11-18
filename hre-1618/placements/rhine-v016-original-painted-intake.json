@@ -1,0 +1,24 @@
+{
+  "status": "AWAITING_BINARY_INTAKE",
+  "source": "Original previously user-approved painted-strip registered overlay, recovered in current chat's local files",
+  "repository": "1-tok/HolyRomanEmpire",
+  "branch": "artwork/rhine-city-batch-001",
+  "required_repository_path": "hre-1618/assets/reference/rhine-v009-registered-overlay-3600x4800.png",
+  "original_local_filename": "rhine_v009_registered_overlay_3600x4800.png",
+  "sha256": "ffbedb24eb4567dfe11d91b831321e0c0834e2fac500952c700711fbf4eeb824",
+  "dimensions": [
+    3600,
+    4800
+  ],
+  "mode": "RGBA",
+  "visible_painted_bounds_px": [
+    802,
+    2269,
+    1273,
+    2976
+  ],
+  "renderer": "hre-1618/tools/render_rhine_v016_original_painting.py",
+  "workflow": ".github/workflows/hre-rhine-v016-original-painting.yml",
+  "note": "No v009 image binary has been committed yet. Automation rejects absent or different bytes; no procedural replacements.",
+  "print_approval": false
+}
