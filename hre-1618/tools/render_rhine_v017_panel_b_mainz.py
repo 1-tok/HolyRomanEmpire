@@ -25,14 +25,14 @@ assert (x0,y0,x1,y1)==(1010,1740,1850,2180)
 W,H=(x1-x0),(y1-y0)
 base=Image.open(ROOT/"base/base_3600.jpg").convert("RGBA")
 original=Image.open(ROOT/"assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png").convert("RGBA")
-main=Image.open(ROOT/"reports/main-batch-001/main-canonical-transparent.png").convert("RGBA")
-assert base.size==original.size==main.size==(3600,4800)
+main_geo=Image.open(ROOT/"reports/main-batch-001/main-canonical-transparent.png").convert("RGBA")
+assert base.size==original.size==main_geo.size==(3600,4800)
 expected_hash="b24dd693d513704b87fb26e7bb02eeaf771e8ef10a0a1790481940b7611e1af4"
 assert hashlib.sha256((ROOT/"assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png").read_bytes()).hexdigest()==expected_hash
 # Subdivide for precise comparison of original art and corresponding geographic fork.
 frame=base.crop((x0,y0,x1,y1))
 original_cut=original.crop((x0,y0,x1,y1))
-main_cut=main.crop((x0,y0,x1,y1))
+main_cut=main_geo.crop((x0,y0,x1,y1))
 # Genuine source pixel integrity: adding it over the actual base preserves
 # both layers and no fake geography has been inserted into artwork.
 scene=Image.alpha_composite(frame,original_cut)
