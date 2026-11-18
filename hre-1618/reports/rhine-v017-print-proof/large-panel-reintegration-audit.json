@@ -1,0 +1,50 @@
+{
+  "version": "v017",
+  "status": "LARGE_PANEL_COMPOSITION_RESTORED__GEOGRAPHIC_SEAM_FAILED",
+  "source_master": "hre-1618/assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png",
+  "original_master_sha256": "b24dd693d513704b87fb26e7bb02eeaf771e8ef10a0a1790481940b7611e1af4",
+  "painted_panel_candidate": {
+    "local_file": "a_detailed_illustrated_isometric_oblique_painted_m.png",
+    "native_size": [
+      2172,
+      724
+    ],
+    "repository_binary_committed": false,
+    "approved_for_final": false
+  },
+  "candidate_panel_bbox_work_px": [
+    1010,
+    1740,
+    1850,
+    2180
+  ],
+  "candidate_source_registration": "SCENIC STRETCH FOR REVIEW ONLY, NOT GEOGRAPHICALLY REGISTERED",
+  "review_canvas": "3600x4800 source coordinate system over neutral diagnostic background; actual base only available in GitHub",
+  "diagnostic_artifacts_local": [
+    "rhine_v017_large_painted_panel_side_by_side.jpg",
+    "rhine_v017_large_panel_geo_overlay_QA.jpg"
+  ],
+  "visual_comparison": {
+    "hard_edge": "FAIL: obvious rectangular break of large landscape painting",
+    "feathered_edge": "PARTIAL: color/vegetation transition softened but water course and banks remain disconnected",
+    "original_strasbourg": "PRESERVED: existing v016 source unchanged",
+    "city_sprite_substitution": "PROHIBITED"
+  },
+  "requirements": [
+    "Keep large integrated painterly landscape and urban masses as the visual master",
+    "Use single 1618 projected Rhine/Main water geometry across north and south strips",
+    "Redraw whole large-panel entrances and exits to match geographic waterbank x/y and river tangent; do not mask with feathering",
+    "City anchor and historical architecture QA for Bingen Mainz Frankfurt Oppenheim Worms Speyer before approval",
+    "Do not bake labels or skyline horizon into art",
+    "Retain source paintings as separate layers and do not overwrite v016",
+    "Native resolution target of 10800x14400 36x48in 300PPI"
+  ],
+  "approval": {
+    "visual_style": true,
+    "north_join": false,
+    "south_join": false,
+    "geography": false,
+    "print": false
+  },
+  "note": "This manifest documents a locally generated compositing comparison. GitHub contains the original v016 source and this report, but does not contain the new painted-panel candidate binary. No full-map painted v017 is claimed."
+}
