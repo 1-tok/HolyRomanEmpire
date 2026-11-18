@@ -1,0 +1,67 @@
+name: HRE Rhine v013 Painterly Floodplain Review
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/render_rhine_v013_painted_floodplain.py'
+      - '.github/workflows/hre-rhine-v013-painted-floodplain.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-rhine-v013-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3'
+      - name: Render and verify new Rhine painted floodplain on geographic base
+        run: python hre-1618/tools/render_rhine_v013_painted_floodplain.py
+      - name: Strict QA on image, geography and split sprites
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image,ImageChops
+          r=Path('hre-1618')
+          q=json.loads((r/'reports/rhine-v013-painted-floodplain/qa.json').read_text())
+          assert q['canvas_size']==[3600,4800] and q['print_approval'] is False
+          assert len(q['pieces'])>=8 and q['river_seam_check'].startswith('PASS')
+          base=Image.open(r/'maps/canvas/rhine-v013-geographic-painted-overlay.png').convert('RGBA')
+          assert base.size==(3600,4800)
+          assembled=Image.new('RGBA',base.size,(0,0,0,0))
+          for item in q['pieces']:
+              p=r/'assets/sprites/rivers/rhine-v013'/item['file']
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==item['sha256']
+              tile=Image.open(p).convert('RGBA')
+              assembled.paste(tile,(item['x'],item['y']))
+          assert not any(z.getbbox() for z in ImageChops.difference(base,assembled).split())
+          assert Image.open(r/'maps/canvas/rhine-v013-geographic-painted-full-canvas.jpg').size==(3600,4800)
+          print('PASS exact v013 river scenery sprites; historic geography still provisional')
+          PY
+      - name: Commit completed full-map review and sprite manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/maps/canvas/rhine-v013-geographic-painted-full-canvas.jpg hre-1618/maps/canvas/rhine-v013-geographic-painted-overlay.png hre-1618/assets/sprites/rivers/rhine-v013/ hre-1618/reports/rhine-v013-painted-floodplain/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Commit v013 painted Rhine full-canvas review [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-rhine-v013-full-canvas
+          path: |
+            hre-1618/maps/canvas/rhine-v013-geographic-painted-full-canvas.jpg
+            hre-1618/reports/rhine-v013-painted-floodplain/
+          if-no-files-found: ignore
