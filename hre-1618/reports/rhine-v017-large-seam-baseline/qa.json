@@ -1,0 +1,82 @@
+{
+  "status": "PASS: source-piece joins exactly reproduce original v011 raster",
+  "geographic_1618_watercourse_approved": false,
+  "new_north_or_south_extension_complete": false,
+  "new_paintings_binaries_in_repo": false,
+  "source_sha256": "b24dd693d513704b87fb26e7bb02eeaf771e8ef10a0a1790481940b7611e1af4",
+  "core_partition_y_px": [
+    1901,
+    2340,
+    2710,
+    3274
+  ],
+  "stitched_pixels_identical": true,
+  "raster_difference_pixels": 0,
+  "visual_master": "large continuous original painting; never miniature isolated cities",
+  "sections": [
+    {
+      "section": "north",
+      "source_bbox_px": [
+        750,
+        1831,
+        1350,
+        2410
+      ],
+      "unblended_core_y_px": [
+        1901,
+        2340
+      ],
+      "overlap_top_px": 70,
+      "overlap_bottom_px": 70,
+      "image": "rhine-v017-north-original-painting-with-overlap.png",
+      "source": "Original registered v011 painted pixels (unchanged)",
+      "new_painting": false
+    },
+    {
+      "section": "center",
+      "source_bbox_px": [
+        750,
+        2270,
+        1350,
+        2780
+      ],
+      "unblended_core_y_px": [
+        2340,
+        2710
+      ],
+      "overlap_top_px": 70,
+      "overlap_bottom_px": 70,
+      "image": "rhine-v017-center-original-painting-with-overlap.png",
+      "source": "Original registered v011 painted pixels (unchanged)",
+      "new_painting": false
+    },
+    {
+      "section": "south",
+      "source_bbox_px": [
+        750,
+        2640,
+        1350,
+        3344
+      ],
+      "unblended_core_y_px": [
+        2710,
+        3274
+      ],
+      "overlap_top_px": 70,
+      "overlap_bottom_px": 70,
+      "image": "rhine-v017-south-original-painting-with-overlap.png",
+      "source": "Original registered v011 painted pixels (unchanged)",
+      "new_painting": false
+    }
+  ],
+  "north_extension_join_contract": {
+    "join_at_map_y": 1901,
+    "required_bank_tangent": "Must match original painting and geographic reference; exact approved pixels at boundary"
+  },
+  "south_extension_join_contract": {
+    "join_at_map_y": 3274,
+    "required_bank_tangent": "Must match original painting and geographic reference; exact approved pixels at boundary"
+  },
+  "print_ready": false,
+  "note": "Exact existing raster joins pass. New independently painted extensions must separately pass bank and visual QA; do not assume their joins pass."
+}
