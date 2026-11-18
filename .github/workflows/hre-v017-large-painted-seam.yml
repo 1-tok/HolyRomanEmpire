@@ -1,0 +1,52 @@
+name: HRE v017 Large Painted Rhine Seam Baseline
+on:
+  push:
+    paths:
+      - 'hre-1618/tools/render_rhine_v017_large_seam_baseline.py'
+      - '.github/workflows/hre-v017-large-painted-seam.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v017-large-painted-seam-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Slice original large painting with overlap and reassemble exact pixels
+        run: python hre-1618/tools/render_rhine_v017_large_seam_baseline.py
+      - name: Verify original complete painting joins and no false approval
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('hre-1618/reports/rhine-v017-large-seam-baseline')
+          q=json.loads((p/'qa.json').read_text())
+          assert q['stitched_pixels_identical'] and q['raster_difference_pixels']==0
+          assert len(q['sections'])==3
+          assert not q['new_north_or_south_extension_complete']
+          assert not q['print_ready']
+          for s in q['sections']:
+            assert (p/s['image']).stat().st_size>10000
+          print('PASS original large painting source joins; new original extensions pending')
+          PY
+      - name: Commit source-pixel-perfect large painting sections and QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/reports/rhine-v017-large-seam-baseline/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Commit exact matching large Rhine painted sections and seam QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
