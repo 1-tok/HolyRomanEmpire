@@ -1,0 +1,71 @@
+name: HRE Restore Original Painted Rhine v016
+on:
+  push:
+    paths:
+      - 'hre-1618/assets/reference/rhine-v009-registered-overlay-3600x4800.png'
+      - 'hre-1618/tools/render_rhine_v016_original_painting.py'
+      - '.github/workflows/hre-rhine-v016-original-painting.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v016-original-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Require exact approved original v009 painted PNG binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          src='hre-1618/assets/reference/rhine-v009-registered-overlay-3600x4800.png'
+          if test ! -s "$src"; then
+            echo 'Original v009 image is not yet committed. No procedural fallback allowed.'
+            echo "Upload the actual v009 registered overlay binary to: $src"
+            exit 1
+          fi
+          echo 'ffbedb24eb4567dfe11d91b831321e0c0834e2fac500952c700711fbf4eeb824  '"$src" | sha256sum -c -
+      - name: Place original painting on geographic base without altering pixels
+        run: python hre-1618/tools/render_rhine_v016_original_painting.py
+      - name: Verify v016 image and review files
+        run: |
+          python - <<'PY'
+          import json
+          from PIL import Image
+          from pathlib import Path
+          r=Path('hre-1618')
+          q=json.loads((r/'reports/rhine-v016-restored-painted-strip/qa.json').read_text())
+          assert q['original_painted_overlay_sha256']=='ffbedb24eb4567dfe11d91b831321e0c0834e2fac500952c700711fbf4eeb824'
+          assert q['paint_pixel_integrity'].startswith('PASS')
+          assert Image.open(r/'maps/canvas/rhine-v016-original-painted-strip-full-map.jpg').size==(3600,4800)
+          assert not q['approved_for_print']
+          print('PASS: v009 painted master restored on actual full-resolution base')
+          PY
+      - name: Commit v016 original-artwork full-map review
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/maps/canvas/rhine-v016-original-painted-strip-full-map.jpg hre-1618/maps/canvas/rhine-v016-original-painted-overlay.png hre-1618/reports/rhine-v016-restored-painted-strip/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Render actual approved v009 painting on real Rhine HRE map [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-v016-original-painted-rhine-map
+          path: |
+            hre-1618/maps/canvas/rhine-v016-original-painted-strip-full-map.jpg
+            hre-1618/reports/rhine-v016-restored-painted-strip/
+          if-no-files-found: ignore
