@@ -1,0 +1,106 @@
+{
+  "version": "v021",
+  "source": "a_highly_detailed_illustrated_historical_map_style.png",
+  "source_repo_path": "hre-1618/assets/reference/rhine-v021-continuous-river-original.png",
+  "source_sha256": "03fd81a8ece2c01d1a902dd8f6d91f0ad5a8cc6d148942f9d851130aa5fb1d10",
+  "source_size_px": [
+    1024,
+    1536
+  ],
+  "canvas_work_px": [
+    3600,
+    4800
+  ],
+  "canvas_print_px": [
+    10800,
+    14400
+  ],
+  "print_inches": [
+    36,
+    48
+  ],
+  "status": "ACCEPTED RASTER THREE-SHEET JOINS; MASTER CANVAS CANDIDATE, NOT PRINT-CERTIFIED",
+  "working_canvas_placement": {
+    "top_left_map_px": [
+      700,
+      1480
+    ],
+    "uniform_scale": 1,
+    "feather_edge_work_px": 45,
+    "note": "Initial north-up review-only uniform image transform; no TPS/nonlinear deformation. City positions unverified. Outside painting edge is faded to reference background, not a certified watercourse join."
+  },
+  "sheets": [
+    {
+      "number": 1,
+      "master_crop": [
+        0,
+        0,
+        1024,
+        622
+      ],
+      "core_y": [
+        0,
+        512
+      ],
+      "x_offset_px": 0
+    },
+    {
+      "number": 2,
+      "master_crop": [
+        0,
+        402,
+        1024,
+        1134
+      ],
+      "core_y": [
+        512,
+        1024
+      ],
+      "x_offset_px": 0
+    },
+    {
+      "number": 3,
+      "master_crop": [
+        0,
+        914,
+        1024,
+        1536
+      ],
+      "core_y": [
+        1024,
+        1536
+      ],
+      "x_offset_px": 0
+    }
+  ],
+  "source_exact_sheet_check": {
+    "original_sha256": "03fd81a8ece2c01d1a902dd8f6d91f0ad5a8cc6d148942f9d851130aa5fb1d10",
+    "pixel_differences": 0,
+    "pixel_overlap_each_side": 110,
+    "x_offsets": [
+      0,
+      0,
+      0
+    ]
+  },
+  "print_quality": {
+    "source_native_ppi_at_36x48_full_sheet": 28.44,
+    "target_ppi": 300,
+    "native_print_resolution_pass": false,
+    "note": "1024x1536 source is original drawing for only a portion of overall map; 3x raster scaling to print dimensions does not add sharpness. Effective local PPI depends on physical area allocated."
+  },
+  "approval": {
+    "three_sheet_exact_join": true,
+    "visual_full_hre_master_placement": false,
+    "historic_geographic_accuracy": false,
+    "native_300ppi": false,
+    "print_ready": false
+  },
+  "preserve": {
+    "v016_original": true,
+    "v017_large_original": true,
+    "no_isolated_city_icon_substitution": true
+  },
+  "art_binary_in_github": false,
+  "workflow": ".github/workflows/hre-v021-actual-master-canvas.yml"
+}
