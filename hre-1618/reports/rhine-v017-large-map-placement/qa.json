@@ -1,0 +1,320 @@
+{
+  "version": "v017",
+  "status": "ACTUAL HRE MAP PLACEMENT, ORIGINAL PAINTING ONLY",
+  "full_map_file": "maps/canvas/rhine-v017-large-painted-sections-on-map.jpg",
+  "source_master_file": "assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png",
+  "reassembled_overlay_file": "maps/canvas/rhine-v017-reassembled-large-painting.png",
+  "pixel_exact_source_reassembly": true,
+  "source_delta_pixels": 0,
+  "sections": [
+    {
+      "file": "reports/rhine-v017-large-seam-baseline/rhine-v017-north-original-painting-with-overlap.png",
+      "core_y": [
+        1901,
+        2340
+      ],
+      "map_x": 750,
+      "source_bbox": [
+        750,
+        1831,
+        1350,
+        2410
+      ],
+      "original_pixels_unchanged": true
+    },
+    {
+      "file": "reports/rhine-v017-large-seam-baseline/rhine-v017-center-original-painting-with-overlap.png",
+      "core_y": [
+        2340,
+        2710
+      ],
+      "map_x": 750,
+      "source_bbox": [
+        750,
+        2270,
+        1350,
+        2780
+      ],
+      "original_pixels_unchanged": true
+    },
+    {
+      "file": "reports/rhine-v017-large-seam-baseline/rhine-v017-south-original-painting-with-overlap.png",
+      "core_y": [
+        2710,
+        3274
+      ],
+      "map_x": 750,
+      "source_bbox": [
+        750,
+        2640,
+        1350,
+        3344
+      ],
+      "original_pixels_unchanged": true
+    }
+  ],
+  "canvas_size": [
+    3600,
+    4800
+  ],
+  "city_targets": [
+    {
+      "name": "Cologne",
+      "panel": "A",
+      "work_xy": [
+        869.42,
+        1616.43
+      ],
+      "inside_corridor_qa_crop": false,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Bonn",
+      "panel": "A",
+      "work_xy": [
+        901.72,
+        1700.15
+      ],
+      "inside_corridor_qa_crop": false,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Andernach",
+      "panel": "A",
+      "work_xy": [
+        971.78,
+        1820.91
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Koblenz",
+      "panel": "A",
+      "work_xy": [
+        1019.2,
+        1855.51
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Boppard",
+      "panel": "A",
+      "work_xy": [
+        1016.0,
+        1905.3
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Bingen",
+      "panel": "A",
+      "work_xy": [
+        1090.94,
+        2013.32
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Mainz",
+      "panel": "B",
+      "work_xy": [
+        1185.33,
+        2003.05
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Frankfurt",
+      "panel": "B",
+      "work_xy": [
+        1292.61,
+        1962.31
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Hanau",
+      "panel": "B",
+      "work_xy": [
+        1352.63,
+        1954.97
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Aschaffenburg",
+      "panel": "B",
+      "work_xy": [
+        1410.58,
+        2019.16
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Oppenheim",
+      "panel": "C",
+      "work_xy": [
+        1205.83,
+        2062.78
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Worms",
+      "panel": "C",
+      "work_xy": [
+        1205.24,
+        2150.29
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Speyer",
+      "panel": "C",
+      "work_xy": [
+        1219.98,
+        2275.12
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Germersheim",
+      "panel": "C",
+      "work_xy": [
+        1201.34,
+        2312.05
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Gambsheim",
+      "panel": "D",
+      "work_xy": [
+        1068.85,
+        2517.75
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "La Wantzenau",
+      "panel": "D",
+      "work_xy": [
+        1052.6,
+        2531.03
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Strasbourg",
+      "panel": "D",
+      "work_xy": [
+        1032.24,
+        2563.43
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Illkirch",
+      "panel": "D",
+      "work_xy": [
+        1021.26,
+        2580.19
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Erstein",
+      "panel": "D",
+      "work_xy": [
+        1006.17,
+        2622.03
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Benfeld",
+      "panel": "D",
+      "work_xy": [
+        986.92,
+        2641.09
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Rhinau",
+      "panel": "D",
+      "work_xy": [
+        1016.41,
+        2664.07
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Marckolsheim",
+      "panel": "E",
+      "work_xy": [
+        971.66,
+        2722.95
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Breisach",
+      "panel": "E",
+      "work_xy": [
+        978.81,
+        2775.59
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Neuenburg",
+      "panel": "E",
+      "work_xy": [
+        969.68,
+        2862.08
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    },
+    {
+      "name": "Basel",
+      "panel": "E",
+      "work_xy": [
+        972.7,
+        2963.71
+      ],
+      "inside_corridor_qa_crop": true,
+      "large_v017_unique_new_city_painting_verified": false
+    }
+  ],
+  "target_city_count": 25,
+  "new_city_art_verified_this_build": 0,
+  "notes": "Three sections are slices of one approved 1618 painted master (v011). No genuinely new city-bearing northern or southern painting is accepted. City position markers appear only on separate QA image. Do not confuse these with existing painted city artwork.",
+  "main_fork_new_art_placed": false,
+  "new_north_extension_placed": false,
+  "new_south_extension_placed": false,
+  "historical_water_1618_verified": false,
+  "approved_for_300_ppi_print": false
+}
