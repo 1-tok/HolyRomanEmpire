@@ -1,0 +1,47 @@
+{
+  "status": "ACTUAL HRE CANVAS REVIEW; NOT HISTORIC OR PRINT APPROVED",
+  "source_sha256": "03fd81a8ece2c01d1a902dd8f6d91f0ad5a8cc6d148942f9d851130aa5fb1d10",
+  "source_size": [
+    1024,
+    1536
+  ],
+  "working_canvas_size": [
+    3600,
+    4800
+  ],
+  "final_print_canvas_size": [
+    10800,
+    14400
+  ],
+  "sheet_source_pixel_difference_count": 0,
+  "all_sheet_x_offsets": [
+    0,
+    0,
+    0
+  ],
+  "source_has_new_print_detail": false,
+  "effective_native_ppi_at_printed_placement": 100.0,
+  "source_upsampled_for_300ppi_master": true,
+  "geographic_city_anchor_validation": false,
+  "historic_rhine_main_course_verified": false,
+  "river_join_to_old_v016_verified": false,
+  "new_city_sprite_substitution": false,
+  "placement": {
+    "x": 700,
+    "y": 1480,
+    "scale": 1.0,
+    "width": 1024,
+    "height": 1536
+  },
+  "print_quality": {
+    "final_inches": [
+      36,
+      48
+    ],
+    "target_ppi": 300,
+    "native_detail_300ppi": false
+  },
+  "rendered_full_map": "maps/canvas/rhine-v021-print-master-review-3600x4800.jpg",
+  "overlay": "maps/canvas/rhine-v021-unwarped-master-review-overlay.png",
+  "approved_for_print": false
+}

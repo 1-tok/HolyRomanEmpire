@@ -1,0 +1,57 @@
+{
+  "result": "PASS: lossless original PNG committed",
+  "source_sha256": "03fd81a8ece2c01d1a902dd8f6d91f0ad5a8cc6d148942f9d851130aa5fb1d10",
+  "source_bytes": 4568820,
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "transport": "39 consecutive Git-committed Base64 chunks",
+  "sheet_core_exact": true,
+  "all_sheet_x_offsets": [
+    0,
+    0,
+    0
+  ],
+  "sheet_count": 3,
+  "sheets": [
+    {
+      "sheet": 1,
+      "global_y_bounds": [
+        0,
+        622
+      ],
+      "core_y": [
+        0,
+        512
+      ],
+      "global_x": 0
+    },
+    {
+      "sheet": 2,
+      "global_y_bounds": [
+        402,
+        1134
+      ],
+      "core_y": [
+        512,
+        1024
+      ],
+      "global_x": 0
+    },
+    {
+      "sheet": 3,
+      "global_y_bounds": [
+        914,
+        1536
+      ],
+      "core_y": [
+        1024,
+        1536
+      ],
+      "global_x": 0
+    }
+  ],
+  "historical_1618_geography_approved": false,
+  "native_300ppi_print_quality_approved": false
+}
