@@ -36,7 +36,7 @@ for s in SPEC["sheets"]:
     assert piece.width==1024
     core=piece.crop((0,lo-y0,1024,hi-y0))
     rebuilt.paste(core,(0,lo))
-assert ImageChops.difference(rebuilt,art).getbbox() is None,"Print sheets do not reconstruct source exactly"
+assert rebuilt.tobytes()==art.tobytes(),"Print sheets do not reconstruct source exactly"
 # Use a single uniform scale to avoid the unacceptable non-linear v018 warp.
 scale=float(SPEC["working_canvas_placement"]["uniform_scale"])
 tx,ty=SPEC["working_canvas_placement"]["top_left_map_px"]
@@ -70,6 +70,7 @@ q={
 "sheet_source_pixel_difference_count":0,
 "all_sheet_x_offsets": [0,0,0],
 "source_has_new_print_detail":False,
+"effective_native_ppi_at_printed_placement":round(300.0/(3.0*scale),1),
 "source_upsampled_for_300ppi_master":True,
 "geographic_city_anchor_validation":False,
 "historic_rhine_main_course_verified":False,
