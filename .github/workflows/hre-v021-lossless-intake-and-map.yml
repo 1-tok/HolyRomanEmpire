@@ -1,0 +1,67 @@
+name: HRE v021 Lossless Artwork Intake and Master Map Render
+on:
+  push:
+    branches:
+      - artwork/rhine-city-batch-001
+    paths:
+      - 'hre-1618/assets/intake/rhine-v021/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v021-art-source-and-master-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  restore-and-place:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Pillow
+        run: python -m pip install 'Pillow>=10,<13'
+      - name: Reconstruct exact original approved v021 painting from source ZIP or text chunks
+        run: python hre-1618/tools/intake_rhine_v021_original.py
+      - name: Render three correctly aligned sheets on actual HRE map
+        run: python hre-1618/tools/render_rhine_v021_actual_master_canvas.py
+      - name: Verify source authenticity and technical print review
+        run: |
+          python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          from PIL import Image
+          r=Path('hre-1618')
+          src=r/'assets/reference/rhine-v021-continuous-river-original.png'
+          assert hashlib.sha256(src.read_bytes()).hexdigest()=='03fd81a8ece2c01d1a902dd8f6d91f0ad5a8cc6d148942f9d851130aa5fb1d10'
+          intake=json.loads((r/'reports/rhine-v021-actual-master-canvas/binary-intake-qa.json').read_text())
+          qa=json.loads((r/'reports/rhine-v021-actual-master-canvas/qa.json').read_text())
+          assert intake['sheet_core_exact'] and intake['all_sheet_x_offsets']==[0,0,0]
+          assert qa['sheet_source_pixel_difference_count']==0
+          assert qa['all_sheet_x_offsets']==[0,0,0]
+          assert Image.open(r/'maps/canvas/rhine-v021-print-master-review-3600x4800.jpg').size==(3600,4800)
+          assert not qa['approved_for_print']
+          print('PASS exact original artwork, no offset, actual HRE map. Final print quality unapproved.')
+          PY
+      - name: Commit actual PNG artwork and master-map review
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/assets/reference/rhine-v021-continuous-river-original.png hre-1618/maps/canvas/rhine-v021-print-master-review-3600x4800.jpg hre-1618/maps/canvas/rhine-v021-unwarped-master-review-overlay.png hre-1618/reports/rhine-v021-actual-master-canvas/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Commit lossless v021 painting and aligned print canvas QA [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-v021-original-rhine-print-map
+          path: |
+            hre-1618/maps/canvas/rhine-v021-print-master-review-3600x4800.jpg
+            hre-1618/reports/rhine-v021-actual-master-canvas/
+          if-no-files-found: ignore
