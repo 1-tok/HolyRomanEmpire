@@ -1,0 +1,63 @@
+name: HRE v019 Large Painted Rhine Overlay and Four Directional Edges
+on:
+  push:
+    branches:
+      - artwork/rhine-city-batch-001
+    paths:
+      - 'hre-1618/assets/reference/rhine-v019-confluence-city-bearing-original.png'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v019-painterly-overlay-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13'
+      - name: Require exact native large city painting
+        run: test -s hre-1618/assets/reference/rhine-v019-confluence-city-bearing-original.png
+      - name: Place unwarped painting on full HRE map and create exact four-direction joining guides
+        run: python hre-1618/tools/render_rhine_v019_city_painted_overlay.py
+      - name: QA composition and explicitly hold geographic and print approvals
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from PIL import Image
+          r=Path('hre-1618')
+          q=json.loads((r/'reports/rhine-v019-painterly-overlay/qa.json').read_text())
+          assert q['approved_v016_original_unchanged']
+          assert len(q['exact_edge_contracts'])==4
+          assert not q['print_300_ppi_pass']
+          assert not q['geographic_proximity_approved']
+          assert Image.open(r/'maps/canvas/rhine-v019-candidate-on-full-map.jpg').size==(3600,4800)
+          print('PASS v019 review only; preserve painting')
+          PY
+      - name: Commit v019 overlay review and boundary artwork
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/maps/canvas/rhine-v019-candidate-unwarped-overlay.png hre-1618/maps/canvas/rhine-v019-candidate-on-full-map.jpg hre-1618/reports/rhine-v019-painterly-overlay/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Render full painterly v019 Rhine Main candidate and exact N S E W border contracts [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-v019-large-rhine-print-overlay-review
+          path: |
+            hre-1618/maps/canvas/rhine-v019-candidate-on-full-map.jpg
+            hre-1618/reports/rhine-v019-painterly-overlay/
+          if-no-files-found: ignore
