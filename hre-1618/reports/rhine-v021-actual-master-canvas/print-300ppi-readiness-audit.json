@@ -1,0 +1,71 @@
+{
+  "title": "HRE v021 FINAL 300-PPI PRINT READINESS GATE",
+  "status": "HOLD — NATIVE IMAGE DETAIL INSUFFICIENT FOR 36×48in 300PPI",
+  "checked_at": "2026-11-19",
+  "evidence": {
+    "source_png": "hre-1618/assets/reference/rhine-v021-continuous-river-original.png",
+    "source_sha256": "03fd81a8ece2c01d1a902dd8f6d91f0ad5a8cc6d148942f9d851130aa5fb1d10",
+    "source_dimensions_px": [
+      1024,
+      1536
+    ],
+    "source_binary_verified": true,
+    "master_map": "hre-1618/maps/canvas/rhine-v021-print-master-review-3600x4800.jpg",
+    "master_map_dimensions_px": [
+      3600,
+      4800
+    ],
+    "placement_work_xy": [
+      700,
+      1480
+    ],
+    "placement_work_size_px": [
+      1024,
+      1536
+    ],
+    "print_inches": [
+      36,
+      48
+    ],
+    "target_300ppi_master_px": [
+      10800,
+      14400
+    ]
+  },
+  "native_ppi": {
+    "master_full_sheet": 100,
+    "v021_painting_at_registered_size": 100,
+    "v021_painted_printed_inches": [
+      10.24,
+      15.36
+    ],
+    "required_v021_native_px_at_print_scale": [
+      3072,
+      4608
+    ],
+    "master_print_native_detail_ratio_linear": 0.333333,
+    "native_detail_increase_required_linear": 3,
+    "native_detail_increase_required_total_pixel_area": 9
+  },
+  "pass": {
+    "lossless_original_png_sha": true,
+    "three_sheets_pixel_exact": true,
+    "source_pixel_diff_count": 0,
+    "horizontal_sheet_offset_px": [
+      0,
+      0,
+      0
+    ],
+    "nonlinear_warp_absent": true,
+    "review_canvas_exists": true
+  },
+  "not_approved": {
+    "native_300ppi_detail": true,
+    "final_print_master_10800x14400_native": true,
+    "historic_geography_or_connection_to_v016": true,
+    "soft_edge_join_to_surrounding_painting": true,
+    "printer_ready_export_profile_and_color": true
+  },
+  "disposition": "Keep v021 as accepted illustrative map review layer. Do not label interpolated 3x copies as genuine 300PPI. For strict 300PPI original detail, repaint/capture the v021 section at least 3072x4608 true pixels in its final footprint and rebuild the base master to 10800x14400 with native detail where required. Final production print requires proof at output physical size, color mode/profile and TIFF/PDF raster checks.",
+  "final_print_approved": false
+}
