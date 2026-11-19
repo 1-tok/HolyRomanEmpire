@@ -1,0 +1,107 @@
+{
+  "version": "v018",
+  "date": "2026-11-19",
+  "title": "Geographic city registration & four seamless printed Rhine painting sheets",
+  "status": "CANDIDATE SHEETS GENERATED LOCALLY; not repository-rendered; geography/print hold",
+  "source": {
+    "name": "medieval_map_of_the_rhine_and_main.png",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "contains_labels": true,
+    "repository_binary_present": false,
+    "target_repo_path": "hre-1618/assets/reference/rhine-v018-city-bearing-painting.png"
+  },
+  "working_map": [
+    3600,
+    4800
+  ],
+  "final_print_map": [
+    10800,
+    14400
+  ],
+  "print_size_inches": [
+    36,
+    48
+  ],
+  "nominal_ppi": 300,
+  "location": {
+    "work_bbox": [
+      740,
+      1640,
+      1640,
+      3140
+    ],
+    "print_bbox": [
+      2220,
+      4920,
+      4920,
+      9420
+    ]
+  },
+  "sheeting": {
+    "count": 4,
+    "print_region_pixels": [
+      2700,
+      4500
+    ],
+    "overlap_print_pixels": 120,
+    "y_core_breaks_print_local": [
+      0,
+      1125,
+      2250,
+      3375,
+      4500
+    ],
+    "method": "All sheet PNGs are crops from one globally upscaled geographic candidate image; overlap pixels identical across sheets",
+    "measured_seam_different_pixels": 0
+  },
+  "registration": {
+    "method": "Smooth thin plate spline to 10 city centers and outline controls; remaining city centers audited independently",
+    "locked_cities": [
+      "Koblenz",
+      "Bingen",
+      "Mainz",
+      "Frankfurt",
+      "Hanau",
+      "Worms",
+      "Speyer",
+      "Strasbourg",
+      "Breisach",
+      "Basel"
+    ],
+    "secondary_city_source_residual_px": {
+      "Boppard": 46.29,
+      "Aschaffenburg": 138.51,
+      "Oppenheim": 210.28,
+      "Germersheim": 153.98,
+      "Neuenburg": 26.86
+    },
+    "median_secondary_city_residual_px": 138.51,
+    "warp_foldover_fraction": 0,
+    "verdict": "FAIL: significant distortions and wrong placement of smaller towns; new native redraw required for cartographic correctness"
+  },
+  "rules": {
+    "style": "large continuous horizon-free painted landscape panels with integrated cities",
+    "no_city_sprite_regression": true,
+    "labels": "Separate above final painting; source candidate currently contains embedded labels",
+    "water": "Rhine flows north; Main flows west into Rhine at Mainz",
+    "print": "Original detail 1024x1536; interpolation to 3x grid does not make native 300PPI master."
+  },
+  "artifacts_in_chat": [
+    "hre_v018_georegistered_print_sheets.zip",
+    "hre_v018_original_art_seamless_sheets.zip",
+    "hre_v018_city_registered_sheets/map-coordinate-city-placement-QA.jpg",
+    "hre_v018_city_registered_sheets/registered-painting-full-map-overlay-3600x4800.png"
+  ],
+  "repo_build_gate": "Await source painting binary intake then run non-destructive placement review; approval remains false.",
+  "approval": {
+    "pixel_join": true,
+    "city_proximity": false,
+    "historical_1618_rivers": false,
+    "native_300ppi_detail": false,
+    "full_map_composite_to_repo": false,
+    "print_ready": false
+  }
+}
