@@ -1,0 +1,62 @@
+name: HRE v018 City Painting Geographic Print Sheets
+on:
+  push:
+    branches:
+      - artwork/rhine-city-batch-001
+    paths:
+      - 'hre-1618/assets/reference/rhine-v018-city-bearing-painting.png'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hre-v018-city-painting-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<13' 'numpy>=1.24,<3' 'scipy>=1.12,<2' 'opencv-python-headless>=4.8,<5'
+      - name: Require original artwork PNG; no procedural substitute
+        run: test -s hre-1618/assets/reference/rhine-v018-city-bearing-painting.png
+      - name: Georegister original painting, cut exact sheets, place candidate on HRE canvas
+        run: python hre-1618/tools/render_rhine_v018_painting_print_sheets.py
+      - name: Verify sheet joins and preserve print hold
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path('hre-1618')
+          qa=json.loads((root/'reports/rhine-v018-geographic-print-sheets/qa.json').read_text())
+          assert qa['exact_pixel_seams'] and qa['sheet_count']==4
+          assert not qa['print_ready'] and qa['source_interpolated']
+          assert qa['print_master_px']==[10800,14400]
+          assert Image.open(root/'maps/canvas/rhine-v018-candidate-on-real-map.jpg').size==(3600,4800)
+          print('PASS exact raster sheets; candidate geography and native 300 PPI still require review')
+          PY
+      - name: Commit mapped candidate and separated print sheets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- hre-1618/maps/canvas/rhine-v018-registered-artwork-review-overlay.png hre-1618/maps/canvas/rhine-v018-candidate-on-real-map.jpg hre-1618/reports/rhine-v018-geographic-print-sheets/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Place v018 painting candidate on HRE map and print sheets with exact joins [skip ci]'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hre-v018-georegistered-city-painting-sheets
+          path: |
+            hre-1618/maps/canvas/rhine-v018-candidate-on-real-map.jpg
+            hre-1618/reports/rhine-v018-geographic-print-sheets/
+          if-no-files-found: ignore
