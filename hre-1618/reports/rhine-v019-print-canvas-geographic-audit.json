@@ -1,0 +1,77 @@
+{
+  "version": "v019",
+  "type": "print-canvas-spatial-review",
+  "date": "2026-11-19",
+  "source_master": "assets/reference/rhine-v019-confluence-city-bearing-original.png",
+  "status": "HOLD_FOR_GEOGRAPHIC_CORRECTION",
+  "print_target": {
+    "pixel_size": [
+      10800,
+      14400
+    ],
+    "physical_inches": [
+      36,
+      48
+    ],
+    "ppi": 300
+  },
+  "local_review": {
+    "working_canvas_pixels": [
+      3600,
+      4800
+    ],
+    "neutral_background_used": true,
+    "reason": "Actual HRE geographic base unavailable in local file runtime; do not call this an actual-basemap render.",
+    "images_local": [
+      "hre_v019_print_canvas_3600x4800_reference.jpg",
+      "hre_v019_print_canvas_city_geography_review.jpg",
+      "hre_v019_print_scale_3x_detail_proof.jpg"
+    ]
+  },
+  "fitting": {
+    "method": "uniform scale and translation, zero nonlinear warp",
+    "native_painting_size": [
+      1122,
+      1402
+    ],
+    "effective_native_print_ppi": 287.7,
+    "city_error_work_px": [
+      {
+        "name": "Mainz",
+        "error": 31.4
+      },
+      {
+        "name": "Frankfurt",
+        "error": 14.4
+      },
+      {
+        "name": "Bingen",
+        "error": 45.2
+      },
+      {
+        "name": "Worms",
+        "error": 16.6
+      },
+      {
+        "name": "Speyer",
+        "error": 23.2
+      }
+    ],
+    "median_error_work_px": 23.2,
+    "max_error_work_px": 45.2,
+    "specific_concerns": [
+      "Bingen painted farther south of Mainz than HRE mapped Bingen, which is west with nearly identical map Y",
+      "Mainz center approx 31 map pixels from its HRE anchor at the confluence",
+      "Rhine and Main banks require confirmation at 1618-scale, current painted channel joins are not signed off",
+      "Upsampling to 10800x14400 cannot invent native details; 300-PPI print approval should remain denied"
+    ]
+  },
+  "approval": {
+    "final_geography": false,
+    "river_join": false,
+    "print_300ppi": false,
+    "style": true,
+    "source_original_untouched": true
+  },
+  "next_action": "Register full painted panel with source on actual HRE base using GitHub Actions after binary intake; correct local city cluster compositions and banks without deforming buildings; extend N S E W using exact border overlap contracts."
+}
