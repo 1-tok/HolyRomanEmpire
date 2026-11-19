@@ -1,0 +1,165 @@
+{
+  "version": "v019",
+  "title": "Rhine Main city-bearing painting uniform-scale candidate and four-sided interlock",
+  "source_asset": "hre-1618/assets/reference/rhine-v019-confluence-city-bearing-original.png",
+  "source_original_filename": "rhine_main_confluence_in_1618.png",
+  "source_sha256": "c177feb79440575fd6131f585d95b7a7a78bca28b234626536237fa45d1e3ff0",
+  "source_native_dimensions_px": [
+    1122,
+    1402
+  ],
+  "repo_source_png_present": false,
+  "approved_v016_source": "hre-1618/assets/reference/rhine-v011-full-painted-strip-overlay-3600x4800.png",
+  "map_canvas": [
+    3600,
+    4800
+  ],
+  "print_master": [
+    10800,
+    14400
+  ],
+  "print_in": [
+    36,
+    48
+  ],
+  "placement": {
+    "method": "north-up uniform scaling + translation, not TPS/non-linear warp",
+    "scale": 0.34726212435685383,
+    "top_left_work": [
+      1050,
+      1869
+    ],
+    "bbox_work": [
+      1050,
+      1869,
+      1440,
+      2356
+    ],
+    "edge_feather_work_px": 32,
+    "visual_reference_only": true
+  },
+  "native_effective_print_ppi": 287.7,
+  "print_pass": false,
+  "main_flow": "west into Rhine at Mainz",
+  "rhine_flow": "north toward Bingen and Koblenz",
+  "city_qa": [
+    {
+      "city": "Mainz",
+      "target_work": [
+        1185.33,
+        2003.05
+      ],
+      "residual_work_px": 31.4
+    },
+    {
+      "city": "Frankfurt",
+      "target_work": [
+        1292.61,
+        1962.31
+      ],
+      "residual_work_px": 14.4
+    },
+    {
+      "city": "Bingen",
+      "target_work": [
+        1090.94,
+        2013.32
+      ],
+      "residual_work_px": 45.2
+    },
+    {
+      "city": "Worms",
+      "target_work": [
+        1205.24,
+        2150.29
+      ],
+      "residual_work_px": 16.6
+    },
+    {
+      "city": "Speyer",
+      "target_work": [
+        1219.98,
+        2275.12
+      ],
+      "residual_work_px": 23.2
+    }
+  ],
+  "median_residual_work_px": 23.2,
+  "seam_contract": {
+    "edge_reference_pixels_source": 150,
+    "exact_original_source_crops_required": true,
+    "directions": [
+      {
+        "side": "north",
+        "source_bounds": [
+          0,
+          0,
+          1122,
+          150
+        ],
+        "extension_subjects": [
+          "Boppard",
+          "Koblenz",
+          "Bonn",
+          "Cologne"
+        ]
+      },
+      {
+        "side": "south",
+        "source_bounds": [
+          0,
+          1252,
+          1122,
+          1402
+        ],
+        "extension_subjects": [
+          "Germersheim",
+          "Strasbourg",
+          "Breisach",
+          "Basel"
+        ]
+      },
+      {
+        "side": "east",
+        "source_bounds": [
+          972,
+          0,
+          1122,
+          1402
+        ],
+        "extension_subjects": [
+          "Hanau",
+          "Aschaffenburg",
+          "Main Valley"
+        ]
+      },
+      {
+        "side": "west",
+        "source_bounds": [
+          0,
+          0,
+          150,
+          1402
+        ],
+        "extension_subjects": [
+          "Bingen hills",
+          "Nahe confluence",
+          "Palatinate vineyards"
+        ]
+      }
+    ],
+    "new_extensions_completed": false
+  },
+  "approval": {
+    "original_painting_accepted_as_style": true,
+    "uniform_layout_as_review": true,
+    "city_geography": false,
+    "riverbank_1618": false,
+    "pixel_perfect_new_extensions": false,
+    "native_300ppi": false,
+    "approved_final_print": false
+  },
+  "rendering": "hre-1618/tools/render_rhine_v019_city_painted_overlay.py",
+  "workflow": ".github/workflows/hre-v019-city-painting-overlay.yml",
+  "note": "Does not silently swap isolated city sprites. The large painting is always the visual master. Source PNG must be transferred unmodified to the listed repository path before GitHub can generate full-map assets."
+}
